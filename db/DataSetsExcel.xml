@@ -1,0 +1,1579 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DataSets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<DataSet>
+		<Name>HI2_2011</Name>
+		<Description>High quality Y2H interactions determined by Stitch-seq protocol</Description>
+		<Domain>Biological</Domain>
+		<SubDomain>Protein-protein interaction pairs</SubDomain>
+		<Nodes>2191</Nodes>
+		<NodeType>Protein</NodeType>
+		<Edges>3882</Edges>
+		<EdgeType>Protein interaction</EdgeType>
+		<GraphProperties>Unweighted,  TODO</GraphProperties>
+		<GroupId>CCSB</GroupId>
+		<InfoLink>http://interactome.dfci.harvard.edu/</InfoLink>
+		<DataLink>http://interactome.dfci.harvard.edu/H_sapiens/download/HI-2011.tsv</DataLink>
+		<FileSize>94kb</FileSize>
+		<FileType>tsv</FileType>
+		<GraphFormat>Edge List</GraphFormat>
+		<Citation>CCSB, NHGRI, The Ellison Foundation, The Dana-Farber Cancer Institute Strategic Initiative</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>CCSB HuRL Preliminary release 1.1</Name>
+		<Description>Unique,binary, direct Y2H  protein interaction pairs (Preliminary release)</Description>
+		<Domain>Biological</Domain>
+		<SubDomain>Protein-protein interaction pairs</SubDomain>
+		<Nodes>3867</Nodes>
+		<NodeType>Protein</NodeType>
+		<Edges>10455</Edges>
+		<EdgeType>Protein interaction</EdgeType>
+		<GraphProperties>Unweighted,  TODO</GraphProperties>
+		<GroupId>CCSB</GroupId>
+		<InfoLink>http://interactome.dfci.harvard.edu/</InfoLink>
+		<DataLink>http://interactome.dfci.harvard.edu/index.php?page=login</DataLink>
+		<FileSize>n/a</FileSize>
+		<FileType>tsv</FileType>
+		<GraphFormat>Edge List</GraphFormat>
+		<Citation>CCSB, NHGRI, The Ellison Foundation, The Dana-Farber Cancer Institute Strategic Initiative</Citation>
+		<Public>No</Public>
+	</DataSet>
+	<DataSet>
+		<Name>Gs_inits</Name>
+		<Description>Unique,binary, direct Y2H  protein interaction pairs (Preliminary release)</Description>
+		<Domain>Biological</Domain>
+		<SubDomain>Protein-protein interaction pairs</SubDomain>
+		<Nodes>430</Nodes>
+		<NodeType>Protein</NodeType>
+		<Edges>698</Edges>
+		<EdgeType>Protein interaction</EdgeType>
+		<GraphProperties>Unweighted,  TODO</GraphProperties>
+		<GroupId>CCSB</GroupId>
+		<InfoLink>http://interactome.dfci.harvard.edu/</InfoLink>
+		<DataLink>http://interactome.dfci.harvard.edu/index.php?page=login</DataLink>
+		<FileSize>n/a</FileSize>
+		<FileType>tsv</FileType>
+		<GraphFormat>Edge List</GraphFormat>
+		<Citation>CCSB, NHGRI, The Ellison Foundation, The Dana-Farber Cancer Institute Strategic Initiative</Citation>
+		<Public>No</Public>
+	</DataSet>
+	<DataSet>
+		<Name>WI-2007</Name>
+		<Description>interactions from 2007 Y2H screen</Description>
+		<Domain>Biological</Domain>
+		<SubDomain>Protein-protein interaction pairs</SubDomain>
+		<Nodes>1496</Nodes>
+		<NodeType>Protein</NodeType>
+		<Edges>1816</Edges>
+		<EdgeType>Protein interaction</EdgeType>
+		<GraphProperties>Unweighted,  TODO</GraphProperties>
+		<GroupId>CCSB</GroupId>
+		<InfoLink>http://interactome.dfci.harvard.edu/C_elegans/index.php</InfoLink>
+		<DataLink>http://interactome.dfci.harvard.edu/C_elegans/graphs/sequence_edges/wi2007.txt</DataLink>
+		<FileSize>31kb</FileSize>
+		<FileType>txt</FileType>
+		<GraphFormat>Edge List</GraphFormat>
+		<Citation>CCSB, NHGRI, The Ellison Foundation, The Dana-Farber Cancer Institute Strategic Initiative</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>Medieval Russian Trade Network</Name>
+		<Description>Medieval trade and communication along the rivers of Russia are consid- ered as a social network.</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Trade Network</SubDomain>
+		<Nodes>39</Nodes>
+		<NodeType>Town</NodeType>
+		<Edges>53</Edges>
+		<EdgeType>River trade rout between cities</EdgeType>
+		<GraphProperties>Unweighted,  Directed</GraphProperties>
+		<GroupId>n/a</GroupId>
+		<InfoLink>Paper: The Medieval River Trade Network of Russia Revisited. Forrest R. Pitts</InfoLink>
+		<DataLink>russiantrade_edgelist.txt</DataLink>
+		<FileSize>299b</FileSize>
+		<FileType>txt</FileType>
+		<GraphFormat>Edge List</GraphFormat>
+		<Citation>Pitts, F.R. The medieval river trade network of Russia revisited. Social Networks, 1(3), 285-292</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>nature13186-s3</Name>
+		<Description>Normalized projection strength values underlying the Connectivity Matrix of an Adult mouse brain</Description>
+		<Domain>Biological</Domain>
+		<SubDomain>Mesoscale connectome</SubDomain>
+		<Nodes>1059</Nodes>
+		<NodeType>Injection site and target region</NodeType>
+		<Edges>276710</Edges>
+		<EdgeType>normalized projection volume (sum of segmented pixels across all voxels in one target region / sum of segmented pixels across voxels in injection volume)</EdgeType>
+		<GraphProperties>Bipartite,  Vertex Attributes,  Weighted real, Unidirected</GraphProperties>
+		<GroupId>MouseBrain</GroupId>
+		<InfoLink>http://www.nature.com/nature/journal/v508/n7495/full/nature13186.html#videos</InfoLink>
+		<DataLink>http://www.nature.com/nature/journal/v508/n7495/extref/nature13186-s3.xlsx</DataLink>
+		<FileSize>2.8Mb</FileSize>
+		<FileType>xlsx</FileType>
+		<GraphFormat>Adjacency Matrix</GraphFormat>
+		<Citation>http://www.nature.com/nature/journal/v508/n7495/ris/nature13186.ris</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>nature13186-s4</Name>
+		<Description>Cartesian distances between the centers of mass of all the interconnected source and target region pairs for the 213 anatomical regions used in the linear model based Connectivity Matrix</Description>
+		<Domain>Biological</Domain>
+		<SubDomain>Mesoscale connectome</SubDomain>
+		<Nodes>426</Nodes>
+		<NodeType>source and target region pairs</NodeType>
+		<Edges>45369</Edges>
+		<EdgeType>Distance</EdgeType>
+		<GraphProperties>Weighted real, Undirected, Bipartite, Unidirected</GraphProperties>
+		<InfoLink>http://www.nature.com/nature/journal/v508/n7495/full/nature13186.html#videos</InfoLink>
+		<DataLink>http://www.nature.com/nature/journal/v508/n7495/extref/nature13186-s5.xlsx</DataLink>
+		<FileSize>4.2Mb</FileSize>
+		<FileType>xlsx</FileType>
+		<GraphFormat>Adjacency Matrix</GraphFormat>
+		<Citation>http://www.nature.com/nature/journal/v508/n7495/ris/nature13186.ris</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-04-28</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>206</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>714</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, Undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 48K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-04-29</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>222</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>814</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 52K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-04-30</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>201</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>659</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 44K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-01</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>220</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>580</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 40K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-02</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>217</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>967</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 60K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-03</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>309</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>1924</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize>120K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-05</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>113</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>186</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 16K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-06</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>182</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>770</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 48K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-07</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>206</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>819</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 52K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-09</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>228</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>1006</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 64K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-10</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>173</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>633</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 40K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-12</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>116</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>209</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 16K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-13</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>183</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>615</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 40K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-14</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>146</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>641</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 40K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-15</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>247</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>1308</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 80K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-16</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>248</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>1517</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 92K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-17</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>194</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>1391</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 84K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-19</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>101</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>243</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 16K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-20</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>194</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>958</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 60K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-21</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>102</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>256</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 20K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-22</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>189</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>938</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 60K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-23</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>242</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>1092</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 68K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-24</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>109</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>204</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 16K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-26</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>145</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>558</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 36K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-27</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>128</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>408</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 28K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-28</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>161</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>1066</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 64K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-29</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>123</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>292</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 20K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-30</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>155</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>451</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 32K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-05-31</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>133</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>358</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 24K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-02</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>85</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>153</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 12K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-03</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>106</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>263</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 20K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-04</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>133</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>580</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 36K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-05</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>120</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>295</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 20K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-06</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>144</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>710</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 44K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-07</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>158</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>572</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 36K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-09</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>166</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>442</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 32K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-10</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>130</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>369</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 24K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-11</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>95</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>168</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 12K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-12</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>140</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>468</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 32K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-13</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>122</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>286</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 20K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-14</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>139</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>433</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 28K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-16</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>116</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>470</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 32K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-17</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>100</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>237</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 16K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-18</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>126</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>435</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 28K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-19</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>139</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>439</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 28K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-20</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>161</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>523</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 36K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-21</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>172</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>677</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 44K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-23</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>96</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>167</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 12K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-24</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>133</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>466</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 32K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-25</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>103</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>374</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 24K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-26</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>121</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>228</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 16K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-27</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>83</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>163</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 12K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-28</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>117</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>415</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 28K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-06-30</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>145</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>472</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 32K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-07-01</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>187</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>847</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 52K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-07-02</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>120</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>324</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 24K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-07-03</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>150</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>340</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 24K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-07-04</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>133</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>553</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 36K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-07-05</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>131</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>406</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 28K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-07-07</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>241</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>1263</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 80K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-07-08</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>202</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>831</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 52K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-07-09</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>125</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>400</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 28K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-07-10</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>202</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>1018</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 64K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-07-11</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>171</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>717</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 48K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-07-12</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>163</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>625</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 40K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-07-14</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>288</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>1761</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize>108K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-07-15</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>422</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>2841</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize>172K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-07-16</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>327</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>1475</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize> 92K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>cumulative_2009-07-17</Name>
+		<Description>A graph representing the interaction of visitors of the Science Gallery</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Person to Person interactions</SubDomain>
+		<Nodes>332</Nodes>
+		<NodeType>Person</NodeType>
+		<Edges>1781</Edges>
+		<EdgeType>Face to face interaction duration</EdgeType>
+		<GraphProperties>Weighted integer, undirected</GraphProperties>
+		<GroupId>InfectiousSocioPatterns</GroupId>
+		<InfoLink>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</InfoLink>
+		<DataLink>http://www.sociopatterns.org/files/datasets/001/INFECTIOUS_cumulative_daily_networks.tar.gz</DataLink>
+		<FileSize>112K</FileSize>
+		<FileType>gml</FileType>
+		<GraphFormat>gml</GraphFormat>
+		<Citation>http://www.sociopatterns.org/datasets/infectious-sociopatterns/</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>CS Faculty Information in 50 Top US Schools</Name>
+		<Description>Data listing the position an individual holds at a university and their academic history</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Work and education history</SubDomain>
+		<Nodes>TODO</Nodes>
+		<NodeType>TODO</NodeType>
+		<Edges>TODO</Edges>
+		<EdgeType>TODO</EdgeType>
+		<GraphProperties>TODO</GraphProperties>
+		<GroupId>UniversityHiring</GroupId>
+		<InfoLink>http://cs.brown.edu/people/alexpap/faculty_dataset.html</InfoLink>
+		<DataLink>https://docs.google.com/spreadsheet/ccc?key=0AubxN1_iO2c-dElJVWFqaTFDeHBkRVFyUzJUWk9oRlE&amp;usp=sharing</DataLink>
+		<FileSize>179Kb</FileSize>
+		<FileType>xlsx</FileType>
+		<GraphFormat>TODO</GraphFormat>
+		<Citation>http://cs.brown.edu/people/alexpap/faculty_dataset.html</Citation>
+		<Public>Yes</Public>
+	</DataSet>
+	<DataSet>
+		<Name>top205_BS-PhD_matrix</Name>
+		<Description>School BS was received and school PhD was received</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Work and education history</SubDomain>
+		<Nodes>205</Nodes>
+		<NodeType>University</NodeType>
+		<Edges>975</Edges>
+		<EdgeType>Faculty member received the BS from u and received their PhD from v</EdgeType>
+		<GraphProperties>Weighted integer, Multigraph, Temporal snapshots, Directed</GraphProperties>
+		<GroupId>UniversityHiring</GroupId>
+		<InfoLink>multigraph_about.txt</InfoLink>
+		<DataLink>multigraph_top205_BS-PhD_matrix.txt</DataLink>
+		<FileSize>84kb</FileSize>
+		<FileType>txt</FileType>
+		<GraphFormat>Adjacency Matrix</GraphFormat>
+		<Citation>0</Citation>
+		<Public>TODO</Public>
+	</DataSet>
+	<DataSet>
+		<Name>top205_PhD-AllFaculty_matrix</Name>
+		<Description>University Working at and University PhD was recived from. This graph inclues all tenure track staff members</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Work and education history</SubDomain>
+		<Nodes>205</Nodes>
+		<NodeType>University</NodeType>
+		<Edges>2886</Edges>
+		<EdgeType>Number of faculty currently working at university j and recived their PhD at university i</EdgeType>
+		<GraphProperties>Weighted integer, Multigraph, Temporal snapshots, Directed</GraphProperties>
+		<GroupId>UniversityHiring</GroupId>
+		<InfoLink>multigraph_about.txt</InfoLink>
+		<DataLink>multigraph_top205_PhD-AllFaculty_matrix.txt</DataLink>
+		<FileSize>84kb</FileSize>
+		<FileType>txt</FileType>
+		<GraphFormat>Adjacency Matrix</GraphFormat>
+		<Citation>0</Citation>
+		<Public>TODO</Public>
+	</DataSet>
+	<DataSet>
+		<Name>top205_PhD-Assistant_matrix</Name>
+		<Description>University Working at and University PhD was recived from. This graph inclues all tenure track staff members who are currently assistants </Description>
+		<Domain>Social</Domain>
+		<SubDomain>Work and education history</SubDomain>
+		<Nodes>205</Nodes>
+		<NodeType>University</NodeType>
+		<Edges>342</Edges>
+		<EdgeType>Number of faculty currently working at university j and recived their PhD at university i</EdgeType>
+		<GraphProperties>Weighted integer, Multigraph, Temporal snapshots, Directed</GraphProperties>
+		<GroupId>UniversityHiring</GroupId>
+		<InfoLink>multigraph_about.txt</InfoLink>
+		<DataLink>multigraph_top205_PhD-Assistant_matrix.txt</DataLink>
+		<FileSize>84kb</FileSize>
+		<FileType>txt</FileType>
+		<GraphFormat>Adjacency Matrix</GraphFormat>
+		<Citation>0</Citation>
+		<Public>TODO</Public>
+	</DataSet>
+	<DataSet>
+		<Name>top205_PhD-Associate_matrix</Name>
+		<Description>University Working at and University PhD was recived from. This graph inclues all tenure track staff members who are currently associates</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Work and education history</SubDomain>
+		<Nodes>205</Nodes>
+		<NodeType>University</NodeType>
+		<Edges>946</Edges>
+		<EdgeType>Number of faculty currently working at university j and recived their PhD at university i</EdgeType>
+		<GraphProperties>Weighted integer, Multigraph, Temporal snapshots, Directed</GraphProperties>
+		<GroupId>UniversityHiring</GroupId>
+		<InfoLink>multigraph_about.txt</InfoLink>
+		<DataLink>multigraph_top205_PhD-Associate_matrix.txt</DataLink>
+		<FileSize>84kb</FileSize>
+		<FileType>txt</FileType>
+		<GraphFormat>Adjacency Matrix</GraphFormat>
+		<Citation>0</Citation>
+		<Public>TODO</Public>
+	</DataSet>
+	<DataSet>
+		<Name>top205_PhD-Full_matrix</Name>
+		<Description>University Working at and University PhD was recived from. This graph inclues all tenure track staff members who hold a full position</Description>
+		<Domain>Social</Domain>
+		<SubDomain>Work and education history</SubDomain>
+		<Nodes>205</Nodes>
+		<NodeType>University</NodeType>
+		<Edges>1202</Edges>
+		<EdgeType>Number of faculty currently working at university j and recived their PhD at university i</EdgeType>
+		<GraphProperties>Weighted integer, Multigraph, Temporal snapshots, Directed</GraphProperties>
+		<GroupId>UniversityHiring</GroupId>
+		<InfoLink>multigraph_about.txt</InfoLink>
+		<DataLink>multigraph_top205_PhD-Full_matrix.txt</DataLink>
+		<FileSize>84kb</FileSize>
+		<FileType>txt</FileType>
+		<GraphFormat>Adjacency Matrix</GraphFormat>
+		<Citation>0</Citation>
+		<Public>TODO</Public>
+	</DataSet>
+	<DataSet>
+		<Name>top205_names</Name>
+		<Description>Alphebetical list of Universities that corrosponds to the rows and columns in the top205 muli graph</Description>
+		<Domain>SupportData</Domain>
+		<SubDomain>n/a</SubDomain>
+		<Nodes>n/a</Nodes>
+		<NodeType>n/a</NodeType>
+		<Edges>n/a</Edges>
+		<EdgeType>n/a</EdgeType>
+		<GraphProperties>n/a</GraphProperties>
+		<GroupId>UniversityHiring</GroupId>
+		<InfoLink>multigraph_about.txt</InfoLink>
+		<DataLink>multigraph_top205_names.txt</DataLink>
+		<FileSize>8kb</FileSize>
+		<FileType>txt</FileType>
+		<GraphFormat>List</GraphFormat>
+		<Citation>0</Citation>
+		<Public>TODO</Public>
+	</DataSet>
+</DataSets>
