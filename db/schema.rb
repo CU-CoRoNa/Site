@@ -11,6 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 1410148856) do
+
+  create_table "graph", force: true do |t|
+    t.string  "Name"
+    t.string  "Description"
+    t.string  "Domain"
+    t.string  "SubDomain"
+    t.integer "Nodes"
+    t.string  "NodeType"
+    t.integer "Edges"
+    t.string  "EdgeType"
+    t.string  "GraphProperties"
+    t.string  "GroupId"
+    t.string  "InfoLink"
+    t.string  "DataLink"
+    t.integer "FileSize"
+    t.string  "FileType"
+    t.string  "GraphFormat"
+    t.string  "Citation"
+    t.string  "Public"
+  end
 
 end
