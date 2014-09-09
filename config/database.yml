@@ -1,5 +1,15 @@
 development:
-  adapter: mysql2
+  adapter: sqlite3 
+  encoding: utf8
+  reconect: false
+  database: dataSets
+  pool: 5
+  username: root
+  password:
+  host: localhost
+
+production:
+  adapter: sqlite3 
   encoding: utf8
   reconect: false
   database: dataSets
