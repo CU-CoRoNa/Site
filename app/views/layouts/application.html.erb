@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CoRoNa</title>
+  <title>CoRoNa | <%= yield(:title) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div id="header">
+    <div class="pure-menu pure-menu-open pure-menu-horizontal">
+      <a class="pure-menu-heading">Site Title</a>
+      <ui>
+        <li> <%= link_to 'Home' , root_path %> </li>
+        <li> <%= link_to 'Data' , data_data_path %> </li>
+        <li> <%= link_to 'About', about_about_path %> </li>
+        <li> <%= link_to 'FAQ' , faq_faq_path %> </li>
+      </ui>
+    </div>
+     <hr style="width:80ch">
+</div>
+<div id="content">
+    <%= yield %>
+</div>
 
 </body>
 </html>
