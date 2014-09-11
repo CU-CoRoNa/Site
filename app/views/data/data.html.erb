@@ -1,2 +1,9 @@
-<h1>Data#data</h1>
-<p>Find me in app/views/data/data.html.erb</p>
+<div>
+  <h1> Our Data Sets </h1>
+  <hr />
+</div>
+<%DataSets.all.each do |data_set|%>
+    <div>
+      <%= data_set.Name %>
+    </div>
+<% end %>

@@ -1576,4 +1576,23 @@
 		<Citation>0</Citation>
 		<Public>TODO</Public>
 	</DataSet>
+	<DataSet>
+		<Name>New entry Test</Name>
+		<Description>Alphebetical list of Universities that corrosponds to the rows and columns in the top205 muli graph</Description>
+		<Domain>SupportData</Domain>
+		<SubDomain>n/a</SubDomain>
+		<Nodes>n/a</Nodes>
+		<NodeType>n/a</NodeType>
+		<Edges>n/a</Edges>
+		<EdgeType>n/a</EdgeType>
+		<GraphProperties>n/a</GraphProperties>
+		<GroupId>UniversityHiring</GroupId>
+		<InfoLink>multigraph_about.txt</InfoLink>
+		<DataLink>multigraph_top205_names.txt</DataLink>
+		<FileSize>8kb</FileSize>
+		<FileType>txt</FileType>
+		<GraphFormat>List</GraphFormat>
+		<Citation>0</Citation>
+		<Public>TODO</Public>
+	</DataSet>
 </DataSets>

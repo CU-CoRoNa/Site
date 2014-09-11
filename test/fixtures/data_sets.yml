@@ -1,0 +1,71 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  [Name: MyString
+  Description: MyText
+  Domain: MyString
+  SubDomain: MyString
+  Nodes: 1
+  NodeType: MyString
+  Edges: 1
+  EdgeType: MyString
+  GraphProperties: MyString
+  GroupId: MyString
+  InfoLink: MyString
+  DataLink: MyString
+  FileSize: MyString
+  FileType: MyString
+  GraphFormat: MyString
+  Citation: MyString
+  Public: 
+  Description: MyText
+  Domain: MyString
+  SubDomain: MyString
+  Nodes: 1
+  NodeType: MyString
+  Edges: 1
+  EdgeType: MyString
+  GraphProperties: MyString
+  GroupId: MyString
+  InfoLink: MyString
+  DataLink: MyString
+  FileSize: MyString
+  FileType: MyString
+  GraphFormat: MyString
+  Citation: MyString
+  Public: 
+
+two:
+  [Name: MyString
+  Description: MyText
+  Domain: MyString
+  SubDomain: MyString
+  Nodes: 1
+  NodeType: MyString
+  Edges: 1
+  EdgeType: MyString
+  GraphProperties: MyString
+  GroupId: MyString
+  InfoLink: MyString
+  DataLink: MyString
+  FileSize: MyString
+  FileType: MyString
+  GraphFormat: MyString
+  Citation: MyString
+  Public: 
+  Description: MyText
+  Domain: MyString
+  SubDomain: MyString
+  Nodes: 1
+  NodeType: MyString
+  Edges: 1
+  EdgeType: MyString
+  GraphProperties: MyString
+  GroupId: MyString
+  InfoLink: MyString
+  DataLink: MyString
+  FileSize: MyString
+  FileType: MyString
+  GraphFormat: MyString
+  Citation: MyString
+  Public: 

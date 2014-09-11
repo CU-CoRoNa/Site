@@ -1,13 +1,12 @@
-require 'nokogiri'
+class DataSets < ActiveRecord::Base
+  validates :Name , uniqueness: true
 
-module ApplicationHelper
-  def parse_xml()
+  def xml_u
+    puts "Checking for new database entries"
+
     xml_data = File.open("#{Rails.root}/db/DataSetsExcel.xml")
     doc = Nokogiri::XML(xml_data)
-
     xml_data_sets = doc.xpath("//DataSet")
-
-    @to_ret = []
 
     xml_data_sets.each do |data_set|
       to_database = DataSets.new
@@ -49,8 +48,9 @@ module ApplicationHelper
             to_database.Public = element.text
         end
       end
-      @to_ret.append(to_database)
+      #validates before every save
+      to_database.save
     end
-    return @to_ret
   end
+
 end
