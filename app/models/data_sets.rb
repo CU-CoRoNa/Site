@@ -8,10 +8,10 @@ class DataSets < ActiveRecord::Base
     xml_data = File.open("#{Rails.root}/db/DataSetsExcel.xml")
     doc = Nokogiri::XML(xml_data)
 
-    xml_data_entires = doc.xpath("//DataSet")
+    xml_data_entries = doc.xpath("//DataSet")
       #Gets all the individual <dataset> in the xml file
 
-    xml_data_entires.each do |data_set|
+    xml_data_entries.each do |data_set|
       #iterate through all of the dataset entries in the
       to_database = DataSets.new
         #make a new db entry
