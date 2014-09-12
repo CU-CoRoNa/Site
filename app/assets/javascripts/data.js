@@ -1,9 +1,11 @@
 //= require jquery.collapsible
 
-$(document).ready(function() {
+var ready = function() {
+    $('.collapsible').collapsible({
+        defaultOpen: 'section1,section3'
+    })
+}
 
-  $('.collapsible').collapsible({
-    defaultOpen: 'section1,section3'
-  });
+$(document).ready(ready);
+$(document).on('page:load', ready);
 
-});

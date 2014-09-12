@@ -1,6 +1,8 @@
 class DataSets < ActiveRecord::Base
   validates :Name , uniqueness: true
     #ensures only unique entries are added to the db
+  validates :GroupId, length:{ minimum: 1 }
+    #attemps to remove bad entries
 
   def xml_upload
     puts "Checking for new database entries"
