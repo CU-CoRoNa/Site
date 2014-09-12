@@ -23,4 +23,9 @@ body
     width: 50%;
 }
 
+#header
+{
+    border-bottom: thin solid lightgray;
+}
+
 
