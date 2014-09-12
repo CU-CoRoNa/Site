@@ -18,9 +18,9 @@
 body
 {
     margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
     width: 50%;
+    margin: 0 auto;
+    text-align: left;
 }
 
 #header
