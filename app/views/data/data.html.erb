@@ -1,8 +1,8 @@
-<div>
-  <h1> Our Data Sets </h1>
-  <hr />
+<div class="boxed">
+  <p> Our Data Sets </p>
 </div>
 <% id_num = 0 %>
+<div class="boxed2">
 <%DataHelper.get_groups.each do |group|%>
     <div class="collapsible" id="<%= id_num +=1 %>"><%= group %><span></span></div>
     <div class="container">
@@ -28,3 +28,4 @@
         <%end%>
     </div>
 <%end%>
+</div>
