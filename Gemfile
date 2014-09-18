@@ -9,7 +9,7 @@ gem 'sqlite3'
 gem 'unicorn'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '>= 4.0.3'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -30,7 +30,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 #for nice looking web pages
-gem 'purecss-rails'
+gem 'foundation-rails', '5.4.2'
 
 #Xml helper
 gem 'nokogiri'
