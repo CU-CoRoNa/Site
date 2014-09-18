@@ -9,22 +9,32 @@
     <a href='#group<%= id_num +=1 %>'><%= group %></a>
         <div id="group<%= id_num %>" class="content">
             <% DataSets.where(:GroupId => "#{group}").find_each do |group_entry|%>
-                  <div class="Name">           <%= group_entry.Name%> </div>
-                  <div class="Description">    <%= group_entry.Description%></div>
-                  <div class="Domain">         <%= group_entry.Domain%></div>
-                  <div class="SubDomain">      <%= group_entry.SubDomain%></div>
-                  <div class="Nodes">          <%= group_entry.Nodes%></div>
-                  <div class="NodeType">       <%= group_entry.NodeType%></div>
-                  <div class="Edges">          <%= group_entry.Edges%></div>
-                  <div class="EdgeType">       <%= group_entry.EdgeType%></div>
+                <div class ="t">
+                   <div class="Name">           <%= group_entry.Name%> </div>
+                   <div class="Domain">         <%= group_entry.Domain%></div>
+                   <div class="SubDomain">      <%= group_entry.SubDomain%></div>
+                </div>
+                <div class="row" data-equalizer>
+                    <div class="large-6 columns panel" data-equalizer-watch>
+                       <div class="Description">    <%= group_entry.Description%></div>
+                    </div>
+                    <div class="large-6 columns panel" data-equalizer-watch>
+                       <div class="Nodes">          <%= group_entry.Nodes%></div>
+                       <div class="NodeType">       <%= group_entry.NodeType%></div>
+                       <div class="Edges">          <%= group_entry.Edges%></div>
+                       <div class="EdgeType">       <%= group_entry.EdgeType%></div>
+                       <div class="InfoLink">       <%= group_entry.InfoLink %></div>
+                       <div class="DataLink">       <%= group_entry.DataLink%></div>
+                       <div class="FileSize">       <%= group_entry.FileSize%></div>
+                       <div class="FileType">       <%= group_entry.FileType%></div>
+                       <div class="GraphFormat">    <%= group_entry.GraphFormat%></div>
+                       <div class="Citation">       <%= group_entry.Citation%></div>
+                       <div class="Public ">        <%= group_entry.Public%></div>
+                    </div>
+                </div>
+                <div class="b">
                   <div class="GraphProperties"><%= group_entry.GraphProperties%></div>
-                  <div class="InfoLink">       <%= group_entry.InfoLink %></div>
-                  <div class="DataLink">       <%= group_entry.DataLink%></div>
-                  <div class="FileSize">       <%= group_entry.FileSize%></div>
-                  <div class="FileType">       <%= group_entry.FileType%></div>
-                  <div class="GraphFormat">    <%= group_entry.GraphFormat%></div>
-                  <div class="Citation">       <%= group_entry.Citation%></div>
-                  <div class="Public ">        <%= group_entry.Public%></div>
+                </div>
             <%end%>
         </div>
     </dd>
