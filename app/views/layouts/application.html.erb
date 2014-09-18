@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Test Site</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Title</title>
+    <%= stylesheet_link_tag 'application', media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag 'vendor/modernizr', "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<div id="header">
-    <div class="pure-menu pure-menu-open pure-menu-horizontal">
-      <a class="pure-menu-heading">Site Title</a>
-      <ui>
-        <li> <%= link_to 'Home' , root_path %> </li>
-        <li> <%= link_to 'Data' , data_data_path %> </li>
-        <li> <%= link_to 'About', about_about_path %> </li>
-        <li> <%= link_to 'FAQ' , faq_faq_path %> </li>
-      </ui>
+  <body>
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a>My Site</a></h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="left">
+          <li> <%= link_to 'Home' , root_path %> </li>
+          <li> <%= link_to 'Data' , data_data_path %> </li>
+          <li> <%= link_to 'About', about_about_path %> </li>
+          <li> <%= link_to 'FAQ' , faq_faq_path %> </li>
+        </ul>
+      </section>
+    </nav>
+    <div id="content">
+      <%= yield %>
+      <%= javascript_include_tag "application" %>
     </div>
-</div>
-<div id="content">
-    <%= yield %>
-</div>
-
-</body>
+  </body>
 </html>
