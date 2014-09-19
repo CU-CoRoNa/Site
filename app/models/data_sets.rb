@@ -12,9 +12,7 @@ class DataSets < ActiveRecord::Base
     to_ret
   end
 
-  def self.search(query)
-      where("description like ?" "%#{@query}%")
-  end
+  where("description like ?" "%#{@query}%")
 
   def xml_upload
     puts "Checking for new database entries"

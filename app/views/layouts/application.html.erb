@@ -16,6 +16,10 @@
         <li> <%= link_to 'Data' , data_path %> </li>
         <li> <%= link_to 'About', about_path %> </li>
         <li> <%= link_to 'FAQ' , faq_path %> </li>
+        <li><form action = <%= data_path %> method="get">
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search", :name => nil %>
+        </form></li>
       </ui>
     </div>
 </div>
