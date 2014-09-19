@@ -6,4 +6,17 @@ module DataHelper
     end
     return to_ret
   end
+
+  def get_domain_color(domain)
+    case domain
+      when "Social"
+        return "blue"
+      when "Biological"
+        return "green"
+      when "Informational"
+        return "brown"
+      when "Spatial"
+        return "Black"
+    end
+  end
 end

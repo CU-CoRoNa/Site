@@ -7,20 +7,23 @@
  {
    background-color: #F7F7F7;
    border: thin solid lightgrey;
-   margin-top: 20px;
-   padding: 20px;
+   //margin-top: 20px;
+   //padding: 20px;
  }
 
 .t
 {
   background-color: #F7F7F7;
   border: thin solid lightgrey;
-//  margin-top: 20px;
-//  padding: 20px;
+  overflow: hidden;
+  margin-top: 20px;
+  text-align: center;
+//  padding: 5px;
 }
 
-.b
+.d
 {
+  overflow: hidden;
   background-color: #F7F7F7;
   border: thin solid lightgrey;
   margin-bottom: 20px;
@@ -32,4 +35,69 @@
   background-color: #F7F7F7;
   border: thin solid lightgrey;
   margin-top: 20px;
+}
+
+.Name
+{
+  float: left;
+  position: relative;
+}
+
+.Domain
+{
+  position: relative;
+  float: right;
+  margin-right: 5px;
+  margin-bottom: 2px;
+}
+
+.SubDomain
+{
+  position: relative;
+  margin-right: 5px;
+  margin-bottom: 2px;
+  float: right;
+}
+ $my_float: left;
+.tags
+{
+  .Nodes, .Edges
+  {
+    float: $my_float;
+    position: relative;
+    margin-right: 10px;
+  }
+
+
+  .NodeType, .EdgeType
+  {
+    float: $my_float;
+    positon: relative;
+    margin-right: 10px;
+  }
+
+  .FileSize, .FileType, .GraphFormat
+  {
+    float: $my_float;
+    margin-right: 10px;
+  }
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.Citation
+{
+  font-size: 12;
+  margin-left: 5px;
+}
+
+.GraphProperties
+{
+  float: right;
+}
+
+#foo
+{
+  display: block;
+  overflow: hidden;
 }
