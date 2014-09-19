@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @CHARSET "UTF-8";
+$center_height: 30px;
 
 .boxed
  {
@@ -27,6 +28,7 @@
   background-color: #F7F7F7;
   border: thin solid lightgrey;
   margin-bottom: 20px;
+
   //padding: 20px;
 }
 
@@ -35,6 +37,13 @@
   background-color: #F7F7F7;
   border: thin solid lightgrey;
   margin-top: 20px;
+}
+
+.Description
+{
+  height: $center_height;
+  overflow: hidden;
+  //position: absolute;
 }
 
 .Name
@@ -59,6 +68,7 @@
   float: right;
 }
  $my_float: left;
+
 .tags
 {
   .Nodes, .Edges
@@ -81,15 +91,20 @@
     float: $my_float;
     margin-right: 10px;
   }
+  .Citation
+  {
+    font-size: 12;
+    margin-left: 5px;
+    position: absolute;
+  }
+
   margin-left: 20px;
   margin-bottom: 10px;
+  height: $center_height;
+  position: absolute;
 }
 
-.Citation
-{
-  font-size: 12;
-  margin-left: 5px;
-}
+
 
 .GraphProperties
 {

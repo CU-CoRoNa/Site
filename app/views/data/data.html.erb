@@ -5,7 +5,6 @@
 <div class="boxed2">
 <dl class="accordion" data-accordion>
 <%DataHelper.get_groups.each do |group|%>
-<<<<<<< HEAD
     <dd class="accordion-navigation">
     <a href='#group<%= id_num +=1 %>'><%= group %></a>
         <div id="group<%= id_num %>" class="content">
@@ -28,7 +27,7 @@
                              <div class="Edges">
                                <span class="label"> Vertices: <%= group_entry.Edges%></span>
                              </div>
-                            <a href="#">Read more</a>
+                            <a href="#">...</a>
                           </div>
                           <div class="row">
                             <div class="NodeType"> <span class="label"> Node Type: <%= group_entry.NodeType%></span></div>
@@ -39,8 +38,10 @@
                              <div class="FileType"> <span class="label">File Type: <%= group_entry.FileType%></span></div>
                              <div class="GraphFormat"> <span class="label"> Format <%= group_entry.GraphFormat%></span></div>
                           </div>
+                         <div class="row">
+                             <div class="Citation"> <p> Citation: <%= group_entry.Citation%></p> </div>
+                         </div>
                        </div>
-                       <div class="Citation"> <p> Citation: <%= group_entry.Citation%></p> </div>
                        <!-- <div class="Public ">        <%= group_entry.Public%></div> -->
                       </div>
                 </div>
