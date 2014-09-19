@@ -4,6 +4,10 @@ class DataSets < ActiveRecord::Base
   validates :GroupId, length:{ minimum: 1 }
     #attemps to remove bad entries
 
+  def self.search(query)
+      where("description like ?" "%#{@query}%")
+  end
+
   def xml_upload
     puts "Checking for new database entries"
 
@@ -56,9 +60,7 @@ class DataSets < ActiveRecord::Base
             to_database.Public = element.text
         end
       end
-      #validates before every save
       to_database.save
-        #save to db
     end
   end
 end
