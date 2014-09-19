@@ -3,6 +3,14 @@ class DataSets < ActiveRecord::Base
     #ensures only unique entries are added to the db
   validates :GroupId, length:{ minimum: 1 }
     #attemps to remove bad entries
+  
+  def self.get_groups
+    to_ret = []
+    DataSets.uniq.pluck(:GroupId).each do |group|
+      to_ret.append(group)
+    end
+    to_ret
+  end
 
   def self.search(query)
       where("description like ?" "%#{@query}%")

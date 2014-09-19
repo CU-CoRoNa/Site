@@ -1,13 +1,13 @@
 class DataController < ApplicationController
   def data
+    return DataSets.new
     @mtime ||= Date.new
-    include_all_helpers
-    #check for xml update (looks for uniqueness in names)
     
+    # Check for XML update
     if @mtime < File.mtime("db/DataSetsExcel.xml")
       xml_f = DataSets.new
       xml_f.xml_upload
-      DataSets
+      xml_f
     end
   end
 end

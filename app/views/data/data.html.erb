@@ -3,7 +3,7 @@
 </div>
 <% id_num = 0 %>
 <div class="boxed2">
-<%DataHelper.get_groups.each do |group|%>
+<%DataSets.get_groups.each do |group|%>
 <div class="collapsible" id="<%= id_num +=1 %>"><%= group %><span></span></div>
     <div class="container">
     <% DataSets.where(:GroupId => "#{group}").find_each do |group_entry|%>
