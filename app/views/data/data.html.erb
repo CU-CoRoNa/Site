@@ -4,36 +4,36 @@
 <% id_num = 0 %>
 <div class="boxed2">
 <%DataHelper.get_groups.each do |group|%>
-    <div class="collapsible" id="<%= id_num +=1 %>"><%= group %><span></span></div>
+<div class="collapsible" id="<%= id_num +=1 %>"><%= group %><span></span></div>
     <div class="container">
-        <% DataSets.where(:GroupId => "#{group}").find_each do |group_entry|%>
-            <div class="content">
-                <table>
-                    <tr>
-                        <td><div class="Name">           <%= group_entry.Name%> </div></td>
-                        <td><div class="Domain">         <%= group_entry.Domain%></div></td>
-                        <td><div class="SubDomain">      <%= group_entry.SubDomain%></div></td>
-                    </tr>
-                    <tr>
-                        <td><div class="Nodes">          <%= group_entry.Nodes%></div></td>
-                        <td><div class="NodeType">       <%= group_entry.NodeType%></div></td>
-                        <td><div class="Edges">          <%= group_entry.Edges%></div></td>
-                        <td><div class="EdgeType">       <%= group_entry.EdgeType%></div></td>
-                        <td><div class="Public ">        <%= group_entry.Public%></div></td>
-                    </tr>
-                    <tr>
-                        <td><div class="Description">    <%= group_entry.Description%></div></td>
-                        <td><div class="GraphProperties"><%= group_entry.GraphProperties%></div></td>
-                        <td><div class="InfoLink">       <%= group_entry.InfoLink %></div></td>
-                        <td><div class="DataLink">       <%= group_entry.DataLink%></div></td>
-                        <td><div class="FileSize">       <%= group_entry.FileSize%></div></td>
-                        <td><div class="FileType">       <%= group_entry.FileType%></div></td>
-                        <td><div class="GraphFormat">    <%= group_entry.GraphFormat%></div></td>
-                        <td><div class="Citation">       <%= group_entry.Citation%></div></td>
-                        </td>
-                </table>
-            </div>
-        <%end%>
+    <% DataSets.where(:GroupId => "#{group}").find_each do |group_entry|%>
+        <div class="content">
+            <table>
+                <tr>
+                    <td><div class="Name">           <%= group_entry.Name%> </div></td>
+                    <td><div class="Domain">         <%= group_entry.Domain%></div></td>
+                    <td><div class="SubDomain">      <%= group_entry.SubDomain%></div></td>
+                </tr>
+                <tr>
+                    <td><div class="Nodes">          <%= group_entry.Nodes%></div></td>
+                    <td><div class="NodeType">       <%= group_entry.NodeType%></div></td>
+                    <td><div class="Edges">          <%= group_entry.Edges%></div></td>
+                    <td><div class="EdgeType">       <%= group_entry.EdgeType%></div></td>
+                    <td><div class="Public ">        <%= group_entry.Public%></div></td>
+                </tr>
+                <tr>
+                    <td><div class="Description">    <%= group_entry.Description%></div></td>
+                    <td><div class="GraphProperties"><%= group_entry.GraphProperties%></div></td>
+                    <td><div class="InfoLink">       <%= group_entry.InfoLink %></div></td>
+                    <td><div class="DataLink">       <%= group_entry.DataLink%></div></td>
+                    <td><div class="FileSize">       <%= group_entry.FileSize%></div></td>
+                    <td><div class="FileType">       <%= group_entry.FileType%></div></td>
+                    <td><div class="GraphFormat">    <%= group_entry.GraphFormat%></div></td>
+                    <td><div class="Citation">       <%= group_entry.Citation%></div></td>
+                    </td>
+            </table>
+        </div>
+    <%end%>
     </div>
 <%end%>
 </div>

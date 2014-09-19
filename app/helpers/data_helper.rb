@@ -4,6 +4,6 @@ module DataHelper
     DataSets.uniq.pluck(:GroupId).each do |group|
      to_ret.append(group)
     end
-    return to_ret
+    to_ret
   end
 end
