@@ -1,10 +1,15 @@
-//=require readmore
+$(document).on("page:change", function(){
+    function equalHeight(obj){
+        var heightArray = obj.children("div").map( function(){
+            return  $(this).height();
+        }).get();
+        var maxHeight = Math.max.apply( Math, heightArray);
+        obj.children("div").height(maxHeight);
+    }
 
-$(document).on('click', function () {
-    $(document).foundation('equalizer','reflow');
-    $(document).getElementById("row").style.margin = "0px";
+    $(".row").each( function(){
+        equalHeight( $(this));
+    })
+
 });
 
-$('foo').readmore({
-    maxHeight: 100
-});

@@ -1,8 +1,7 @@
 Site::Application.routes.draw do
-  get "faq/faq"
-  get "about/about"
-  get "data/data"
-  get "static_pages/destroy"
+  get "faq", to: "faq"
+  get "about", to: "about"
+  get "data", to: "data"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

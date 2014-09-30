@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @CHARSET "UTF-8";
-$center_height: 30px;
+
+$my_float: left;
 
 .boxed
  {
@@ -17,32 +18,44 @@ $center_height: 30px;
   background-color: #F7F7F7;
   border: thin solid lightgrey;
   overflow: hidden;
-  margin-top: 20px;
+ // margin-top: 20px;
   text-align: center;
 //  padding: 5px;
 }
 
-.d
+.fileInfo
 {
   overflow: hidden;
   background-color: #F7F7F7;
   border: thin solid lightgrey;
   margin-bottom: 20px;
 
-  //padding: 20px;
+  .FileSize, .FileType
+  {
+    float: right;
+    margin-right: 10px;
+  }  //padding: 20px;
+
 }
 
-.boxed2
+.entry_container
 {
   background-color: #F7F7F7;
-  border: thin solid lightgrey;
+ // border: thin solid lightgrey;
   margin-top: 20px;
 }
 
 .Description
 {
-  height: $center_height;
+ // height: $center_height;
   overflow: hidden;
+  .Citation
+  {
+    font-size: 12;
+    margin-left: 5px;
+    //position: absolute;
+    overflow: hidden;
+  }
   //position: absolute;
 }
 
@@ -67,11 +80,10 @@ $center_height: 30px;
   margin-bottom: 2px;
   float: right;
 }
- $my_float: left;
 
-.tags
+.GraphInfo
 {
-  .Nodes, .Edges
+  .Nodes, .NodeType
   {
     float: $my_float;
     position: relative;
@@ -79,36 +91,30 @@ $center_height: 30px;
   }
 
 
-  .NodeType, .EdgeType
+  .Edges, .EdgeType
   {
     float: $my_float;
     positon: relative;
     margin-right: 10px;
   }
 
-  .FileSize, .FileType, .GraphFormat
+  .GraphFormat
   {
     float: $my_float;
     margin-right: 10px;
   }
-  .Citation
-  {
-    font-size: 12;
-    margin-left: 5px;
-    position: absolute;
-  }
 
-  margin-left: 20px;
+  margin-left: 30px;
   margin-bottom: 10px;
-  height: $center_height;
-  position: absolute;
+  //position: absolute;
+
 }
 
-
-
-.GraphProperties
+.gP
 {
-  float: right;
+  //float: right;
+  border-right: thin solid lightgray;
+  border-left: thin solid lightgray;
 }
 
 #foo

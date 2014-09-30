@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Site Title</title>
-    <%= stylesheet_link_tag 'application', media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag 'vendor/modernizr', "data-turbolinks-track" => true %>
-    <%= csrf_meta_tags %>
-  </head>
-
+<html>
+<head>
+  <title>Test Site</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
   <body>
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
@@ -19,9 +16,9 @@
       <section class="top-bar-section">
         <ul class="left">
           <li> <%= link_to 'Home' , root_path %> </li>
-          <li> <%= link_to 'Data' , data_data_path %> </li>
-          <li> <%= link_to 'About', about_about_path %> </li>
-          <li> <%= link_to 'FAQ' , faq_faq_path %> </li>
+          <li> <%= link_to 'Data' , data_path %> </li>
+          <li> <%= link_to 'About', about_path %> </li>
+          <li> <%= link_to 'FAQ' , faq_path %> </li>
         </ul>
       </section>
     </nav>

@@ -1,60 +1,6 @@
-<div class="boxed" xmlns="http://www.w3.org/1999/html">
+<div class="boxed">
   <p> Our Data Sets </p>
 </div>
-<% id_num = 0 %>
-<div class="boxed2">
-<dl class="accordion" data-accordion>
-<%DataHelper.get_groups.each do |group|%>
-    <dd class="accordion-navigation">
-    <a href='#group<%= id_num +=1 %>'><%= group %></a>
-        <div id="group<%= id_num %>" class="content">
-            <% DataSets.where(:GroupId => "#{group}").find_each do |group_entry|%>
-                <div class ="t">
-                   <div class="Name">            <%= group_entry.Name%> </div>
-                   <div class="SubDomain"> <span class="label"> <%= group_entry.SubDomain%></span></div>
-                   <div class="Domain"> <span class="label"> <%= group_entry.Domain%> </span></div>
-                </div>
-                <div class="row" data-equalizer>
-                    <div class="large-6 columns panel" data-equalizer-watch>
-                       <div class="Description">    <%= group_entry.Description%></div>
-                    </div>
-                    <div class="large-6 columns panel" data-equalizer-watch id="foo">
-                       <div class="tags">
-                          <div class="row">
-                             <div class="Nodes">
-                               <span class="label"> Nodes: <%= group_entry.Nodes%></span>
-                             </div>
-                             <div class="Edges">
-                               <span class="label"> Vertices: <%= group_entry.Edges%></span>
-                             </div>
-                            <a href="#">...</a>
-                          </div>
-                          <div class="row">
-                            <div class="NodeType"> <span class="label"> Node Type: <%= group_entry.NodeType%></span></div>
-                            <div class="EdgeType"> <span class="label"> Vertex Type: <%= group_entry.EdgeType%></span></div>
-                          </div>
-                          <div class="row">
-                             <div class="FileSize"> <span class="label"> File Size: <%= group_entry.FileSize%></span></div>
-                             <div class="FileType"> <span class="label">File Type: <%= group_entry.FileType%></span></div>
-                             <div class="GraphFormat"> <span class="label"> Format <%= group_entry.GraphFormat%></span></div>
-                          </div>
-                         <div class="row">
-                             <div class="Citation"> <p> Citation: <%= group_entry.Citation%></p> </div>
-                         </div>
-                       </div>
-                       <!-- <div class="Public ">        <%= group_entry.Public%></div> -->
-                      </div>
-                </div>
-                <div class="d">
-                  <ul class="button-group">
-                    <li> <a href="<%= group_entry.DataLink%>" class="tiny button">Download </a> </li> <!-- TODO color on public -->
-                    <li> <a href="<%= group_entry.InfoLink %>" class="tiny button"> More Info </a> </li>
-                    <div class="GraphProperties"><%= group_entry.GraphProperties%></div>
-                  </ul>
-                </div>
-            <%end%>
-        </div>
-    </dd>
-<%end%>
-</dl>
-</div>
+
+<%= render partial: "data/entry" %>
+
