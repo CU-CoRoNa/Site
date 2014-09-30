@@ -1,0 +1,61 @@
+<% my_entries = EntryBuilder.get_entries("name NOT NULL") %>
+<% my_entries.each do | entry | %>
+    <% info_entry = entry[:infoEntry] %>
+    <div class="entry_container">
+
+      <div class="t">
+        <div class="Name" > <%= info_entry[:Name] %> </div>
+        <div class="SubDomain" style="background-color: <%= info_entry[:SubDomain].color %>">
+          <%= h(info_entry[:SubDomain].attr).gsub(/\n/, '<br/>')%>
+        </div>
+        <div class="Domain" style="background-color: <%= info_entry[:Domain].color %>">
+          <%= info_entry[:Domain].attr %>
+        </div>
+      </div>
+
+      <div class="row" data-equlizer>
+
+        <div class="large-6 columns panel" id="left">
+          <div class="Descriptions"> <%= info_entry[:Description] %> </div>
+          <div class="Citation"> <%= info_entry[:Citation] %> </div>
+        </div>
+
+        <div class="large-6 columns panel" id="right">
+
+          <div class="GraphInfo">
+
+            <div class="row">
+              <div class="Nodes"> <span class="label"> Nodes: <%= info_entry[:Nodes] %> </span> </div>
+              <div class="NodeType"><span class="label"> Node Type: <%= info_entry[:NodeType] %> </span> </div>
+            </div>
+
+            <div class="row">
+              <div class="Edges"> <span class="label"> Edges: <%= info_entry[:Edges] %> </span> </div>
+              <div class="EdgeType"><span class="label"> Edge Type: <%= info_entry[:EdgeType] %> </span> </div>
+            </div>
+
+            <div class="row">
+              <div class="GraphFormat"> <span class="label"> Format <%= info_entry[:GraphFormat]%></span></div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="gP">
+        <div class="GraphProperties"><%= info_entry[:GraphProperties] %></div>
+      </div>
+
+      <div class="fileInfo">
+        <ul class="button-group">
+          <li> <a href="<%= info_entry[:DataLink].attr %>" class="tiny button">Download </a> </li> <!-- TODO color on public -->
+          <li> <a href="<%= info_entry[:InfoLink] %>" class="tiny button"> More Info </a> </li>
+          <div class="FileSize"> <span class="label"> File Size: <%= info_entry[:FileSize]%></span></div>
+          <div class="FileType"> <span class="label">File Type: <%= info_entry[:FileType]%></span></div>
+        </ul>
+      </div>
+
+    </div>
+<%end%>

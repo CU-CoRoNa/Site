@@ -45,23 +45,26 @@ $my_float: left;
   margin-top: 20px;
 }
 
+#left, #right
+{
+  overflow: hidden;
+}
+
+
 .Description
 {
- // height: $center_height;
-  overflow: hidden;
-  .Citation
-  {
-    font-size: 12;
-    margin-left: 5px;
-    //position: absolute;
-    overflow: hidden;
-  }
-  //position: absolute;
+}
+
+.Citation
+{
+  font-size: 12;
+  margin-left: 5px;
 }
 
 .Name
 {
   float: left;
+  margin-top: 2px;
   position: relative;
 }
 
@@ -69,24 +72,27 @@ $my_float: left;
 {
   position: relative;
   float: right;
-  margin-right: 5px;
-  margin-bottom: 2px;
+//  margin-right: 5px;
+  //margin-bottom: 2px;
+  padding: 3px;
 }
 
 .SubDomain
 {
   position: relative;
-  margin-right: 5px;
-  margin-bottom: 2px;
+ // margin-right: 5px;
+  //margin-bottom: 2px;
+  padding: 3px;
   float: right;
 }
 
+$element_pos: relative;
 .GraphInfo
 {
   .Nodes, .NodeType
   {
     float: $my_float;
-    position: relative;
+    position: $element_pos;
     margin-right: 10px;
   }
 
@@ -94,7 +100,7 @@ $my_float: left;
   .Edges, .EdgeType
   {
     float: $my_float;
-    positon: relative;
+    position: $element_pos;
     margin-right: 10px;
   }
 
@@ -102,12 +108,13 @@ $my_float: left;
   {
     float: $my_float;
     margin-right: 10px;
+    position: $element_pos;
   }
 
   margin-left: 30px;
   margin-bottom: 10px;
-  //position: absolute;
-
+  position: absolute;
+  //overflow: hidden;
 }
 
 .gP
