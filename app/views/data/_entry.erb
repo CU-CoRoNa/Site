@@ -50,7 +50,12 @@
 
       <div class="fileInfo">
         <ul class="button-group">
-          <li> <a href="<%= info_entry[:DataLink].attr %>" class="tiny button">Download </a> </li> <!-- TODO color on public -->
+          <% my_button = info_entry[:DataLink] %>
+          <li>
+            <a href="<%= my_button.link %>" class="tiny button <%= my_button.state%>" style="background-color:<%= my_button.color%>">
+              <%= my_button.label %>
+            </a>
+          </li> <!-- TODO color on public -->
           <li> <a href="<%= info_entry[:InfoLink] %>" class="tiny button"> More Info </a> </li>
           <div class="FileSize"> <span class="label"> File Size: <%= info_entry[:FileSize]%></span></div>
           <div class="FileType"> <span class="label">File Type: <%= info_entry[:FileType]%></span></div>

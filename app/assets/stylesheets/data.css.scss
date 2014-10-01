@@ -16,7 +16,10 @@ $my_float: left;
 .t
 {
   background-color: #F7F7F7;
-  border: thin solid lightgrey;
+  border-top:   thin solid lightgrey;
+  border-right: thin solid lightgray;
+  border-left:  thin solid lightgray;
+
   overflow: hidden;
  // margin-top: 20px;
   text-align: center;

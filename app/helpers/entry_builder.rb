@@ -2,7 +2,7 @@ module EntryBuilder
 
   Entry     = Struct.new(:infoEntry,:additionalEntries)
   AttrColor = Struct.new(:attr, :color)
-  Button    = Struct.new(:state, :label, :link)
+  Button    = Struct.new(:state, :label, :color, :link)
 
   @colors = { "social" => "blue", "biological" => "green", "informational" => "orange"}
 
@@ -21,12 +21,12 @@ module EntryBuilder
      data.each_with_index do |group|
         #determin if entry is part of a group or not
         if group.length == 1
-          to_ret.append( Entry.new( format_entry(group[0]) , NIL) )
+          to_ret.append( Entry.new( format_entry(group[0], false) , NIL) )
             #add the single entry to the list
         else
           f_group = []
           group.each_with_index do | entry |
-            f_group.append( format_entry( entry ) )
+            f_group.append( format_entry( entry, true ) )
           end
           to_ret.append( Entry.new( f_group.pop, f_group ))
             #TODO find a better entry to represent the entire group i.e. parse all entries and find
@@ -36,10 +36,20 @@ module EntryBuilder
      return to_ret
   end
 
-  def self.format_entry(e)
+  def self.format_entry(e, isGroup)
     proper_entry = { :Name => e.Name }
-    proper_entry[:Domain]    = AttrColor.new(e.Domain,@colors[e.Domain.downcase])
-    proper_entry[:SubDomain] = AttrColor.new(e.SubDomain,(!@colors[e.Domain.downcase].nil?) ? "light" + @colors[e.Domain.downcase] : "")
+    proper_entry[:Domain]    = AttrColor.new(
+                                              e.Domain,
+                                              (!@colors[e.Domain.downcase].nil?) ?
+                                                @colors[e.Domain.downcase]
+                                                : "grey"
+                                            )
+    proper_entry[:SubDomain] = AttrColor.new(
+                                              e.SubDomain,
+                                              (!@colors[e.Domain.downcase].nil?) ?
+                                                  "light" + @colors[e.Domain.downcase]
+                                                  : "lightgray"
+                                            )
     proper_entry[:Nodes]     = e.Nodes
     proper_entry[:Edges]     = e.Edges
 
@@ -67,10 +77,13 @@ module EntryBuilder
     proper_entry[:GraphFormat]     = e.GraphFormat
     proper_entry[:Citation]        = e.Citation
 
-    if e.Public == true
-      proper_entry[:DataLink] = AttrColor.new(e.DataLink,"gray")
+    puts(e.Public.to_s)
+    if e.Public == 'Yes' && !isGroup
+      proper_entry[:DataLink] = Button.new("","Download","blue",e.DataLink)
+    elsif !isGroup
+      proper_entry[:DataLink] = Button.new("disabled","See Info","gray",e.DataLink)
     else
-      proper_entry[:DataLink] = AttrColor.new(e.DataLink,"blue")
+      proper_entry[:DataLink] = Button.new("","Show More","green",e.DataLink)
     end
 
     return proper_entry
