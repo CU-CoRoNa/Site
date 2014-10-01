@@ -55,12 +55,31 @@
             <a href="<%= my_button.link %>" class="tiny button <%= my_button.state%>" style="background-color:<%= my_button.color%>">
               <%= my_button.label %>
             </a>
-          </li> <!-- TODO color on public -->
+          </li>
           <li> <a href="<%= info_entry[:InfoLink] %>" class="tiny button"> More Info </a> </li>
           <div class="FileSize"> <span class="label"> File Size: <%= info_entry[:FileSize]%></span></div>
           <div class="FileType"> <span class="label">File Type: <%= info_entry[:FileType]%></span></div>
         </ul>
       </div>
+
+      <% if !entry[:additionalEntries].nil? %>
+        <div class="additionalGroup" id="<%= info_entry[:GroupId] %>">
+        <% entry[:additionalEntries].each do |group_entry| %>
+          <% entry_button = group_entry[:DataLink] %>
+            <div class="row" id="additionalGroupEntry">
+              <div class="Name" id="groupN"> <%= group_entry[:Name] %> </div>
+              <ul class="button-group" id="groupButtons">
+                <li>
+                  <a href="<%= entry_button.link %>" class="tiny button <%= entry_button.state%>" >
+                   Download
+                  </a>
+                </li>
+                <li> <a href="<%= info_entry[:InfoLink] %>" class="tiny button"> More Info </a> </li>
+              </ul>
+            </div>
+        <%end%>
+        </div>
+      <%end%>
 
     </div>
 <%end%>

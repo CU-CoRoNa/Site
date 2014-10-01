@@ -79,11 +79,11 @@ module EntryBuilder
 
     puts(e.Public.to_s)
     if e.Public == 'Yes' && !isGroup
-      proper_entry[:DataLink] = Button.new("","Download","blue",e.DataLink)
+      proper_entry[:DataLink] = Button.new("","Download","",e.DataLink)
     elsif !isGroup
-      proper_entry[:DataLink] = Button.new("disabled","See Info","gray",e.DataLink)
+      proper_entry[:DataLink] = Button.new("disabled","See Info","gray","#")
     else
-      proper_entry[:DataLink] = Button.new("","Show More","green",e.DataLink)
+      proper_entry[:DataLink] = Button.new("","Show More","green","javascript:showMore('#{e.GroupId}')")
     end
 
     return proper_entry

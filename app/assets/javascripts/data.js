@@ -16,3 +16,8 @@ $(document).on("page:change", function(){
 
 });
 
+function showMore(arg)
+{
+  $("#" + arg).slideToggle(500);
+}
+

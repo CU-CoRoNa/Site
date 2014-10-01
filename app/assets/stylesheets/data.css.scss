@@ -31,7 +31,7 @@ $my_float: left;
   overflow: hidden;
   background-color: #F7F7F7;
   border: thin solid lightgrey;
-  margin-bottom: 20px;
+  //margin-bottom: 20px;
 
   .FileSize, .FileType
   {
@@ -39,6 +39,16 @@ $my_float: left;
     margin-right: 10px;
   }  //padding: 20px;
 
+}
+
+#groupButtons
+{
+  float: right;
+}
+
+.additional_entries
+{
+  position: relative;
 }
 
 .entry_container
@@ -125,6 +135,24 @@ $element_pos: relative;
   //float: right;
   border-right: thin solid lightgray;
   border-left: thin solid lightgray;
+}
+
+#groupN
+{
+  float: left;
+}
+
+#additionalGroupEntry
+{
+  border-bottom: thin solid lightgray;
+  border-left: thin solid lightgray;
+  border-right: thin solid lightgray;
+  overflow: hidden;
+}
+
+.additionalGroup
+{
+  display: none;
 }
 
 #foo
