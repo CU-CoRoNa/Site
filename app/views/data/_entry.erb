@@ -1,4 +1,4 @@
-<% my_entries = EntryBuilder.get_entries("name NOT NULL") %>
+<% my_entries = EntryBuilder.get_entries %>
 <% my_entries.each do | entry | %>
     <% info_entry = entry[:infoEntry] %>
     <div class="entry_container">

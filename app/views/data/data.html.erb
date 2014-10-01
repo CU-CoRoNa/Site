@@ -1,5 +1,9 @@
 <div class="boxed">
   <p> Our Data Sets </p>
+  <form action = <%= data_path %> method="get">
+      <%= text_field_tag :q, params[:q] %>
+      <%= submit_tag "Search", :name => nil %>
+  </form>
 </div>
 
 <%= render partial: "data/entry" %>

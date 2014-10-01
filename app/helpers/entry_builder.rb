@@ -6,13 +6,8 @@ module EntryBuilder
 
   @colors = { "social" => "blue", "biological" => "green", "informational" => "orange"}
 
-  def self.get_entries(search_query)
-     if search_query.nil?
-       my_q = search_query
-     else
-       my_q = "name NOT NULL"
-     end
-     return process_entries( DataSets.get_groups(my_q) )
+  def self.get_entries
+    return process_entries(DataSets.get_groups("name NOT NULL"))
   end
 
   def self.process_entries(data)
@@ -21,14 +16,14 @@ module EntryBuilder
      data.each_with_index do |group|
         #determin if entry is part of a group or not
         if group.length == 1
-          to_ret.append( Entry.new( format_entry(group[0], false) , NIL) )
+          to_ret.append(Entry.new(format_entry(group[0], false), NIL))
             #add the single entry to the list
         else
           f_group = []
-          group.each_with_index do | entry |
-            f_group.append( format_entry( entry, true ) )
+          group.each_with_index do |entry|
+            f_group.append(format_entry(entry, true))
           end
-          to_ret.append( Entry.new( f_group.pop, f_group ))
+          to_ret.append(Entry.new(f_group.pop, f_group))
             #TODO find a better entry to represent the entire group i.e. parse all entries and find
             #what is different about them
         end

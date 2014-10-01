@@ -4,7 +4,7 @@ class DataSets < ActiveRecord::Base
   validates :GroupId, length:{ minimum: 1 }
     #attemps to remove bad entries
   
-  def self.get_groups( search_by )
+  def self.get_groups(search_by)
     to_ret = []
 
     #gets all of the groups we want
@@ -19,7 +19,13 @@ class DataSets < ActiveRecord::Base
     to_ret
   end
 
-  where("description like ?" "%#{@query}%")
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['description LIKE ?', "%#{search}%"])
+    else
+      find(all)
+    end
+  end
 
   def xml_upload
     puts "Checking for new database entries"
