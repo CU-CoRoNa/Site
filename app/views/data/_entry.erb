@@ -1,5 +1,5 @@
 <% my_entries = EntryBuilder.get_entries %>
-<% my_entries.each do | entry | %>
+<% my_entries.each do |entry| %>
     <% info_entry = entry[:infoEntry] %>
     <div class="entry_container">
 
@@ -37,15 +37,14 @@
             <div class="row">
               <div class="GraphFormat"> <span class="label"> Format: <%= info_entry[:GraphFormat]%></span></div>
             </div>
+            <div><% info_entry[:GraphProperties].split(",").each do |property| %>
+              <span class="label"><%= property.strip %></span>
+            <% end %></div>
 
           </div>
 
         </div>
 
-      </div>
-
-      <div class="gP">
-        <div class="GraphProperties"><%= info_entry[:GraphProperties] %></div>
       </div>
 
       <div class="fileInfo">

@@ -19,14 +19,6 @@ class DataSets < ActiveRecord::Base
     to_ret
   end
 
-  def self.search(search)
-    if search
-      find(:all, :conditions => ['description LIKE ?', "%#{search}%"])
-    else
-      find(all)
-    end
-  end
-
   def xml_upload
     puts "Checking for new database entries"
 

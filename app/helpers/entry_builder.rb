@@ -14,10 +14,10 @@ module EntryBuilder
      to_ret = []
        #collection of formatted entries to be rendered by the view
      data.each_with_index do |group|
-        #determin if entry is part of a group or not
+        #determine if entry is part of a group or not
         if group.length == 1
           to_ret.append(Entry.new(format_entry(group[0], false), NIL))
-            #add the single entry to the list
+          #add the single entry to the list
         else
           f_group = []
           group.each_with_index do |entry|
