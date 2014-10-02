@@ -20,7 +20,7 @@ module EntryBuilder
           #add the single entry to the list
         else
           f_group = []
-          group.each_with_index do |entry|
+          group.each do |entry|
             f_group.append(format_entry(entry, true))
           end
           to_ret.append(Entry.new(f_group.pop, f_group))
@@ -64,22 +64,25 @@ module EntryBuilder
     end
     proper_entry[:Description] = description
 
-    proper_entry[:GraphProperties] = e.GraphProperties # TODO parse and color
+    if isGroup
+      proper_entry[:FileSize] = 'Varies'
+      proper_entry[:DataLink] = Button.new("","Show More","green",\
+                                           "javascript:showMore('#{e.GroupId}')")
+    else
+      proper_entry[:FileSize] = e.FileSize
+      if e.Public == 'Yes'
+        proper_entry[:DataLink] = Button.new("","Download","",e.DataLink)
+      end
+    end
+    proper_entry[:GraphProperties] = e.GraphProperties # TODO color
     proper_entry[:GroupId]         = e.GroupId
     proper_entry[:InfoLink]        = e.InfoLink
-    proper_entry[:FileSize]        = e.FileSize
     proper_entry[:FileType]        = e.FileType
     proper_entry[:GraphFormat]     = e.GraphFormat
     proper_entry[:Citation]        = e.Citation
 
-    puts(e.Public.to_s)
-    if e.Public == 'Yes' && !isGroup
-      proper_entry[:DataLink] = Button.new("","Download","",e.DataLink)
-    elsif !isGroup
-      proper_entry[:DataLink] = Button.new("disabled","See Info","gray","#")
-    else
-      proper_entry[:DataLink] = Button.new("","Show More","green","javascript:showMore('#{e.GroupId}')")
-    end
+    #### Maybe we shouldn't even have a link?
+    #proper_entry[:DataLink] = Button.new("disabled","See Info","gray","#")
 
     return proper_entry
   end
