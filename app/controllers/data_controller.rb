@@ -1,4 +1,7 @@
 class DataController < ApplicationController
+
+  before_filter :index
+
   def data
     return DataSets.new
     @mtime ||= Date.new
@@ -11,4 +14,11 @@ class DataController < ApplicationController
     end
   end
 
+  def index
+    if not params[:q]
+      @results = EntryBuilder.process_entries(DataSets.get_groups("name NOT NULL"))
+    else
+      @results = EntryBuilder.process_entries(DataSets.get_groups(params[:q]))
+    end
+  end
 end
