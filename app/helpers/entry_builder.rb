@@ -6,7 +6,7 @@ module EntryBuilder
 
   @colors = { "social" => "#428F89", "biological" => "#5F6024", "informational" => "#B08B0D"}
 
-  @unknown_dom_color = "dark grey"
+  @unknown_dom_color = "#787878"
   @unknown_sdom_color = "foo"
 
   def self.get_entries
