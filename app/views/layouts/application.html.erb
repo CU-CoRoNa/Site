@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
   <body>
+    <div class="content">
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
@@ -25,6 +26,7 @@
     <div id="content">
       <%= yield %>
       <%= javascript_include_tag "application" %>
+    </div>
     </div>
   </body>
 </html>

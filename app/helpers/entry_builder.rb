@@ -4,7 +4,7 @@ module EntryBuilder
   AttrColor = Struct.new(:attr, :color)
   Button    = Struct.new(:state, :label, :color, :link)
 
-  @colors = { "social" => "#C0C6D8", "biological" => "#D3E0CD", "informational" => "#D5CBAE"}
+  @colors = { "social" => "#428F89", "biological" => "#5F6024", "informational" => "#B08B0D"}
 
   @unknown_dom_color = "#E0E0E0"
   @unknown_sdom_color = "foo"
@@ -70,7 +70,7 @@ module EntryBuilder
 
     if isGroup
       proper_entry[:FileSize] = 'Varies'
-      proper_entry[:DataLink] = Button.new("","Show More","#B8B8B7",
+      proper_entry[:DataLink] = Button.new("","Show More","#68667B",
                                            "javascript:showMore('#{e.GroupId}')")
     else
       proper_entry[:FileSize] = e.FileSize

@@ -36,12 +36,13 @@ function domainFix()
   $(".SubDomain").each(function(){
     var cur_len = $(this).width();
     max_len = (cur_len > max_len) ? cur_len : max_len;
-    var dom_color = hexc($(this).prev().css('backgroundColor'));
-    var new_color = ColorLuminance(dom_color,.05);
-    $(this).css({'backgroundColor': new_color});
+    var dom_color = hexc($(this).prev().css('border-top-color'));
+    var new_color = ColorLuminance(dom_color,.2);
+    $(this).css({'border-top': 'solid' + new_color});
+    $(this).prev().prev().css({'border-top': 'solid' + new_color});
   });
 
-  max_len = 247;
+  max_len = 245;
   $(".SubDomain").each(function(){
     $(this).css({'width': max_len + 'px'});
     //$(this).width(max_len + 5);

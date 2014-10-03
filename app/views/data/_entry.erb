@@ -5,10 +5,10 @@
 
       <div class="t">
         <div class="Name" > <%= info_entry[:Name] %> </div>
-        <div class="Domain" style="background-color: <%= info_entry[:Domain].color %>">
+        <div class="Domain" style="border-top: solid <%= info_entry[:Domain].color %>" id="<%= info_entry[:Domain].color %>">
           <%= info_entry[:Domain].attr %>
         </div>
-        <div class="SubDomain" style="background-color: <%= info_entry[:SubDomain].color %>">
+        <div class="SubDomain" style="border-top: solid <%= info_entry[:SubDomain].color %>">
           <%= info_entry[:SubDomain].attr%>
         </div>
       </div>
@@ -22,7 +22,7 @@
 
         <div class="large-6 columns panel collapse" id="right">
 
-          <div class="GraphInfo">
+          <!-- <div class="GraphInfo"> -->
 
             <div class="row">
               <div class="Nodes"> <span class="my_label"> Nodes: <%= info_entry[:Nodes] %> </span> </div>
@@ -44,7 +44,7 @@
               <% end %>
             </div>
 
-          </div>
+         <!-- </div> -->
 
         </div>
 

@@ -14,14 +14,27 @@
  *= require_self
  *= require foundation_and_overrides
  */
-body
+.content
 {
     margin-top: 20px;
-    width: 800px;
-    padding: 0px;
+    width: 900px;
+    padding: 50px;
     margin-right: auto;
     margin-left: auto;
     text-align: left;
+    -webkit-box-shadow: 0 0 10px rgb(0,0,0);
+    -moz-box-shadow: 0 0 10px rgb(0,0,0);
+    background-color: #E8E9E4;
+}
+
+body
+{
+  background-color: #464646;
+}
+
+nav
+{
+  -webkit-box-shadow: 0 0 10px rgb(129, 129, 129);
 }
 
 #header

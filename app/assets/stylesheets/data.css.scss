@@ -6,14 +6,17 @@
 @import "foundation/components/labels";
 @import "foundation/settings";
 
-$my_float: left;
-//$bg_color: #F7F7F7;
+$my_float: right;
 $bg_color: #F7F7F7;
+$shadow: rgb(111, 111, 111);
+//$bg_color: #DEDED;
 
 .boxed
  {
-   background-color: #F7F7F7;
+   background-color: $bg_color;
    border: thin solid lightgrey;
+   -webkit-box-shadow: 0 0 10px $shadow;
+   -moz-box-shadow: 0 0 10px $shadow;
    //margin-top: 20px;
    //padding: 20px;
  }
@@ -70,8 +73,11 @@ $bg_color: #F7F7F7;
 .entry_container
 {
   background-color: $bg_color;
- // border: thin solid lightgrey;
+  border: thin solid lightgrey;
+  -webkit-box-shadow: 0 0 10px $shadow;
+  -moz-box-shadow: 0 0 10px $shadow;
   margin-top: 20px;
+
 }
 
 div[id*=left], div[id*=right]
@@ -95,9 +101,12 @@ div[id*=left], div[id*=right]
 .Name
 {
   float: left;
-  margin-top: 2px;
-  margin-left: 2px;
-  position: relative;
+  //margin-top: 2px;
+  //margin-left: 2px;
+  //position: relative;
+  padding: 2px;
+  width: 399px;
+  text-align: left;
 }
 
 .Domain
@@ -119,13 +128,14 @@ div[id*=left], div[id*=right]
 }
 
 $element_pos: relative;
-.GraphInfo
-{
+//.GraphInfo
+//{
   .Nodes
   {
     float: $my_float;
     position: $element_pos;
-    margin: 6px;
+    margin-right: 20px;
+    margin-top: 6px;
   }
 
   .NodeType
@@ -166,11 +176,11 @@ $element_pos: relative;
     position: $element_pos;
   }
 
-  margin-left: 15px;
-  margin-bottom: 10px;
-  position: absolute;
+//  padding-left: 30px;
+ // margin-bottom: 10px;
+ // position: absolute;
   //overflow: hidden;
-}
+//}
 
 .gP
 {
