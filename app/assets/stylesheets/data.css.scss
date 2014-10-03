@@ -58,7 +58,7 @@ $my_float: left;
   margin-top: 20px;
 }
 
-#left, #right
+div[id*=left], div[id*=right]
 {
   overflow: hidden;
 }
@@ -71,7 +71,7 @@ $my_float: left;
 .Citation
 {
   font-size: 12;
-  margin-left: 5px;
+  //margin-left: 5px;
 }
 
 .Name
@@ -155,8 +155,3 @@ $element_pos: relative;
   display: none;
 }
 
-#foo
-{
-  display: block;
-  overflow: hidden;
-}

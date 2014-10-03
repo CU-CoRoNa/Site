@@ -6,21 +6,21 @@
       <div class="t">
         <div class="Name" > <%= info_entry[:Name] %> </div>
         <div class="SubDomain" style="background-color: <%= info_entry[:SubDomain].color %>">
-          <%= h(info_entry[:SubDomain].attr).gsub(/\n/, '<br/>')%>
+          <%= info_entry[:SubDomain].attr%>
         </div>
         <div class="Domain" style="background-color: <%= info_entry[:Domain].color %>">
           <%= info_entry[:Domain].attr %>
         </div>
       </div>
 
-      <div class="row" data-equlizer>
+      <div class="row">
 
-        <div class="large-6 columns panel" id="left">
-          <div class="Descriptions"> <%= info_entry[:Description] %> </div>
+        <div class="large-6 columns panel collapse" id="left">
+          <div class="Descriptions" > <%= simple_format(info_entry[:Description])%> </div>
           <div class="Citation"> <%= info_entry[:Citation] %> </div>
         </div>
 
-        <div class="large-6 columns panel" id="right">
+        <div class="large-6 columns panel collapse" id="right">
 
           <div class="GraphInfo">
 
@@ -37,7 +37,7 @@
             <div class="row">
               <div class="GraphFormat"> <span class="label"> Format: <%= info_entry[:GraphFormat]%></span></div>
             </div>
-            <div><% info_entry[:GraphProperties].split(",").each do |property| %>
+            <div class="row"><% info_entry[:GraphProperties].split(",").each do |property| %>
               <span class="label"><%= property.strip %></span>
             <% end %></div>
 
