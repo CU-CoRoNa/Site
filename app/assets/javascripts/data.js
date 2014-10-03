@@ -1,4 +1,3 @@
-//=require jquery.expander.js
 var collapsed_height = 30;
 
 $(document).on("page:change", function(){
