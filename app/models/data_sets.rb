@@ -3,7 +3,7 @@ class DataSets < ActiveRecord::Base
     #ensures only unique entries are added to the db
   validates :GroupId, length:{ minimum: 1 }
     #attemps to remove bad entries
-  
+
   def self.get_groups(search_by)
     to_ret = []
 
