@@ -2,8 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @CHARSET "UTF-8";
+@import "foundation/components/global";
+@import "foundation/components/labels";
+@import "foundation/settings";
 
 $my_float: left;
+//$bg_color: #F7F7F7;
+$bg_color: #F7F7F7;
 
 .boxed
  {
@@ -15,7 +20,7 @@ $my_float: left;
 
 .t
 {
-  background-color: #F7F7F7;
+  background-color: $bg_color;
   border-top:   thin solid lightgrey;
   border-right: thin solid lightgray;
   border-left:  thin solid lightgray;
@@ -29,14 +34,25 @@ $my_float: left;
 .fileInfo
 {
   overflow: hidden;
-  background-color: #F7F7F7;
-  border: thin solid lightgrey;
+  background-color: $bg_color;
+  border-bottom: thin solid lightgrey;
+  border-left: thin solid lightgrey;
+  border-right: thin solid lightgrey;
   //margin-bottom: 20px;
+  height: 30px;
 
-  .FileSize, .FileType
+  .FileSize
   {
     float: right;
-    margin-right: 10px;
+    padding-top: 3px;
+    padding-right: 3px;
+  }
+  .FileType
+  {
+    float: right;
+   // margin-top: 3px;
+    //margin-right: 1px;
+    padding: 3px;
   }  //padding: 20px;
 
 }
@@ -53,7 +69,7 @@ $my_float: left;
 
 .entry_container
 {
-  background-color: #F7F7F7;
+  background-color: $bg_color;
  // border: thin solid lightgrey;
   margin-top: 20px;
 }
@@ -64,20 +80,23 @@ div[id*=left], div[id*=right]
 }
 
 
-.Description
+.Descriptions
 {
+  padding-top: 3px;
+  margin-left: 5px;
 }
 
 .Citation
 {
   font-size: 12;
-  //margin-left: 5px;
+  margin-left: 5px;
 }
 
 .Name
 {
   float: left;
   margin-top: 2px;
+  margin-left: 2px;
   position: relative;
 }
 
@@ -87,7 +106,7 @@ div[id*=left], div[id*=right]
   float: right;
 //  margin-right: 5px;
   //margin-bottom: 2px;
-  padding: 3px;
+  padding: 2px;
 }
 
 .SubDomain
@@ -95,36 +114,59 @@ div[id*=left], div[id*=right]
   position: relative;
  // margin-right: 5px;
   //margin-bottom: 2px;
-  padding: 3px;
+  padding: 2px;
   float: right;
 }
 
 $element_pos: relative;
 .GraphInfo
 {
-  .Nodes, .NodeType
+  .Nodes
   {
     float: $my_float;
     position: $element_pos;
-    margin-right: 10px;
+    margin: 6px;
+  }
+
+  .NodeType
+  {
+    float: $my_float;
+    position: $element_pos;
+    margin-right: 6px;
+    margin-top: 6px;
+    margin-bottom: 6px;
   }
 
 
-  .Edges, .EdgeType
+  .Edges{
+    float: $my_float;
+    margin-left: 6px;
+    position: $element_pos;
+    margin-right: 6px;
+  }
+
+  .EdgeType
   {
     float: $my_float;
     position: $element_pos;
-    margin-right: 10px;
   }
 
   .GraphFormat
   {
     float: $my_float;
-    margin-right: 10px;
+    margin: 6px;
     position: $element_pos;
   }
 
-  margin-left: 30px;
+  .attrs
+  {
+    float: $my_float;
+    margin-left: 6px;
+    margin-right: 1px;
+    position: $element_pos;
+  }
+
+  margin-left: 15px;
   margin-bottom: 10px;
   position: absolute;
   //overflow: hidden;
@@ -154,4 +196,12 @@ $element_pos: relative;
 {
   display: none;
 }
+
+.my_label
+{
+  padding: 2px;
+  background-color: #E0E0E0;
+  border: thin solid lightgray;
+}
+
 

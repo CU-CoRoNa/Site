@@ -5,11 +5,11 @@
 
       <div class="t">
         <div class="Name" > <%= info_entry[:Name] %> </div>
-        <div class="SubDomain" style="background-color: <%= info_entry[:SubDomain].color %>">
-          <%= info_entry[:SubDomain].attr%>
-        </div>
         <div class="Domain" style="background-color: <%= info_entry[:Domain].color %>">
           <%= info_entry[:Domain].attr %>
+        </div>
+        <div class="SubDomain" style="background-color: <%= info_entry[:SubDomain].color %>">
+          <%= info_entry[:SubDomain].attr%>
         </div>
       </div>
 
@@ -25,21 +25,24 @@
           <div class="GraphInfo">
 
             <div class="row">
-              <div class="Nodes"> <span class="label"> Nodes: <%= info_entry[:Nodes] %> </span> </div>
-              <div class="NodeType"><span class="label"> Node Type: <%= info_entry[:NodeType] %> </span> </div>
+              <div class="Nodes"> <span class="my_label"> Nodes: <%= info_entry[:Nodes] %> </span> </div>
+              <div class="NodeType"><span class="my_label"> Node Type: <%= info_entry[:NodeType] %> </span> </div>
             </div>
 
             <div class="row">
-              <div class="Edges"> <span class="label"> Edges: <%= info_entry[:Edges] %> </span> </div>
-              <div class="EdgeType"><span class="label"> Edge Type: <%= info_entry[:EdgeType] %> </span> </div>
+              <div class="Edges"> <span class="my_label"> Edges: <%= info_entry[:Edges] %> </span> </div>
+              <div class="EdgeType"><span class="my_label"> Edge Type: <%= info_entry[:EdgeType] %> </span> </div>
             </div>
 
             <div class="row">
-              <div class="GraphFormat"> <span class="label"> Format: <%= info_entry[:GraphFormat]%></span></div>
+              <div class="GraphFormat"> <span class="my_label"> Format: <%= info_entry[:GraphFormat]%></span></div>
             </div>
-            <div class="row"><% info_entry[:GraphProperties].split(",").each do |property| %>
-              <span class="label"><%= property.strip %></span>
-            <% end %></div>
+
+            <div class="row">
+              <% info_entry[:GraphProperties].split(",").each do |property| %>
+                <div class="attrs"> <span class="my_label"><%= property.strip %></span> </div>
+              <% end %>
+            </div>
 
           </div>
 
@@ -52,14 +55,14 @@
           <% button = info_entry[:DataLink] %>
           <% if button %>
           <li>
-            <a href="<%= button.link %>" class="tiny button <%= button.state%>" style="background-color:<%= button.color%>">
+            <a href="<%= button.link %>" class="tiny button <%= button.state%>" style="background-color: <%= button.color %>">
               <%= button.label %>
             </a>
           </li>
           <%end%>
           <li> <a href="<%= info_entry[:InfoLink] %>" class="tiny button"> More Info </a> </li>
-          <div class="FileSize"> <span class="label"> File Size: <%= info_entry[:FileSize]%></span></div>
-          <div class="FileType"> <span class="label">File Type: <%= info_entry[:FileType]%></span></div>
+          <div class="FileSize"> <span class="my_label"> File Size: <%= info_entry[:FileSize]%></span></div>
+          <div class="FileType"> <span class="my_label">File Type: <%= info_entry[:FileType]%></span></div>
         </ul>
       </div>
 

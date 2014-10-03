@@ -1,8 +1,9 @@
-var collapsed_height = 30;
+var collapsed_height = 35;
 
 $(document).on("page:change", function(){
 
   $(".collapse").height(collapsed_height);
+  domainFix();
 
 });
 
@@ -15,6 +16,37 @@ $('.collapse').hover(function(){
 },function(){
    $(this).css({'background-color': '#F7F7F7'});
 });
+
+function domainFix()
+{
+  var count   = 0;
+  var max_len = 0;
+  $(".Domain").each(function(){
+    var cur_len = $(this).width();
+    max_len = (cur_len > max_len) ? cur_len : max_len;
+  });
+
+
+  max_len = 152;
+  $(".Domain").each(function(){
+    //$(this).width(max_len);
+    $(this).css({'width': max_len + 'px'});
+  });
+
+  $(".SubDomain").each(function(){
+    var cur_len = $(this).width();
+    max_len = (cur_len > max_len) ? cur_len : max_len;
+    var dom_color = hexc($(this).prev().css('backgroundColor'));
+    var new_color = ColorLuminance(dom_color,.05);
+    $(this).css({'backgroundColor': new_color});
+  });
+
+  max_len = 247;
+  $(".SubDomain").each(function(){
+    $(this).css({'width': max_len + 'px'});
+    //$(this).width(max_len + 5);
+  });
+}
 
 function showMore(arg)
 {
@@ -33,7 +65,7 @@ function showHide(elem)
 
   var height_m = Math.max.apply(Math,heights);
 
-  if(old_height == 30)
+  if(old_height <= (collapsed_height + 1))
   {
     console.log("Make Bigger");
     elem.height(height_m);
@@ -41,10 +73,39 @@ function showHide(elem)
   }
   else
   {
-    console.log("Make smaller");
+    console.log("Make smaller: " + old_height);
     elem.height(collapsed_height);
     elem.siblings().height(collapsed_height);
   }
 
 }//end showMore
 
+function ColorLuminance(hex, lum) {
+
+  // validate hex string
+  hex = String(hex).replace(/[^0-9a-f]/gi, '');
+  if (hex.length < 6) {
+    hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+  }
+  lum = lum || 0;
+
+  // convert to decimal and change luminosity
+  var rgb = "#", c, i;
+  for (i = 0; i < 3; i++) {
+    c = parseInt(hex.substr(i*2,2), 16);
+    c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+    rgb += ("00"+c).substr(c.length);
+  }
+
+  return rgb;
+}
+
+function hexc(colorval) {
+    var parts = colorval.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    delete(parts[0]);
+    for (var i = 1; i <= 3; ++i) {
+        parts[i] = parseInt(parts[i]).toString(16);
+        if (parts[i].length == 1) parts[i] = '0' + parts[i];
+    }
+    return '#' + parts.join('');
+}//from https://stackoverflow.com/questions/5999209/how-to-get-the-background-color-code-of-an-element

@@ -4,7 +4,10 @@ module EntryBuilder
   AttrColor = Struct.new(:attr, :color)
   Button    = Struct.new(:state, :label, :color, :link)
 
-  @colors = { "social" => "blue", "biological" => "green", "informational" => "orange"}
+  @colors = { "social" => "#C0C6D8", "biological" => "#D3E0CD", "informational" => "#D5CBAE"}
+
+  @unknown_dom_color = "#E0E0E0"
+  @unknown_sdom_color = "foo"
 
   def self.get_entries
     return process_entries(DataSets.get_groups("name NOT NULL"))
@@ -32,18 +35,19 @@ module EntryBuilder
   end
 
   def self.format_entry(e, isGroup)
+
     proper_entry = { :Name => e.Name }
     proper_entry[:Domain]    = AttrColor.new(
                                               e.Domain,
                                               (!@colors[e.Domain.downcase].nil?) ?
                                                 @colors[e.Domain.downcase]
-                                                : "grey"
+                                                : @unknown_dom_color
                                             )
     proper_entry[:SubDomain] = AttrColor.new(
                                               e.SubDomain,
                                               (!@colors[e.Domain.downcase].nil?) ?
-                                                  "light" + @colors[e.Domain.downcase]
-                                                  : "lightgray"
+                                                   "TODO"
+                                                  : @unknown_sdom_color
                                             )
     proper_entry[:Nodes]     = e.Nodes
     proper_entry[:Edges]     = e.Edges
@@ -66,7 +70,7 @@ module EntryBuilder
 
     if isGroup
       proper_entry[:FileSize] = 'Varies'
-      proper_entry[:DataLink] = Button.new("","Show More","green",\
+      proper_entry[:DataLink] = Button.new("","Show More","#B8B8B7",
                                            "javascript:showMore('#{e.GroupId}')")
     else
       proper_entry[:FileSize] = e.FileSize
