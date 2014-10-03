@@ -1,10 +1,16 @@
 <div class="boxed">
-  <p> Our Data Sets </p>
-  <form action = <%= data_path %> method="get">
-      <%= text_field_tag :q, params[:q] %>
-      <%= submit_tag "Search", :name => nil %>
-  </form>
+<p> Our Data Sets </p>
+<div>
+    <a href="#" class="tiny button">Browse</a>
+    <a href="#" class="tiny button">
+        <form action = <%= data_path %> method="get">
+            <div style="float:left;">
+                <input style="dispay:inline-block;" id="q" type="text">
+            </div>
+            <div style="float:left;">
+                <input style="dispay:inline-block;" type="submit" value="Search">
+            </div>
+        </form>
+    </a>
+    <%= render partial: "data/entry" %>
 </div>
-
-<%= render partial: "data/entry" %>
-
