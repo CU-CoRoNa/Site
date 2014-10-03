@@ -4,15 +4,20 @@ class DataSets < ActiveRecord::Base
   validates :GroupId, length:{ minimum: 1 }
     #attemps to remove bad entries
   
-  def self.get_groups
+  def self.get_groups(search_by)
     to_ret = []
-    DataSets.uniq.pluck(:GroupId).each do |group|
-      to_ret.append(group)
+
+    #gets all of the groups we want
+    DataSets.where(search_by).uniq.pluck(:GroupId).each do |group|
+      group_to_ret = []
+      #goes through all of the groups we want to work with
+      DataSets.where(:GroupId => "#{group}").find_each do |entry|
+         group_to_ret.append(entry)
+      end
+      to_ret.append(group_to_ret)
     end
     to_ret
   end
-
-  where("description like ?" "%#{@query}%")
 
   def xml_upload
     puts "Checking for new database entries"

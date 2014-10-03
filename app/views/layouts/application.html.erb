@@ -6,26 +6,27 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<div id="header">
-    <div class="pure-menu pure-menu-open pure-menu-horizontal">
-      <a class="pure-menu-heading">CoRoNa</a>
-      <ui>
-        <li> <%= link_to 'Home' , root_path %> </li>
-        <li> <%= link_to 'Data' , data_path %> </li>
-        <li> <%= link_to 'About', about_path %> </li>
-        <li> <%= link_to 'FAQ' , faq_path %> </li>
-        <li><form action = <%= data_path %> method="get">
-            <%= text_field_tag :search, params[:search] %>
-            <%= submit_tag "Search", :name => nil %>
-        </form></li>
-      </ui>
+  <body>
+    <div class="content">
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a>My Site</a></h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="left">
+          <li> <%= link_to 'Home' , root_path %> </li>
+          <li> <%= link_to 'Data' , data_path %> </li>
+          <li> <%= link_to 'About', about_path %> </li>
+          <li> <%= link_to 'FAQ' , faq_path %> </li>
+        </ul>
+      </section>
+    </nav>
+    <div id="content">
+      <%= yield %>
+      <%= javascript_include_tag "application" %>
     </div>
-</div>
-<div id="content">
-    <%= yield %>
-</div>
-
-</body>
+    </div>
+  </body>
 </html>

@@ -10,4 +10,5 @@ class DataController < ApplicationController
       xml_f
     end
   end
+
 end

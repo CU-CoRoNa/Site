@@ -17,7 +17,7 @@ class CreateDataSets < ActiveRecord::Migration
       t.string  :FileType
       t.string  :GraphFormat
       t.string  :Citation
-      t.boolean :Public
+      t.string  :Public
       t.timestamps
     end
   end
