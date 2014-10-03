@@ -150,9 +150,10 @@ $element_pos: relative;
 
   .Edges{
     float: $my_float;
-    margin-left: 6px;
     position: $element_pos;
-    margin-right: 6px;
+    margin-right: 20px;
+    margin-left: 6px;
+    margin-bottom: 6px;
   }
 
   .EdgeType
@@ -164,15 +165,15 @@ $element_pos: relative;
   .GraphFormat
   {
     float: $my_float;
-    margin: 6px;
     position: $element_pos;
+    margin-right: 20px;
+    margin-bottom: 6px;
   }
 
   .attrs
   {
     float: $my_float;
-    margin-left: 6px;
-    margin-right: 1px;
+    margin-right: 20px;
     position: $element_pos;
   }
 
