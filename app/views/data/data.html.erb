@@ -1,5 +1,7 @@
 <div class="boxed">
-<p> Our Data Sets </p>
+  <p> Our Data Sets | Descriptive Stats here </p>
+</div>
+
 <dl class="tabs" data-tab>
     <dd class="active"><a href="#browse">Browse</a></dd>
     <dd><a href="#search">Search</a></dd>
@@ -8,7 +10,7 @@
     <div class="content active" id="browse">
         <%= render partial: "data/entry" %>
     </div>
-    <div class="content" id=search>
+    <div class="content " id=search>
         <form action = <%= data_path %> method="get">
             <%= text_field_tag :q, params[:q] %>
             <%= submit_tag "Search", :name => nil %>

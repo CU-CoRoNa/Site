@@ -18,7 +18,9 @@ $shadow: rgb(111, 111, 111);
    -webkit-box-shadow: 0 0 10px $shadow;
    border: thin solid lightgrey;
    margin-top: 20px;
-   padding: 20px; -moz-box-shadow: 0 0 10px $shadow;
+   margin-bottom: 20px;
+   padding: 20px;
+  -moz-box-shadow: 0 0 10px $shadow;
    //margin-top: 20px;
    //padding: 20px;
  }
