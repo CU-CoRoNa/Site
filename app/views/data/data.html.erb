@@ -14,6 +14,32 @@
     <div class="content " id=search>
         <form action = <%= data_path %> method="get">
             <%= text_field_tag :q, params[:q] %>
+            <table><tr>
+              <td>
+                Subject:<br>
+                <%= check_box_tag :bio, params[:bio] %> Biology <br>
+                <%= check_box_tag :soc, params[:soc] %> Sociology <br>
+                <%= check_box_tag :other, params[:other] %> Other <br>
+              </td>
+              <td>
+                File Type:<br>
+                <%= check_box_tag :txt, params[:txt] %> Text <br>
+                <%= check_box_tag :gml, params[:gml] %> Graph Markup Language <br>
+                <%= check_box_tag :xlsx, params[:xlsx] %> Excel <br>
+              </td>
+              <td>
+                File Size:<br>
+                <%= check_box_tag :b, params[:b] %> less than 1 KB<br>
+                <%= check_box_tag :k, params[:k] %> between 1 KB and 1 MB<br>
+                <%= check_box_tag :m, params[:m] %> greater than 1 MB <br>
+              </td>
+              <td>
+                Number of Nodes:<br>
+                <%= check_box_tag :zero, params[:zero] %> n < 100 <br>
+                <%= check_box_tag :hundred, params[:hundred] %> 100 <= n < 1000 <br>
+                <%= check_box_tag :thousand, params[:thousand] %> 1000 < n <br>
+              </td>
+            </table></tr>
             <%= submit_tag "Search", :name => nil %>
         </form>
         <%= render partial: "data/entry" %>
