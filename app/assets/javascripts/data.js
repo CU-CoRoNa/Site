@@ -51,7 +51,7 @@ function domainFix()
 
 function showMore(arg)
 {
-  $("#" + arg).slideToggle(500);
+  $("div[id='" + arg + "']").slideToggle(500);
 }//end showMore
 
 function showHide(elem)

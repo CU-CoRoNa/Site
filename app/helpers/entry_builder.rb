@@ -53,14 +53,14 @@ module EntryBuilder
     proper_entry[:Edges]     = e.Edges
 
     description = e.Description
-    if e.NodeType.length > 15
+    if !e.NodeType.nil? && e.NodeType.length > 15
       description += " \n Node Type: " + e.NodeType
       proper_entry[:NodeType] = "See Description"
     else
       proper_entry[:NodeType] = e.NodeType
     end
 
-    if e.EdgeType.length > 15
+    if !e.EdgeType.nil? && e.EdgeType.length > 15
       description += " \n Edge Type: " + e.EdgeType
       proper_entry[:EdgeType] = "See Description"
     else

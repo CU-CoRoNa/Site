@@ -1,5 +1,6 @@
 class DataSets < ActiveRecord::Base
   validates :Name , uniqueness: true
+  #validates :Name, blank: false
     #ensures only unique entries are added to the db
   validates :GroupId, length:{ minimum: 1 }
     #attemps to remove bad entries
@@ -22,7 +23,7 @@ class DataSets < ActiveRecord::Base
   def xml_upload
     puts "Checking for new database entries"
 
-    xml_data = File.open("#{Rails.root}/db/DataSetsExcel.xml")
+    xml_data = File.open("#{Rails.root}/db/DataSetsExcel_In_Progress.xml")
     doc = Nokogiri::XML(xml_data)
 
     xml_data_entries = doc.xpath("//DataSet")
@@ -37,6 +38,7 @@ class DataSets < ActiveRecord::Base
         case element.name
           when 'Name'
             to_database.Name = element.text
+            puts element.text
           when 'Description'
             to_database.Description= element.text
           when 'Domain'
@@ -70,8 +72,8 @@ class DataSets < ActiveRecord::Base
           when 'Public'
             to_database.Public = element.text
         end
-      end
       to_database.save
+      end
     end
   end
 end
