@@ -1,6 +1,6 @@
 <% @results.each do |entry| %>
     <% info_entry = entry[:infoEntry] %>
-    <div class="entry_container">
+    <div class="entry_container" id="<%=@element_id%>">
 
       <div class="t">
         <div class="Name" > <%= info_entry[:Name] %> </div>

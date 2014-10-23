@@ -1,4 +1,5 @@
 Site::Application.routes.draw do
+  patch "get_entry", to:"data#get_next_results"
   get "faq", to: "faq"
   get "about", to: "about"
   get "data", to: "data"

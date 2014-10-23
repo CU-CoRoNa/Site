@@ -2,16 +2,17 @@
   <p> Our Data Sets | Descriptive Stats here </p>
 </div>
 
-<dl class="tabs" data-tab>
-    <dd class="active"><a href="#browse">Browse</a></dd>
-    <dd><a href="#search">Search</a></dd>
-</dl>
+<ul class="tabs" data-tab>
+    <li class="tab-link current" data-tab="tab-1">Browse</li>
+    <li class="tab-link" data-tab="tab-2">Search</li>
+</ul>
 
 <div class="tabs-content">
-    <div class="content active" id="browse">
-        <%= render partial: "data/entry" %>
+    <div class="tab-content current" id="tab-1">
+      <a href="#" class="tiny button active" id="test_button">TEST</a>
+        <%= render partial: "data/entry", remote: true %>
     </div>
-    <div class="content " id=search>
+    <div class="tab-content" id="tab-2">
         <form action = <%= data_path %> method="get">
             <%= text_field_tag :q, params[:q] %>
             <table><tr>
