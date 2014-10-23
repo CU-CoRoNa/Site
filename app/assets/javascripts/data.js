@@ -1,6 +1,7 @@
 
 var collapsed_height = 35;
 var current_query = "name NOT NULL";
+
 $(document).on("page:change", function(){
 
   $('ul.tabs li').click(function(){
@@ -13,53 +14,50 @@ $(document).on("page:change", function(){
       $("#"+tab_id).addClass('current');
   });
 
-  $(".collapse").height(collapsed_height);
-  domainFix();
+});
 
+//this function runs twice for some reason...
+//yet another reason to get rid of turbo links
+$(function(){
+    var num_display = $(document).height() / 400;
+        //value determined by the prestigious school of hard knocks
+    for(i = 0; i < num_display; i++)
+    {
+      get_next();
+    }
 });
 
 $(window).scroll(function() {
     if( $(window).scrollTop() == $(document).height() - $(window).height()) {
-       $.ajax({
-          url: '/get_entry',
-          type:"PATCH",
-          async: false,
-          data: {id: $(".entry_container:last").attr('id'), query: current_query},
-          success: function(html){
-          $('.tab-content').append(html);
-            $(".collapse").height(collapsed_height);
-             domainFix();
-          }
-        });
+        get_next();
     }
 });
 
-
-$('#test_button').on('click',function(){
-   console.log($(".entry_container:last").attr('id'));
-   $.ajax({
+//eventually replace with json request
+//and add an interface for rendering
+//each element so people who are better
+//at web design wont kill me
+function get_next()
+{
+  $.ajax({
     url: '/get_entry',
     type:"PATCH",
+    async: false,
     data: {id: $(".entry_container:last").attr('id'), query: current_query},
     success: function(html){
-      $('.tab-content').append(html);
-      $(".collapse").height(collapsed_height);
-      domainFix();
+    $('.tab-content').append(html);
+       $(".collapse").height(collapsed_height);
+       domainFix();
+        //TODO move this to server side of things
     }
   });
-});
 
-
-
-$('.collapse').on('click',function(event){
-    showHide($(this));
-});
-
-$('.collapse').hover(function(){
-   $(this).css({'background-color' : '#F0F0F0'});
-},function(){
-   $(this).css({'background-color': '#F7F7F7'});
-});
+  $('.collapse').hover(function(){
+     $(this).css({'background-color' : '#F0F0F0'});
+  },function(){
+     $(this).css({'background-color': '#F7F7F7'});
+  });
+}
 
 function domainFix()
 {
@@ -70,10 +68,8 @@ function domainFix()
     max_len = (cur_len > max_len) ? cur_len : max_len;
   });
 
-
   max_len = 152;
   $(".Domain").each(function(){
-    //$(this).width(max_len);
     $(this).css({'width': max_len + 'px'});
   });
 
@@ -88,8 +84,7 @@ function domainFix()
 
   max_len = 241;
   $(".SubDomain").each(function(){
-    $(this).css({'width': max_len + 'px'});
-    //$(this).width(max_len + 5);
+    $(this).css({'width': max_len + "px"});
   });
 }
 
@@ -98,8 +93,9 @@ function showMore(arg)
   $("div[id='" + arg + "']").slideToggle(500);
 }//end showMore
 
-function showHide(elem)
+function showHide(elem_r)
 {
+  var elem = $(elem_r);
   var old_height = elem.height();
   elem.css({'height': 'auto'});
   heights = [elem.height()];
@@ -112,21 +108,17 @@ function showHide(elem)
 
   if(old_height <= (collapsed_height + 1))
   {
-    console.log("Make Bigger");
     elem.height(height_m);
     elem.siblings().height(height_m);
   }
   else
   {
-    console.log("Make smaller: " + old_height);
     elem.height(collapsed_height);
     elem.siblings().height(collapsed_height);
   }
-
 }//end showMore
 
 function ColorLuminance(hex, lum) {
-
   // validate hex string
   hex = String(hex).replace(/[^0-9a-f]/gi, '');
   if (hex.length < 6) {
@@ -141,7 +133,6 @@ function ColorLuminance(hex, lum) {
     c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
     rgb += ("00"+c).substr(c.length);
   }
-
   return rgb;
 }
 

@@ -16,15 +16,15 @@ class DataController < ApplicationController
   end
 
   def index
-  if not params[:q]
-      @all = DataSets.get_groups("name NOT NULL")
-      @element_id = 0
-      @results = EntryBuilder.process_entries( @all[1] )
-    else
-      @element_id = 0
-      @all = DataSets.get_groups(params[:q])
-      @results = EntryBuilder.process_entries( @all[1] )
-    end
+   #if not params[:q]
+   #   @all = DataSets.get_groups("name NOT NULL")
+   #   @element_id = 0
+   #   @results = EntryBuilder.process_entries( @all[1] )
+   # else
+   #   @element_id = 0
+   #   @all = DataSets.get_groups(params[:q])
+   #   @results = EntryBuilder.process_entries( @all[1] )
+   # end
   end
 
   # sends only the entries you want having no better way to preserver state
@@ -32,7 +32,9 @@ class DataController < ApplicationController
   # sends us the latest entry they have and we return the next one
   # this means there are a lot of unneeded and redundant database calls
   # if a new query is requested the client must reset the entry_id to zero
-  #
+  # TODO will run off edge of results
+  # also if a new query is asked for i.e id = 0 then find a way to render the rest of the results or
+  # something
   def get_next_results
     q = (params[:query].nil?) ? 'name NOT NULL' : params[:query]
     index = params[:id].to_i

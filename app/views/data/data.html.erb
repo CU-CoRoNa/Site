@@ -9,11 +9,9 @@
 
 <div class="tabs-content">
     <div class="tab-content current" id="tab-1">
-      <a href="#" class="tiny button active" id="test_button">TEST</a>
-        <%= render partial: "data/entry", remote: true %>
     </div>
     <div class="tab-content" id="tab-2">
-        <form action = <%= data_path %> method="get">
+        <form action = <%= data_path %> method="get" >
             <%= text_field_tag :q, params[:q] %>
             <table><tr>
               <td>
@@ -41,8 +39,7 @@
                 <%= check_box_tag :thousand, params[:thousand] %> 1000 < n <br>
               </td>
             </table></tr>
-            <%= submit_tag "Search", :name => nil %>
+             <%= submit_tag "Search", :name => nil %>
         </form>
-        <%= render partial: "data/entry" %>
     </div>
 </div>
