@@ -22,6 +22,36 @@ class DataSets < ActiveRecord::Base
     to_ret
   end
 
+  def self.get_browse_info(params)
+
+    re = DataSets.where('Domain LIKE ?'  , params[:domain]).
+                  where('FileType LIKE ?', params[:file_type]).
+                  where('GroupId LIKE ?', params[:group])
+
+    node_range = [ re.minimum('Nodes'), re.maximum('Nodes') ]
+    edge_range = [ re.minimum('Edges'), re.maximum('Edges') ]
+
+    puts(params[:nodes].to_f)
+    log_to_n = ((params[:nodes].to_f+1)**10)/2
+    log_to_e = ((params[:edges].to_f+1)**10)/2
+
+    re = re.where('Nodes > ?'      , log_to_n).
+            where('Edges > ?'      , log_to_e)
+
+    normal_node_range = [Math.log10(node_range[0]+1),Math.log10(node_range[1]+1)]
+    normal_edge_range = [Math.log10(edge_range[0]+1),Math.log10(edge_range[1]+1)]
+
+    file_range = [ re.minimum('FileSize'), re.maximum('FileSize')]
+    domains    = re.uniq.pluck(:Domain)
+    groups     = re.uniq.pluck(:GroupId)
+    file_types = re.uniq.pluck(:FileType)
+
+    query      = re.to_sql.split('WHERE').last
+
+    return {nr:normal_node_range, er:normal_edge_range, fr:file_range, ds:domains, gs:groups, ft:file_types, q:query}
+
+  end
+
   def xml_upload
     puts "Checking for new database entries"
 

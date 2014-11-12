@@ -17,13 +17,3 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
-//window.onload = function() {
-//};
-var ready = function()
-{
-    $(document).foundation();
-}
-
-$(document).ready(ready);
-$(document).on('page:load',ready);
-$(document).on('page:change',ready);

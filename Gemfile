@@ -38,6 +38,8 @@ gem 'foundation-rails', '5.4.2'
 #Xml helper
 gem 'nokogiri'
 
+gem 'lodash-rails'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
