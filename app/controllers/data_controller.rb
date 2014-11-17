@@ -4,7 +4,6 @@ class DataController < ApplicationController
   respond_to :html, :js
 
   def data
-    return DataSets.new
     @mtime ||= Date.new
     
     # Check for XML update
@@ -13,6 +12,7 @@ class DataController < ApplicationController
       xml_f.xml_upload
       xml_f
     end
+    return DataSets.new
   end
 
   def index
@@ -49,10 +49,6 @@ class DataController < ApplicationController
 
   end
 
-  def new_query(q)
-   @all = DataSets.get_groups(q)
-  end
-
   def do_browse
 
     d  = params[:domain].split(',')
@@ -71,7 +67,7 @@ class DataController < ApplicationController
         fs = (fs.to_i == -1)     ? 'infinity' : fs
         ft = (ft      =~ /^All/ ) ? '%' : ft.strip
 
-        responce = DataSets.get_browse_info({
+        response = DataSets.get_browse_info({
           domain:d,
           group:g,
           nodes:n,
@@ -80,7 +76,7 @@ class DataController < ApplicationController
           file_type:ft
         })
 
-        format.json{ render :json => responce}
+        format.json{ render :json => response}
 
       end
         #end arg check

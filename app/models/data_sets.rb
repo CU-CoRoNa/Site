@@ -4,6 +4,9 @@ class DataSets < ActiveRecord::Base
     #ensures only unique entries are added to the db
   validates :GroupId, length:{ minimum: 1 }
     #attemps to remove bad entries
+  searchable do
+    text :Name, :Description, :Domain, :SubDomain, :Citation
+  end
 
   def self.get_groups(search_by)
     to_ret = Hash.new
