@@ -5,6 +5,7 @@
 @import "foundation/components/global";
 @import "foundation/components/labels";
 @import "foundation/settings";
+@import "jquery.nouislider";
 
 $my_float: right;
 $bg_color: #F7F7F7;
@@ -15,10 +16,12 @@ $shadow: rgb(111, 111, 111);
  {
    background-color: $bg_color;
    border: thin solid lightgrey;
-   -webkit-box-shadow: 0 0 10px $shadow;
+  // -webkit-box-shadow: 0 0 10px $shadow;
    border: thin solid lightgrey;
    margin-top: 20px;
-   padding: 20px; -moz-box-shadow: 0 0 10px $shadow;
+   margin-bottom: 20px;
+   padding: 20px;
+ // -moz-box-shadow: 0 0 10px $shadow;
    //margin-top: 20px;
    //padding: 20px;
  }
@@ -76,8 +79,8 @@ $shadow: rgb(111, 111, 111);
 {
   background-color: $bg_color;
   border: thin solid lightgrey;
-  -webkit-box-shadow: 0 0 10px $shadow;
-  -moz-box-shadow: 0 0 10px $shadow;
+ // -webkit-box-shadow: 0 0 10px $shadow;
+ // -moz-box-shadow: 0 0 10px $shadow;
   margin-top: 20px;
 
 }
@@ -217,4 +220,35 @@ $element_pos: relative;
   border: thin solid lightgray;
 }
 
+ul.tabs{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+ul.tabs li{
+  background: slategray;
+  color: #ffffff;
+  display: inline-block;
+  float: left;
+  padding: 10px 0px;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+}
+
+ul.tabs li.current{
+  background: #68667B;
+  color: #ffffff;
+}
+
+.tab-content{
+  display: none;
+  background: #ededed;
+  padding: 20px;
+  border: thick solid #68667B;
+}
+
+.tab-content.current{
+  display: inherit;
+}
 

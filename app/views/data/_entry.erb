@@ -1,6 +1,6 @@
 <% @results.each do |entry| %>
     <% info_entry = entry[:infoEntry] %>
-    <div class="entry_container">
+    <div  class="entry_container" id="<%=@element_id%>">
 
       <div class="t">
         <div class="Name" > <%= info_entry[:Name] %> </div>
@@ -14,12 +14,12 @@
 
       <div class="row">
 
-        <div class="large-6 columns panel collapse" id="left">
+        <div onclick="showHide(this)" class="large-6 columns panel collapse" id="left">
           <div class="Descriptions" > <%= simple_format(info_entry[:Description])%> </div>
           <div class="Citation"> <%= info_entry[:Citation] %> </div>
         </div>
 
-        <div class="large-6 columns panel collapse" id="right">
+        <div onclick="showHide(this)" class="large-6 columns panel collapse" id="right">
 
           <!-- <div class="GraphInfo"> -->
 

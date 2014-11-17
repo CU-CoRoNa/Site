@@ -14,11 +14,11 @@
  *= require_self
  *= require foundation_and_overrides
  */
-.content
+.index
 {
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 950;
+    width: 946px;
     padding: 50px;
     margin-right: auto;
     margin-left: auto;
@@ -33,10 +33,6 @@ body
   background-color: #464646;
 }
 
-nav
-{
-  -webkit-box-shadow: 0 0 10px rgb(129, 129, 129);
-}
 
 #header
 {

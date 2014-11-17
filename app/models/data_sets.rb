@@ -1,28 +1,61 @@
 class DataSets < ActiveRecord::Base
   validates :Name , uniqueness: true
+  #validates :Name, blank: false
     #ensures only unique entries are added to the db
   validates :GroupId, length:{ minimum: 1 }
     #attemps to remove bad entries
 
   def self.get_groups(search_by)
-    to_ret = []
+    to_ret = Hash.new
 
     #gets all of the groups we want
+    count = 0
     DataSets.where(search_by).uniq.pluck(:GroupId).each do |group|
       group_to_ret = []
       #goes through all of the groups we want to work with
       DataSets.where(:GroupId => "#{group}").find_each do |entry|
          group_to_ret.append(entry)
       end
-      to_ret.append(group_to_ret)
+      to_ret[count] = group_to_ret
+      count+= 1
     end
     to_ret
+  end
+
+  def self.get_browse_info(params)
+
+    re = DataSets.where('Domain LIKE ?'  , params[:domain]).
+                  where('FileType LIKE ?', params[:file_type]).
+                  where('GroupId LIKE ?', params[:group])
+
+    node_range = [ re.minimum('Nodes'), re.maximum('Nodes') ]
+    edge_range = [ re.minimum('Edges'), re.maximum('Edges') ]
+
+    puts(params[:nodes].to_f)
+    log_to_n = ((params[:nodes].to_f+1)**10)/2
+    log_to_e = ((params[:edges].to_f+1)**10)/2
+
+    re = re.where('Nodes > ?'      , log_to_n).
+            where('Edges > ?'      , log_to_e)
+
+    normal_node_range = [Math.log10(node_range[0]+1),Math.log10(node_range[1]+1)]
+    normal_edge_range = [Math.log10(edge_range[0]+1),Math.log10(edge_range[1]+1)]
+
+    file_range = [ re.minimum('FileSize'), re.maximum('FileSize')]
+    domains    = re.uniq.pluck(:Domain)
+    groups     = re.uniq.pluck(:GroupId)
+    file_types = re.uniq.pluck(:FileType)
+
+    query      = re.to_sql.split('WHERE').last
+
+    return {nr:normal_node_range, er:normal_edge_range, fr:file_range, ds:domains, gs:groups, ft:file_types, q:query}
+
   end
 
   def xml_upload
     puts "Checking for new database entries"
 
-    xml_data = File.open("#{Rails.root}/db/DataSetsExcel.xml")
+    xml_data = File.open("#{Rails.root}/db/DataSetsExcel_In_Progress.xml")
     doc = Nokogiri::XML(xml_data)
 
     xml_data_entries = doc.xpath("//DataSet")
@@ -37,6 +70,7 @@ class DataSets < ActiveRecord::Base
         case element.name
           when 'Name'
             to_database.Name = element.text
+            puts element.text
           when 'Description'
             to_database.Description= element.text
           when 'Domain'
@@ -70,8 +104,8 @@ class DataSets < ActiveRecord::Base
           when 'Public'
             to_database.Public = element.text
         end
-      end
       to_database.save
+      end
     end
   end
 end

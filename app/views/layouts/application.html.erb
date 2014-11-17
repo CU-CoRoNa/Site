@@ -7,11 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
   <body>
-    <div class="content">
+    <div class="content index">
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a>My Site</a></h1>
+          <h1><a>CoRoNA</a></h1>
         </li>
       </ul>
       <section class="top-bar-section">
@@ -23,10 +23,7 @@
         </ul>
       </section>
     </nav>
-    <div id="content">
       <%= yield %>
-      <%= javascript_include_tag "application" %>
-    </div>
     </div>
   </body>
 </html>
