@@ -49,6 +49,13 @@ class DataController < ApplicationController
 
   end
 
+  def do_search
+    response = Datasets.search do
+      fulltext 'social'
+    end
+    format.json { render :json => response }
+  end
+
   def do_browse
 
     d  = params[:domain].split(',')

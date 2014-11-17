@@ -38,7 +38,17 @@ $(document).on("page:change", function(){
 
    //get the first default results (NAME NOT NULL)
   do_browse(this);
+});
 
+$(document).on("click", "li.tab-link.current", function() {
+  if ($(this).attr('data-tab') === "tab-2")
+  {
+    do_search(this);
+  }
+  else
+  {
+    do_browse(this);
+  }
 });
 
 //loads database elements as user scrolls
@@ -76,10 +86,27 @@ function get_next()
   });
 }
 
+function do_search(caller)
+{
+  console.log("SEARCHING WTFBBQ");
+  //sends the current browse settings to the server
+  $.ajax({
+    url: '/do_search',
+    type: "PATCH",
+    async: false,
+    data: {
+      search:$("#query").text(),
+    },
+    success: function(json) {
+      update_browse(json, caller);
+    }
+  });
+}
+
 
 function do_browse(caller)
 {
-  //sends the current brose settings to the server
+  //sends the current browse settings to the server
   $.ajax({
     url: '/do_browse',
     type: "PATCH",
