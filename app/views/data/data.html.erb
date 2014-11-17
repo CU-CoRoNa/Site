@@ -1,69 +1,69 @@
 <div class="boxed">
-  <p> Our Data Sets | Descriptive Stats here </p>
+<p> Our Data Sets | Descriptive Stats here </p>
 </div>
 
 <ul class="tabs" data-tab>
-    <li class="tab-link current" data-tab="tab-1">Browse</li>
-    <li class="tab-link" data-tab="tab-2">Search</li>
+  <li class="tab-link current" data-tab="tab-1">Browse</li>
+  <li class="tab-link" data-tab="tab-2">Search</li>
 </ul>
 
 <div class="tabs-content">
-    <div class="tab-content current" id="tab-1">
+  <div class="tab-content current" id="tab-1">
 
-      <table>
+    <table>
 
-        <tr>
+      <tr>
 
         <td><label>Network Type
-          <select id="Type">
-           <option value="All">All</option>
-          </select>
-        </label>
+            <select id="Type">
+              <option value="All">All</option>
+            </select>
+          </label>
 
-        <label> Group
-          <select id="Group">
-           <option value="All">All</option>
-          </select>
-        </label></td>
+          <label> Group
+            <select id="Group">
+              <option value="All">All</option>
+            </select>
+          </label></td>
 
-        <td>
-        <label>
-          Nodes: <span id="nodeSliderVal"></span>
-          Min: <span id="nodeMin"></span>
-          Max: <span id="nodeMax"></span>
-          <div class="slider" id="nodes"></div>
-        </label><br>
+          <td>
+            <label>
+              Nodes: <span id="nodeSliderVal"></span>
+              Min: <span id="nodeMin"></span>
+              Max: <span id="nodeMax"></span>
+              <div class="slider" id="nodes"></div>
+            </label><br>
 
-        <label>
-          Edges: <span id="edgeSliderVal"></span>
-          Min: <span id="edgeMin"></span>
-          Max: <span id="edgeMax"></span>
-          <div class="slider" id="edges"></div>
-        </label>
-        </td>
+            <label>
+              Edges: <span id="edgeSliderVal"></span>
+              Min: <span id="edgeMin"></span>
+              Max: <span id="edgeMax"></span>
+              <div class="slider" id="edges"></div>
+            </label>
+          </td>
 
-        <td><label>
-          Size: <span id="sizeSliderVal"></span>
-          Min: <span id="sizeMin"></span>
-          Max: <span id="sizeMax"></span>
-          <div class ="slider" id="file_size"></div>
-        </label><br> <!-- TODO fix alignment -->
+          <td><label>
+              Size: <span id="sizeSliderVal"></span>
+              Min: <span id="sizeMin"></span>
+              Max: <span id="sizeMax"></span>
+              <div class ="slider" id="file_size"></div>
+            </label><br> <!-- TODO fix alignment -->
 
-        <label> FileType
-        <select id="FileType">
-           <option value="All">All</option>
-        </select>
-        </label>
+            <label> FileType
+              <select id="FileType">
+                <option value="All">All</option>
+              </select>
+            </label>
 
-        </td>
-        </tr>
+          </td>
+      </tr>
 
-      </table>
+    </table>
 
-    </div>
-    <div class="tab-content" id="tab-2">
-        <form action = <%= data_path %> method="get" >
-            <%= text_field_tag :query %>
-        </form>
-    </div>
+  </div>
+  <div class="tab-content" id="tab-2">
+    <form id="search-bar" onsubmit="return process_search();">
+      <input id="query" type="text"></input>
+    </form>
+  </div>
 </div>

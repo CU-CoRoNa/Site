@@ -3,6 +3,7 @@
 
 var collapsed_height = 35;
 var current_query = "name NOT NULL";
+var tab = 'tab-1';
 
 $(document).on("page:change", function(){
 
@@ -40,16 +41,11 @@ $(document).on("page:change", function(){
   do_browse(this);
 });
 
-$(document).on("click", "li.tab-link.current", function() {
-  if ($(this).attr('data-tab') === "tab-2")
-  {
-    do_search(this);
-  }
-  else
-  {
-    do_browse(this);
-  }
-});
+function process_search() {
+  query = document.getElementById("query").value;
+  search(this, query);
+  return false;
+}
 
 //loads database elements as user scrolls
 $(window).scroll(function() {
@@ -86,19 +82,18 @@ function get_next()
   });
 }
 
-function do_search(caller)
+function search(caller, query)
 {
-  console.log("SEARCHING WTFBBQ");
-  //sends the current browse settings to the server
+  console.log("SEARCHING WTFBBQ: " + query);
   $.ajax({
     url: '/do_search',
     type: "PATCH",
     async: false,
     data: {
-      search:$("#query").text(),
+      search:query
     },
     success: function(json) {
-      update_browse(json, caller);
+      console.log(json);
     }
   });
 }
