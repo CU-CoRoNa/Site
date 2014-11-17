@@ -5,7 +5,7 @@ class DataController < ApplicationController
 
   def data
     @mtime ||= Date.new
-    
+
     # Check for XML update
     if @mtime > File.mtime("db/DataSetsExcel_In_Progress.xml")
       xml_f = DataSets.new
@@ -16,15 +16,6 @@ class DataController < ApplicationController
   end
 
   def index
-  #if not params[:q]
-  #  @all = DataSets.get_groups("name NOT NULL")
-  #  @element_id = 0
-  #  @results = EntryBuilder.process_entries( @all[1] )
-  # else
-  #  @element_id = 0
-  #  @all = DataSets.get_groups(params[:q])
-  #  @results = EntryBuilder.process_entries( @all[1] )
-  #end
   end
 
   # sends only the entries you want having no better way to preserver state
@@ -50,10 +41,12 @@ class DataController < ApplicationController
   end
 
   def do_search
-    response = Datasets.search do
-      fulltext 'social'
+    respond_to do |format|
+      response = DataSets.search do
+        fulltext params[:query]
+      end
+      format.json { render :json => response.results }
     end
-    format.json { render :json => response }
   end
 
   def do_browse
@@ -86,10 +79,10 @@ class DataController < ApplicationController
         format.json{ render :json => response}
 
       end
-        #end arg check
+      #end arg check
 
     end
-      #end respond to
+    #end respond to
 
   end
 

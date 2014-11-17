@@ -33,12 +33,14 @@ gem 'jbuilder', '~> 1.2'
 #for nice looking web pages
 gem 'foundation-rails', '5.4.2'
 
+# sunspot for searching
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+
 #Xml helper
 gem 'nokogiri'
 
 gem 'lodash-rails'
-
-gem 'sunspot_rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
