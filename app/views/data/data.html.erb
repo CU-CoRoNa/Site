@@ -1,6 +1,39 @@
-<div class="boxed">
 <script id="entry" type="text/x-handlebars-template">
+<div  class="entry_container" id="{{id}}">
+  <div class="top">
+    <div class="Name" >{{Name}}</div>
+      <div class="Domain" style="border-top: solid {{Domain}}" id="green">
+        {{ Domain }}
+      </div>
+      <div class="SubDomain" style="border-top: solid {{Blue}}">
+        {{SubDomain}}
+      </div>
+      </div>
+      <div class="row">
+        <div onclick="showHide(this)" class="large-6 columns panel collapse" id="left">
+          <div class="Descriptions" >{{Description}}</div>
+          <div class="Citation">{{Citation}}</div>
+        </div>
+        <div onclick="showHide(this)" class="large-6 columns panel collapse" id="right">
+          <div class="row">
+            <div class="Nodes"> <span class="my_label"> Nodes: {{Nodes}}</span> </div>
+            <div class="NodeType"><span class="my_label"> Node Type: {{ NodeType }}</span> </div>
+          </div>
+          <div class="row">
+            <div class="Edges"> <span class="my_label"> Edges: {{Edges}}</span> </div>
+            <div class="EdgeType"><span class="my_label"> Edge Type: {{EdgeType}}</span> </div>
+          </div>
+          <div class="row">
+            <div class="GraphFormat"> <span class="my_label"> Format: {{GraphFormat}}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
 </script>
+<div class="boxed">
 <p> Our Data Sets | Descriptive Stats here </p>
 </div>
 

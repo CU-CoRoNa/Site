@@ -84,7 +84,6 @@ function get_next()
 
 function search(caller, query)
 {
-  console.log("SEARCHING WTFBBQ: " + query);
   $.ajax({
     url: '/do_search',
     type: "PATCH",
@@ -94,10 +93,11 @@ function search(caller, query)
     },
     success: function(json) {
       //remove all of the old entries
+      console.log(json);
       $('.entry_container').remove();
-      json = { headerTitle: "WHOOPS" };
-      var template = Handlebars.compile($("#header").html());
-      $('.tab-content').append(template(json));
+      var template = Handlebars.compile($("#entry").html());
+      $('.tab-content').append(template(json[0]));
+      return false;
     }
   });
 }
