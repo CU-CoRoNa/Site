@@ -93,7 +93,11 @@ function search(caller, query)
       search:query
     },
     success: function(json) {
-      console.log(json);
+      //remove all of the old entries
+      $('.entry_container').remove();
+      json = { headerTitle: "WHOOPS" };
+      var template = Handlebars.compile($("#header").html());
+      $('.tab-content').append(template(json));
     }
   });
 }
