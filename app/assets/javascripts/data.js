@@ -96,7 +96,15 @@ function search(caller, query)
       console.log(json);
       $('.entry_container').remove();
       var template = Handlebars.compile($("#entry").html());
-      $('.tab-content').append(template(json[0]));
+      console.log(json.length)
+      for (i = 0; i < json.length; i++) {
+        $('.tab-content').append(template(json[i]));
+      }
+      $('.collapse').hover(function(){
+        $(this).css({'background-color' : '#F0F0F0'});
+      },function(){
+        $(this).css({'background-color': '#F7F7F7'});
+      });
       return false;
     }
   });
