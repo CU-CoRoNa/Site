@@ -4,27 +4,18 @@ class DataController < ApplicationController
   respond_to :html, :js
 
   def data
-    return DataSets.new
     @mtime ||= Date.new
-    
+
     # Check for XML update
     if @mtime > File.mtime("db/DataSetsExcel_In_Progress.xml")
       xml_f = DataSets.new
       xml_f.xml_upload
       xml_f
     end
+    return DataSets.new
   end
 
   def index
-  #if not params[:q]
-  #  @all = DataSets.get_groups("name NOT NULL")
-  #  @element_id = 0
-  #  @results = EntryBuilder.process_entries( @all[1] )
-  # else
-  #  @element_id = 0
-  #  @all = DataSets.get_groups(params[:q])
-  #  @results = EntryBuilder.process_entries( @all[1] )
-  #end
   end
 
   # sends only the entries you want having no better way to preserver state
@@ -49,8 +40,13 @@ class DataController < ApplicationController
 
   end
 
-  def new_query(q)
-   @all = DataSets.get_groups(q)
+  def do_search
+    respond_to do |format|
+      response = DataSets.search do
+        keywords params[:search]
+      end
+      format.json { render :json => response.results }
+    end
   end
 
   def do_browse
@@ -71,7 +67,7 @@ class DataController < ApplicationController
         fs = (fs.to_i == -1)     ? 'infinity' : fs
         ft = (ft      =~ /^All/ ) ? '%' : ft.strip
 
-        responce = DataSets.get_browse_info({
+        response = DataSets.get_browse_info({
           domain:d,
           group:g,
           nodes:n,
@@ -80,13 +76,13 @@ class DataController < ApplicationController
           file_type:ft
         })
 
-        format.json{ render :json => responce}
+        format.json{ render :json => response}
 
       end
-        #end arg check
+      #end arg check
 
     end
-      #end respond to
+    #end respond to
 
   end
 

@@ -3,6 +3,7 @@
 
 var collapsed_height = 35;
 var current_query = "name NOT NULL";
+var tab = 'tab-1';
 
 $(document).on("page:change", function(){
 
@@ -38,8 +39,13 @@ $(document).on("page:change", function(){
 
    //get the first default results (NAME NOT NULL)
   do_browse(this);
-
 });
+
+function process_search() {
+  query = document.getElementById("query").value;
+  search(this, query);
+  return false;
+}
 
 //loads database elements as user scrolls
 $(window).scroll(function() {
@@ -76,10 +82,38 @@ function get_next()
   });
 }
 
+function search(caller, query)
+{
+  $.ajax({
+    url: '/do_search',
+    type: "PATCH",
+    async: false,
+    data: {
+      search:query
+    },
+    success: function(json) {
+      //remove all of the old entries
+      $('.entry_container').remove();
+      var template = Handlebars.compile($("#entry").html());
+
+      for (i = 0; i < json.length; i++) {
+        $('.tab-content').append(template(json[i]));
+      }
+
+      $('.collapse').hover(function(){
+        $(this).css({'background-color' : '#F0F0F0'});
+      },function(){
+        $(this).css({'background-color': '#F7F7F7'});
+      });
+      return false;
+    }
+  });
+}
+
 
 function do_browse(caller)
 {
-  //sends the current brose settings to the server
+  //sends the current browse settings to the server
   $.ajax({
     url: '/do_browse',
     type: "PATCH",

@@ -5,7 +5,6 @@ gem 'rails', '~> 4.1'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-
 gem 'unicorn'
 
 # Use SCSS for stylesheets
@@ -20,11 +19,10 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'execjs'
+gem 'therubyracer'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -35,6 +33,10 @@ gem 'jbuilder', '~> 1.2'
 #for nice looking web pages
 gem 'foundation-rails', '5.4.2'
 
+# sunspot for searching
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+
 #Xml helper
 gem 'nokogiri'
 
@@ -44,7 +46,3 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end 
-
-#group :production do
- # gem 'pg'
-#end

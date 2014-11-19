@@ -1,96 +1,95 @@
+<script id="entry" type="text/x-handlebars-template">
+<div  class="entry_container" id="{{id}}">
+  <div class="top">
+    <div class="Name" >{{Name}}</div>
+      <div class="Domain" style="border-top: solid {{Domain}}" id="{{DomainColor}}">
+        {{Domain}}
+      </div>
+      <div class="SubDomain" style="border-top: solid {{SubDomainColor}}">
+        {{SubDomain}}
+      </div>
+      <div class="row">
+      </div>
+      <div class="fileInfo">
+        <ul class="button-group">
+        <li>
+          <a href={{DataLink}} class="tiny button"> Download </a>
+        </li>
+        <li> <a href={{InfoLink}} class="tiny button"> More Info </a></li>
+        <div class="FileSize"> <span class="my_label"> File Size: {{FileSize}}</span></div>
+        <div class="FileType"> <span class="my_label">File Type: {{FileType}}</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+</script>
 <div class="boxed">
-  <p> Our Data Sets | Descriptive Stats here </p>
+<p> Our Data Sets | Descriptive Stats here </p>
 </div>
 
 <ul class="tabs" data-tab>
-    <li class="tab-link current" data-tab="tab-1">Browse</li>
-    <li class="tab-link" data-tab="tab-2">Search</li>
+  <li class="tab-link current" data-tab="tab-1">Browse</li>
+  <li class="tab-link" data-tab="tab-2">Search</li>
 </ul>
 
 <div class="tabs-content">
-    <div class="tab-content current" id="tab-1">
+  <div class="tab-content current" id="tab-1">
 
-      <table>
+    <table>
 
-        <tr>
+      <tr>
 
         <td><label>Network Type
-          <select id="Type">
-           <option value="All">All</option>
-          </select>
-        </label>
+            <select id="Type">
+              <option value="All">All</option>
+            </select>
+          </label>
 
-        <label> Group
-          <select id="Group">
-           <option value="All">All</option>
-          </select>
-        </label></td>
+          <label> Group
+            <select id="Group">
+              <option value="All">All</option>
+            </select>
+          </label></td>
 
-        <td>
-        <label>
-          Nodes: <span id="nodeSliderVal"></span>
-          Min: <span id="nodeMin"></span>
-          Max: <span id="nodeMax"></span>
-          <div class="slider" id="nodes"></div>
-        </label><br>
+          <td>
+            <label>
+              Nodes: <span id="nodeSliderVal"></span>
+              Min: <span id="nodeMin"></span>
+              Max: <span id="nodeMax"></span>
+              <div class="slider" id="nodes"></div>
+            </label><br>
 
-        <label>
-          Edges: <span id="edgeSliderVal"></span>
-          Min: <span id="edgeMin"></span>
-          Max: <span id="edgeMax"></span>
-          <div class="slider" id="edges"></div>
-        </label>
-        </td>
+            <label>
+              Edges: <span id="edgeSliderVal"></span>
+              Min: <span id="edgeMin"></span>
+              Max: <span id="edgeMax"></span>
+              <div class="slider" id="edges"></div>
+            </label>
+          </td>
 
-        <td><label>
-          Size: <span id="sizeSliderVal"></span>
-          Min: <span id="sizeMin"></span>
-          Max: <span id="sizeMax"></span>
-          <div class ="slider" id="file_size"></div>
-        </label><br> <!-- TODO fix alignment -->
+          <td><label>
+              Size: <span id="sizeSliderVal"></span>
+              Min: <span id="sizeMin"></span>
+              Max: <span id="sizeMax"></span>
+              <div class ="slider" id="file_size"></div>
+            </label><br> <!-- TODO fix alignment -->
 
-        <label> FileType
-        <select id="FileType">
-           <option value="All">All</option>
-        </select>
-        </label>
+            <label> FileType
+              <select id="FileType">
+                <option value="All">All</option>
+              </select>
+            </label>
 
-        </td>
-        </tr>
+          </td>
+      </tr>
 
-      </table>
+    </table>
 
-    </div>
-    <div class="tab-content" id="tab-2">
-        <form action = <%= data_path %> method="get" >
-            <%= text_field_tag :q, params[:q] %>
-            <table><tr>
-              <td>
-                Subject:<br>
-                <%= check_box_tag :bio, params[:bio] %> Biology <br>
-                <%= check_box_tag :soc, params[:soc] %> Sociology <br>
-                <%= check_box_tag :other, params[:other] %> Other <br>
-              </td>
-              <td>
-                File Type:<br>
-                <%= check_box_tag :txt, params[:txt] %> Text <br>
-                <%= check_box_tag :gml, params[:gml] %> Graph Markup Language <br>
-                <%= check_box_tag :xlsx, params[:xlsx] %> Excel <br>
-              </td>
-              <td>
-                File Size:<br>
-                <%= check_box_tag :b, params[:b] %> less than 1 KB<br>
-                <%= check_box_tag :k, params[:k] %> between 1 KB and 1 MB<br>
-                <%= check_box_tag :m, params[:m] %> greater than 1 MB <br>
-              </td>
-              <td>
-                Number of Nodes:<br>
-                <%= check_box_tag :zero, params[:zero] %> n < 100 <br>
-                <%= check_box_tag :hundred, params[:hundred] %> 100 <= n < 1000 <br>
-                <%= check_box_tag :thousand, params[:thousand] %> 1000 < n <br>
-              </td>
-            </table></tr>
-             <%= submit_tag "Search", :name => nil %>
-        </form>
-    </div>
+  </div>
+  <div class="tab-content" id="tab-2">
+    <form id="search-bar" onsubmit="return process_search();">
+      <input id="query" type="text"></input>
+    </form>
+  </div>
 </div>
