@@ -65,7 +65,7 @@
 }
 .noUi-horizontal .noUi-handle {
 	width: 34px;
-	height: 28px;
+	height: 24px;
 	left: -17px;
 	top: -6px;
 }
@@ -74,7 +74,7 @@
 }
 .noUi-vertical .noUi-handle {
 	width: 28px;
-	height: 34px;
+	height: 20px;
 	left: -6px;
 	top: -17px;
 }
