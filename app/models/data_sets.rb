@@ -12,14 +12,43 @@ class DataSets < ActiveRecord::Base
     count = 0
     DataSets.where(search_by).uniq.pluck(:GroupId).each do |group|
       group_to_ret = []
-      #goes through all of the groups we want to work with
-      DataSets.where(:GroupId => "#{group}").find_each do |entry|
+      entire_group = DataSets.where(:GroupId => "#{group}").where(search_by)
+
+      group_to_ret.append( get_group_summary(entire_group) )
+        #Generates a summary of the group
+
+      entire_group.find_each do |entry|
          group_to_ret.append(entry)
       end
+
       to_ret[count] = group_to_ret
       count+= 1
     end
     to_ret
+  end
+
+  def self.get_group_summary(group)
+    to_ret = DataSets.new
+    sample_entry = group.first
+    to_ret.Name              = sample_entry.GroupId
+    to_ret.Description       = sample_entry.GroupDescription
+    to_ret.Domain            = sample_entry.Domain
+    to_ret.SubDomain         = sample_entry.SubDomain
+    to_ret.Nodes             = group.maximum('Nodes')
+    to_ret.NodeType          = sample_entry.NodeType
+    to_ret.Edges             = group.maximum('Edges')
+    to_ret.EdgeType          = sample_entry.EdgeType
+    to_ret.GraphProperties   = sample_entry.GraphProperties
+    to_ret.GroupId           = sample_entry.GroupId
+    to_ret.GroupDescription  = "Summary"
+    to_ret.InfoLink          = sample_entry.InfoLink
+    to_ret.DataLink          = "Summary"
+    to_ret.FileSize          = "Varies"
+    to_ret.FileType          = (group.uniq.pluck(:FileType).length == 1) ? sample_entry.FileType : "Varies"
+    to_ret.GraphFormat       = (group.uniq.pluck(:GraphFormat).length == 1) ? sample_entry.GraphFormat : "Varies"
+    to_ret.Citation          = sample_entry.Citation
+    to_ret.Public            = sample_entry.Public
+    return to_ret
   end
 
   def self.get_browse_info(params)
@@ -75,6 +104,8 @@ class DataSets < ActiveRecord::Base
             to_database.Description= element.text
           when 'Domain'
             to_database.Domain= element.text
+          when 'GroupDescription'
+            to_database.GroupDescription = element.text
           when 'SubDomain'
             to_database.SubDomain= element.text
           when 'Nodes'

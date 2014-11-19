@@ -62,7 +62,7 @@ function get_next()
     async: false,
     data: {id: actual_id, query: current_query},
     success: function(html){
-    $('.tab-content').append(html);
+       $('.tab-content').append(html);
        $(".collapse").height(collapsed_height);
        domainFix();
         //TODO move this to server side of things
