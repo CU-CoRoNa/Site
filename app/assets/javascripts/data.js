@@ -141,7 +141,7 @@ function search(caller, query)
   $.ajax({
     url: '/do_search',
     type: "PATCH",
-    async: false,
+    async: true,
     data: {
       search:query
     },
@@ -179,7 +179,7 @@ function do_browse(caller)
   $.ajax({
     url: '/do_browse',
     type: "PATCH",
-    async: false,
+    async: true,
     data: {
       domain:$("#Type option:selected").text(),
       group:$('#Group option:selected').text(),
