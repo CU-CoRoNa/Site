@@ -1,4 +1,4 @@
-//= require jquery.nouislider.all.js
+//= require jquery.nouislider.all.min.js
 //= require lodash
 
 var collapsed_height = 35;
@@ -106,7 +106,6 @@ function search(caller, query)
       var template = Handlebars.compile($("#entry").html());
       for (i = 0; i < json.length; i++) {
         $('.tab-content').append(template(json[i]));
-        $('.collapse').height(collapsed_height);
       }
 
       $('.Domain').each(function(){
@@ -114,6 +113,7 @@ function search(caller, query)
         $(this).css({'border-top': 'solid' + colors[curr_domain]});
       });
 
+      $('.collapse').height(collapsed_height);
       domainFix();
 
       $('.collapse').hover(function(){
@@ -211,12 +211,13 @@ function update_browse(new_options, caller)
     $('#nodes').noUiSlider({
       start:[new_options.nr[0]],
       range:{
-        'min':[new_options.nr[0]],
+        'min':new_options.nr[0],
         'max':[new_options.nr[1]]
       }
     },true);
-    $('#nodeMin').text(new_options.nr[0]);
-    $('#nodeMax').text(new_options.nr[1]);
+      $('#nodes').val(this.value);
+   // $('#nodeMin').text(Math.pow(parseFloat(new_options.nr[0]),10));
+   // $('#nodeMax').text(Math.pow(parseFloat(new_options.nr[1]),10));
 
     $('#edges').noUiSlider({
       start:[new_options.er[0]],
@@ -225,8 +226,8 @@ function update_browse(new_options, caller)
         'max':[new_options.er[1]]
       }
     },true);
-    $('#edgeMin').text(new_options.er[0]);
-    $('#edgeMax').text(new_options.er[1]);
+   // $('#edgeMin').text(Math.pow(parseFloat(new_options.er[0]),10));
+   // $('#edgeMax').text(Math.pow(parseFloat(new_options.er[1]),10));
   }
 
   //remove all of the old entries

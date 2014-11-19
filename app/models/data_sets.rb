@@ -72,8 +72,8 @@ class DataSets < ActiveRecord::Base
     re = re.where('Nodes > ?'      , log_to_n).
       where('Edges > ?'      , log_to_e)
 
-    normal_node_range = [Math.log10(node_range[0]+1),Math.log10(node_range[1]+1)]
-    normal_edge_range = [Math.log10(edge_range[0]+1),Math.log10(edge_range[1]+1)]
+    normal_node_range = [Math.log10(node_range[0]+1),Math.log10(node_range[1]) - 2.5]
+    normal_edge_range = [Math.log10(edge_range[0]+1),Math.log10(edge_range[1]) - 2.5]
 
     file_range = [ re.minimum('FileSize'), re.maximum('FileSize')]
     domains    = re.uniq.pluck(:Domain)
