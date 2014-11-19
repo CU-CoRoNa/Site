@@ -5,7 +5,11 @@ class DataSets < ActiveRecord::Base
   validates :GroupId, length:{ minimum: 1 }
   #attemps to remove bad entries
   searchable do
-    text :Name, :Description, :Domain, :SubDomain, :Citation
+    text :Name
+    text :Description
+    text :Domain
+    text :SubDomain
+    text :Citation
   end
 
   def self.get_groups(search_by)
