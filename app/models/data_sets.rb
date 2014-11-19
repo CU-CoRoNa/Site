@@ -80,9 +80,7 @@ class DataSets < ActiveRecord::Base
     groups     = re.uniq.pluck(:GroupId)
     file_types = re.uniq.pluck(:FileType)
 
-    query      = re.to_sql.split('WHERE').last
-
-    return {nr:normal_node_range, er:normal_edge_range, fr:file_range, ds:domains, gs:groups, ft:file_types, q:query}
+    return {nr:normal_node_range, er:normal_edge_range, fr:file_range, ds:domains, gs:groups, ft:file_types, q:re.to_json}
 
   end
 

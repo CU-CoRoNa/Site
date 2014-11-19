@@ -32,6 +32,7 @@ $(document).on("page:change", function(){
 
   //get the first default results (NAME NOT NULL)
   do_browse(this);
+
   $('ul.tabs li').click(function(){
     tab_id = $(this).attr('data-tab');
     $('.entry_container').remove();
@@ -47,6 +48,7 @@ $(document).on("page:change", function(){
     $(this).addClass('current');
     $("#"+tab_id).addClass('current');
   });
+
 });
 
 function process_search() {
@@ -66,22 +68,66 @@ $(window).scroll(function() {
 //and add an interface for rendering
 //each element so people who are better
 //at web design wont kill me
+function get_group_info(current_entry) {
+  var sample_entry = current_entry[0];
+
+  var Name              = sample_entry.GroupId;
+  var Description       = sample_entry.GroupDescription;
+  var Domain            = sample_entry.Domain;
+  var SubDomain         = sample_entry.SubDomain;
+  var Nodes             = "Varies";
+  var NodeType          = sample_entry.NodeType;
+  var Edges             = "Varies";
+  var EdgeType          = sample_entry.EdgeType;
+  var GraphProperties   = sample_entry.GraphProperties;
+  var GroupId           = sample_entry.GroupId;
+  var GroupDescription  = "Summary";
+  var InfoLink          = sample_entry.InfoLink;
+  var DataLink          = "javascript:showMore('" + sample_entry.GroupId + "')";
+  var FileSize          = "Varies";
+  var FileType          = "Varies";
+  var GraphFormat       = "Varies";
+  var Citation          = sample_entry.Citation;
+  var Public            = sample_entry.Public;
+
+  return {Name:Name, Description:Description, Domain:Domain, SubDomain:SubDomain, Nodes:Nodes,
+          NodeType:NodeType, Edges:Edges, EdgeType:EdgeType, GraphProperties:GraphProperties,
+          GroupId:GroupId, GroupDescription:GroupDescription, InfoLink:InfoLink, DataLink:DataLink,
+          FileSize:FileSize, FileType:FileType, GraphFormat:GraphFormat, Citation:Citation, Public:Public,
+          Button:"Show More"};
+
+}
+
 function get_next()
 {
-  var id = $(".entry_container:last").attr('id');
-  var actual_id = (id == null) ? 0 : id;
-  $.ajax({
-    url: '/get_entry',
-    type:"PATCH",
-    async: false,
-    data: {id: actual_id, query: current_query},
-    success: function(html){
-      $('.tab-content').append(html);
-      $(".collapse").height(collapsed_height);
-      domainFix();
-      //TODO move this to server side of things
+  var current_entry = current_query.pop();
+  var template = Handlebars.compile($("#entry").html());
+
+  if( current_entry.length > 1)
+  {
+    $('.tab-content').append(template( get_group_info(current_entry) ));
+    $('[id=\''+current_entry[0].GroupId+'E\']').append("<div class=\"additionalGroup\"" + " id=\""+
+                                       current_entry[0].GroupId+"\"></div>" );
+    for( i in current_entry)
+    {
+        var tmp = Handlebars.compile($("#group").html());
+        $('[id=\''+current_entry[0].GroupId+'\']').append(tmp(current_entry[i]));
     }
+  }
+  else
+  {
+    $('.tab-content').append(template($.extend(current_entry.pop(), {Button:"Download"}) ));
+  }
+
+
+  $('.Domain').each(function(){
+    var curr_domain = $(this).attr('class').split(' ')[1];
+    var color = (colors[curr_domain] == null) ? " gray" : colors[curr_domain];
+    $(this).css({'border-top': 'solid' + color});
   });
+
+  $('.collapse').height(collapsed_height);
+  domainFix();
 
   $('.collapse').hover(function(){
     $(this).css({'background-color' : '#F0F0F0'});
@@ -100,17 +146,17 @@ function search(caller, query)
       search:query
     },
     success: function(json) {
-        console.log(json);
       //remove all of the old entries
       $('.entry_container').remove();
       var template = Handlebars.compile($("#entry").html());
       for (i = 0; i < json.length; i++) {
-        $('.tab-content').append(template(json[i]));
+        $('.tab-content').append(template($.extend(json[i], {Button:"Download"})));
       }
 
       $('.Domain').each(function(){
         var curr_domain = $(this).attr('class').split(' ')[1];
-        $(this).css({'border-top': 'solid' + colors[curr_domain]});
+        var color = (colors[curr_domain] == null) ? " gray" : colors[curr_domain];
+        $(this).css({'border-top': 'solid' + color});
       });
 
       $('.collapse').height(collapsed_height);
@@ -143,7 +189,7 @@ function do_browse(caller)
       file_type:$('#FileType option:selected').text()
     },
     success: function(json){
-      update_browse(json, caller);
+        update_browse(json, caller);
     }
   });
 
@@ -234,9 +280,10 @@ function update_browse(new_options, caller)
   $('.entry_container').remove();
 
   //update to current query so page starts pulling new results
-  current_query = new_options.q;
-
-  //add some new results to the screen
+  current_query = $.map(_.groupBy(JSON.parse(new_options.q),'GroupId'), function(value, idx){
+      return [value];
+  });
+  console.log(current_query);
   fillScreen();
 }
 

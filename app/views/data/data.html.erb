@@ -1,5 +1,5 @@
 <script id="entry" type="text/x-handlebars-template">
-  <div  class="entry_container" id="{{Id}}">
+  <div  class="entry_container" id="{{GroupId}}E">
 
     <div class="t">
       <div class="Name" > {{Name}} </div>
@@ -46,7 +46,7 @@
       <ul class="button-group">
           <li>
             <a href="{{DataLink}}" class="tiny button">
-              Download
+              {{Button}}
             </a>
           </li>
         <li> <a href="{{InfoLink}}" class="tiny button"> More Info </a> </li>
@@ -55,6 +55,20 @@
       </ul>
     </div>
 
+  </div>
+</script >
+
+<script id="group" type="text/x-handlebars-template">
+  <div class="row" id="additionalGroupEntry">
+    <div class="Name" id="groupN"> {{Name}} </div>
+    <ul class="button-group" id="groupButtons">
+       <li>
+         <a href="{{DownloadLink}}" class="tiny button" >
+           Download
+         </a>
+       </li>
+      <li> <a href="{{InfoEntry}}" class="tiny button"> More Info </a> </li>
+    </ul>
   </div>
 </script>
 
@@ -102,12 +116,12 @@
             </label>
           </td>
 
-          <td><br><label>
+          <td><label>
               Size: <span id="sizeSliderVal"></span>
               Min: <span id="sizeMin"></span>
               Max: <span id="sizeMax"></span>
               <div class ="slider" id="file_size"></div>
-            </label><br> <!-- TODO fix alignment -->
+            </label><br><br> <!-- TODO fix alignment -->
 
             <label> FileType
               <select id="FileType">
