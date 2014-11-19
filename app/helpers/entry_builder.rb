@@ -56,7 +56,6 @@ module EntryBuilder
     proper_entry[:Edges]     = e.Edges
 
     description = (e.Description.nil?) ? 'n/a' : e.Description
-    puts("Nil? ", description)
 
     if !e.NodeType.nil? && e.NodeType.length > 15
       description += " \n Node Type: " + e.NodeType

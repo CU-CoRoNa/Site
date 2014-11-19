@@ -5,6 +5,8 @@ var collapsed_height = 35;
 var current_query = "name NOT NULL";
 var tab_id = 'tab-1';
 
+var colors = { Social:"#428F89", Biological:"#5F6024", Informational:"#B08B0D"};
+
 $(document).on("page:change", function(){
 
 
@@ -50,14 +52,6 @@ $(document).on("page:change", function(){
 function process_search() {
   query = document.getElementById("query").value;
   search(this, query);
-  $("#tab-2").children('.entry_container').each(function () {
-    domain = $(this).children().children()[1]
-      domain.style.borderTopColor='medium solid #5F6024;';
-    //var dom_color = hexc($(this).prev().css('border-top-color'));
-    //var new_color = ColorLuminance(dom_color,.2);
-    //$(this).css({'border-top': 'solid' + new_color});
-    //$(this).prev().prev().css({'border-top': 'solid' + new_color});
-  });
   return false;
 }
 
@@ -106,12 +100,22 @@ function search(caller, query)
       search:query
     },
     success: function(json) {
+        console.log(json);
       //remove all of the old entries
       $('.entry_container').remove();
       var template = Handlebars.compile($("#entry").html());
       for (i = 0; i < json.length; i++) {
         $('.tab-content').append(template(json[i]));
+        $('.collapse').height(collapsed_height);
       }
+
+      $('.Domain').each(function(){
+        var curr_domain = $(this).attr('class').split(' ')[1];
+        $(this).css({'border-top': 'solid' + colors[curr_domain]});
+      });
+
+      domainFix();
+
       $('.collapse').hover(function(){
         $(this).css({'background-color' : '#F0F0F0'});
       },function(){

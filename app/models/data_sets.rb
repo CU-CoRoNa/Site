@@ -66,7 +66,6 @@ class DataSets < ActiveRecord::Base
     node_range = [ re.minimum('Nodes'), re.maximum('Nodes') ]
     edge_range = [ re.minimum('Edges'), re.maximum('Edges') ]
 
-    puts(params[:nodes].to_f)
     log_to_n = ((params[:nodes].to_f+1)**10)/2
     log_to_e = ((params[:edges].to_f+1)**10)/2
 
