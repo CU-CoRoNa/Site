@@ -11,6 +11,7 @@ class CreateDataSets < ActiveRecord::Migration
       t.string  :EdgeType
       t.string  :GraphProperties
       t.string  :GroupId
+      t.string  :GroupDescription
       t.string  :InfoLink
       t.string  :DataLink
       t.string  :FileSize
