@@ -43,7 +43,7 @@ class DataController < ApplicationController
   def do_search
     respond_to do |format|
       response = DataSets.search do
-        fulltext params[:query]
+        keywords params[:search]
       end
       format.json { render :json => response.results }
     end
