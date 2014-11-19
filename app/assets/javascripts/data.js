@@ -3,55 +3,69 @@
 
 var collapsed_height = 35;
 var current_query = "name NOT NULL";
-var tab = 'tab-1';
+var tab_id = 'tab-1';
 
 $(document).on("page:change", function(){
 
-  $('ul.tabs li').click(function(){
-      var tab_id = $(this).attr('data-tab');
 
-      $('ul.tabs li').removeClass('current');
-      $('.tab-content').removeClass('current');
-
-      $(this).addClass('current');
-      $("#"+tab_id).addClass('current');
+  //initialize slider
+  $(".slider").noUiSlider({
+    start:[0],
+    range:{
+      'min':[0],
+      'max':[1]
+    }
   });
 
-   //initialize slider
-   $(".slider").noUiSlider({
-       start:[0],
-       range:{
-           'min':[0],
-           'max':[1]
-       }
-   });
+  //add change listener to slider and select boxes
+  $(".slider, select").on({
+    change: function(){
+      do_browse( this );
+    }
+  });
 
-    //add change listener to slider and select boxes
-   $(".slider, select").on({
-     change: function(){
-       do_browse( this );
-     }
-   });
+  //link slider to slider value output
+  $('#nodes').Link('lower').to( $('#nodeSliderVal'), "text" );
+  $('#edges').Link('lower').to( $('#edgeSliderVal'), "text" );
 
-   //link slider to slider value output
-   $('#nodes').Link('lower').to( $('#nodeSliderVal'), "text" );
-   $('#edges').Link('lower').to( $('#edgeSliderVal'), "text" );
-
-   //get the first default results (NAME NOT NULL)
+  //get the first default results (NAME NOT NULL)
   do_browse(this);
+  $('ul.tabs li').click(function(){
+    tab_id = $(this).attr('data-tab');
+    $('.entry_container').remove();
+    if (tab_id == 'tab-2') {
+      process_search();
+    } else {
+      do_browse(this);
+    }
+
+    $('ul.tabs li').removeClass('current');
+    $('.tab-content').removeClass('current');
+
+    $(this).addClass('current');
+    $("#"+tab_id).addClass('current');
+  });
 });
 
 function process_search() {
   query = document.getElementById("query").value;
   search(this, query);
+  $("#tab-2").children('.entry_container').each(function () {
+    domain = $(this).children().children()[1]
+      domain.style.borderTopColor='medium solid #5F6024;';
+    //var dom_color = hexc($(this).prev().css('border-top-color'));
+    //var new_color = ColorLuminance(dom_color,.2);
+    //$(this).css({'border-top': 'solid' + new_color});
+    //$(this).prev().prev().css({'border-top': 'solid' + new_color});
+  });
   return false;
 }
 
 //loads database elements as user scrolls
 $(window).scroll(function() {
-    if( $(window).scrollTop() == $(document).height() - $(window).height()) {
-        get_next();
-    }
+  if( $(window).scrollTop() == $(document).height() - $(window).height()) {
+    get_next();
+  }
 });
 
 //eventually replace with json request
@@ -68,17 +82,17 @@ function get_next()
     async: false,
     data: {id: actual_id, query: current_query},
     success: function(html){
-    $('.tab-content').append(html);
-       $(".collapse").height(collapsed_height);
-       domainFix();
-        //TODO move this to server side of things
+      $('.tab-content').append(html);
+      $(".collapse").height(collapsed_height);
+      domainFix();
+      //TODO move this to server side of things
     }
   });
 
   $('.collapse').hover(function(){
-     $(this).css({'background-color' : '#F0F0F0'});
+    $(this).css({'background-color' : '#F0F0F0'});
   },function(){
-     $(this).css({'background-color': '#F7F7F7'});
+    $(this).css({'background-color': '#F7F7F7'});
   });
 }
 
@@ -93,10 +107,8 @@ function search(caller, query)
     },
     success: function(json) {
       //remove all of the old entries
-      console.log(json);
       $('.entry_container').remove();
       var template = Handlebars.compile($("#entry").html());
-      console.log(json.length)
       for (i = 0; i < json.length; i++) {
         $('.tab-content').append(template(json[i]));
       }
@@ -139,88 +151,88 @@ function do_browse(caller)
 function update_browse(new_options, caller)
 {
 
-    if( !(caller instanceof HTMLDocument))
+  if( !(caller instanceof HTMLDocument))
+  {
+    //determine which groups to edit
+    var callerId = $(caller).attr('id');
+    var selected;
+    switch (callerId)
     {
-        //determine which groups to edit
-        var callerId = $(caller).attr('id');
-        var selected;
-        switch (callerId)
-        {
-            case 'Type':
-                $('#Type option[value=\'All\']').text('All');
-                selected = $("#Type option:selected").text();
-                selected = (selected != 'All') ? '(' +selected + ')' : "";
+      case 'Type':
+        $('#Type option[value=\'All\']').text('All');
+        selected = $("#Type option:selected").text();
+        selected = (selected != 'All') ? '(' +selected + ')' : "";
 
-                optionsUpdater( new_options.gs, "Group");
-                $('#Group option[value=\'All\']').text('All ' + selected);
+        optionsUpdater( new_options.gs, "Group");
+        $('#Group option[value=\'All\']').text('All ' + selected);
 
-                optionsUpdater( new_options.ft, "FileType");
-                $('#FileType option[value=\'All\']').text('All ' + selected);
-                break;
-            case 'Group':
-                $('#Group option[value=\'All\']').text('All');
-                selected = $("#Group option:selected").text();
-                selected = (selected != 'All') ? '(' +selected + ')' : "";
+        optionsUpdater( new_options.ft, "FileType");
+        $('#FileType option[value=\'All\']').text('All ' + selected);
+        break;
+      case 'Group':
+        $('#Group option[value=\'All\']').text('All');
+        selected = $("#Group option:selected").text();
+        selected = (selected != 'All') ? '(' +selected + ')' : "";
 
-                optionsUpdater( new_options.ds, "Type");
-                $('#Type option[value=\'All\']').text('All ' + selected);
+        optionsUpdater( new_options.ds, "Type");
+        $('#Type option[value=\'All\']').text('All ' + selected);
 
-                optionsUpdater( new_options.ft, "FileType");
-                $('#FileType option[value=\'All\']').text('All ' + selected);
-                break;
-            case 'FileType':
-                $('#FileType option[value=\'All\']').text('All');
-                selected = $("#FileType option:selected").text();
-                selected = (selected != 'All') ? '(' +selected + ')' : "";
+        optionsUpdater( new_options.ft, "FileType");
+        $('#FileType option[value=\'All\']').text('All ' + selected);
+        break;
+      case 'FileType':
+        $('#FileType option[value=\'All\']').text('All');
+        selected = $("#FileType option:selected").text();
+        selected = (selected != 'All') ? '(' +selected + ')' : "";
 
-                optionsUpdater( new_options.ds, "Type");
-                $('#Type option[value=\'All\']').text('All ' + selected);
+        optionsUpdater( new_options.ds, "Type");
+        $('#Type option[value=\'All\']').text('All ' + selected);
 
-                optionsUpdater( new_options.gs, "Group");
-                $('#Group option[value=\'All\']').text('All ' + selected);
-                break;
-            default :
-                optionsUpdater( new_options.ft, "FileType");
-                optionsUpdater( new_options.ds, "Type");
-                optionsUpdater( new_options.gs, "Group");
-                break;
-        }
-    }
-    else
-    {
-        //this is run when the page is loaded
+        optionsUpdater( new_options.gs, "Group");
+        $('#Group option[value=\'All\']').text('All ' + selected);
+        break;
+      default :
         optionsUpdater( new_options.ft, "FileType");
         optionsUpdater( new_options.ds, "Type");
         optionsUpdater( new_options.gs, "Group");
-        $('#nodes').noUiSlider({
-           start:[new_options.nr[0]],
-           range:{
-             'min':[new_options.nr[0]],
-             'max':[new_options.nr[1]]
-           }
-        },true);
-        $('#nodeMin').text(new_options.nr[0]);
-        $('#nodeMax').text(new_options.nr[1]);
-
-        $('#edges').noUiSlider({
-           start:[new_options.er[0]],
-           range:{
-             'min':[new_options.er[0]],
-             'max':[new_options.er[1]]
-           }
-        },true);
-        $('#edgeMin').text(new_options.er[0]);
-        $('#edgeMax').text(new_options.er[1]);
+        break;
     }
+  }
+  else
+  {
+    //this is run when the page is loaded
+    optionsUpdater( new_options.ft, "FileType");
+    optionsUpdater( new_options.ds, "Type");
+    optionsUpdater( new_options.gs, "Group");
+    $('#nodes').noUiSlider({
+      start:[new_options.nr[0]],
+      range:{
+        'min':[new_options.nr[0]],
+        'max':[new_options.nr[1]]
+      }
+    },true);
+    $('#nodeMin').text(new_options.nr[0]);
+    $('#nodeMax').text(new_options.nr[1]);
 
-    //remove all of the old entries
-    $('.entry_container').remove();
+    $('#edges').noUiSlider({
+      start:[new_options.er[0]],
+      range:{
+        'min':[new_options.er[0]],
+        'max':[new_options.er[1]]
+      }
+    },true);
+    $('#edgeMin').text(new_options.er[0]);
+    $('#edgeMax').text(new_options.er[1]);
+  }
 
-    //update to current query so page starts pulling new results
-    current_query = new_options.q;
+  //remove all of the old entries
+  $('.entry_container').remove();
 
-    //add some new results to the screen
-    fillScreen();
+  //update to current query so page starts pulling new results
+  current_query = new_options.q;
+
+  //add some new results to the screen
+  fillScreen();
 }
 
 /*
@@ -235,15 +247,15 @@ function optionsUpdater(new_options, to_edit)
   //remove unneeded options and mark options already in the select box
   var idx;
   $("#"+to_edit).children('.varies'+to_edit).each(function(){
-     idx = new_options.indexOf( this.value );
-     if( idx == -1 )
-     {
-        $(this).remove();
-     }
-     else
-     {
-       new_options[idx] = "null";
-     }
+    idx = new_options.indexOf( this.value );
+    if( idx == -1 )
+    {
+      $(this).remove();
+    }
+    else
+    {
+      new_options[idx] = "null";
+    }
   });//end remove
 
   //add new elements to the select box
@@ -252,7 +264,7 @@ function optionsUpdater(new_options, to_edit)
     if( new_options[i] != "null")
     {
       $('#'+to_edit).append("<option value="+ new_options[i]+ " \" class=\"varies"+to_edit+"\" "+
-                       "> " + new_options[i]  + " </option>");
+          "> " + new_options[i]  + " </option>");
 
     }
   }//end add
@@ -262,7 +274,7 @@ function optionsUpdater(new_options, to_edit)
 function fillScreen()
 {
   var num_display = $(document).height() / 200;
-      //value determined by the prestigious school of hard knocks
+  //value determined by the prestigious school of hard knocks
   for(var i = 0; i < num_display; i++)
   {
     get_next();
@@ -347,11 +359,11 @@ function ColorLuminance(hex, lum) {
 }
 
 function hexc(colorval) {
-    var parts = colorval.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-    delete(parts[0]);
-    for (var i = 1; i <= 3; ++i) {
-        parts[i] = parseInt(parts[i]).toString(16);
-        if (parts[i].length == 1) parts[i] = '0' + parts[i];
-    }
-    return '#' + parts.join('');
+  var parts = colorval.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+  delete(parts[0]);
+  for (var i = 1; i <= 3; ++i) {
+    parts[i] = parseInt(parts[i]).toString(16);
+    if (parts[i].length == 1) parts[i] = '0' + parts[i];
+  }
+  return '#' + parts.join('');
 }//from https://stackoverflow.com/questions/5999209/how-to-get-the-background-color-code-of-an-element

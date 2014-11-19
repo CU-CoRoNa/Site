@@ -1,3 +1,4 @@
+#fix switching back tabs, no scroll on end
 class DataController < ApplicationController
 
   before_filter :index
@@ -43,8 +44,11 @@ class DataController < ApplicationController
   def do_search
     respond_to do |format|
       response = DataSets.search do
-        keywords params[:search]
+        fulltext params[:search] do
+          boost_fields :Name => 3.0
+        end
       end
+      puts response.results.inspect
       format.json { render :json => response.results }
     end
   end
