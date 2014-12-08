@@ -2791,7 +2791,7 @@
 		<Public>Yes</Public>
 	</DataSet>
 	<DataSet>
-		<Name>LiveJournal Ground-truth</Name>
+		<Name>LiveJournal Empirical Network Analysis</Name>
 		<Description>User defined LiveJournal groups </Description>
 		<GroupDescription>Human Disease Network that contains probabilities of co-occurrence of a disease with another disease. See source for information on how the data are formatted. </GroupDescription>
 		<Domain>Social</Domain>
