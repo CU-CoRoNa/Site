@@ -59,8 +59,11 @@ function process_search() {
 
 //loads database elements as user scrolls
 $(window).scroll(function() {
+  console.log($(window).scrollTop());
   if( $(window).scrollTop() == $(document).height() - $(window).height()) {
-    get_next();
+    for(var i = 0; i < 5; i++) {
+      get_next();
+    }
   }
 });
 
