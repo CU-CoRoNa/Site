@@ -1524,7 +1524,7 @@
 		<Description>Adjacency matrix of friendships in a voluntary activity before faction formation</Description>
 		<GroupDescription>Adjacency matrix of friendships in a voluntary activity before faction formation</GroupDescription>
 		<Domain>Social</Domain>
-		<SubDomain>Person to Person interactions</SubDomain>
+		<SubDomain>Friendships</SubDomain>
 		<Nodes>34</Nodes>
 		<NodeType>Person</NodeType>
 		<Edges>78</Edges>
@@ -1780,7 +1780,7 @@
 		<Name>US Top 500 Airport Network</Name>
 		<Description>Network between top 500 US airports</Description>
 		<GroupDescription>Airports</GroupDescription>
-		<Domain>Transportation</Domain>
+		<Domain>Infrastructure</Domain>
 		<SubDomain>Airports</SubDomain>
 		<Nodes>500</Nodes>
 		<NodeType>Airport</NodeType>
@@ -1800,7 +1800,7 @@
 		<Name>US Complete Airport Network</Name>
 		<Description>Complete US airport network in 2010</Description>
 		<GroupDescription>Airports</GroupDescription>
-		<Domain>Transportation</Domain>
+        <Domain>Infrastructure</Domain>
 		<SubDomain>Airports</SubDomain>
 		<Nodes>1574</Nodes>
 		<NodeType>Airport</NodeType>
@@ -3355,7 +3355,7 @@
 		<Description>A road network of California</Description>
 		<GroupDescription>Road networks where nodes are intersections and roads are edges</GroupDescription>
 		<Domain>Informational</Domain>
-		<SubDomain>Transportation</SubDomain>
+		<SubDomain>Infrastructure</SubDomain>
 		<Nodes>1965206</Nodes>
 		<NodeType>intersections</NodeType>
 		<Edges>2766607</Edges>
@@ -3374,7 +3374,7 @@
 		<Name>Road Network of Pennsylvania</Name>
 		<Description>A road network of Pennsylvania</Description>
 		<GroupDescription>Road networks where nodes are intersections and roads are edges</GroupDescription>
-		<Domain>Informational</Domain>
+		<Domain>Infrastructure</Domain>
 		<SubDomain>Transportation</SubDomain>
 		<Nodes>1088092</Nodes>
 		<NodeType>intersections</NodeType>
@@ -3394,7 +3394,7 @@
 		<Name>Road Network of Texas</Name>
 		<Description>A road network of Texas</Description>
 		<GroupDescription>Road networks where nodes are intersections and roads are edges</GroupDescription>
-		<Domain>Informational</Domain>
+		<Domain>Infrastructure</Domain>
 		<SubDomain>Transportation</SubDomain>
 		<Nodes>1379917</Nodes>
 		<NodeType>intersections</NodeType>
