@@ -18,23 +18,8 @@ class DataController < ApplicationController
   def index
   end
 
-  # sends only the entries you want having no better way to preserver state
-  # each entry has an id based on the query it came from so the client
-  # sends us the latest entry they have and we return the next one
-  # this means there are a lot of unneeded and redundant database calls
-  # if a new query is requested the client must reset the entry_id to zero
-  # TODO: will run off edge of results
-  # also if a new query is asked for i.e id = 0 then find a way to render the
-  # rest of the results or something
-  def next_results
-    return nil if all.size <= index
-    q = (params[:query].nil?) ? 'name NOT NULL' : params[:query]
-    index = params[:id].to_i
-
-    all = DataSets.get_groups(q)
-    @results = EntryBuilder.process_entries(all[index])
-    @element_id = index + 1
-    render partial: 'data/entry'
+  def get_entry_template
+    render :partial => "data/entry"
   end
 
   def do_search

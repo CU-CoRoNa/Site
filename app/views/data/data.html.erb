@@ -1,76 +1,4 @@
-<script id="entry" type="text/x-handlebars-template">
-  <div  class="entry_container" id="{{GroupId}}E">
 
-    <div class="t">
-      <div class="Name" > {{Name}} </div>
-      <div class="Domain {{Domain}}" id="">
-        {{Domain}}
-      </div>
-      <div class="SubDomain {{SubDomain}}">
-        {{SubDomain}}
-      </div>
-    </div>
-
-    <div class="row">
-
-      <div onclick="showHide(this)" class="large-6 columns panel collapse" id="left">
-        <div class="Descriptions" > {{Description}} </div>
-        <div class="Citation"> {{Citation}} </div>
-      </div>
-
-      <div onclick="showHide(this)" class="large-6 columns panel collapse" id="right">
-
-        <!-- <div class="GraphInfo"> -->
-
-        <div class="row">
-          <div class="Nodes"> <span class="my_label"> Nodes: {{Nodes}} </span> </div>
-          <div class="NodeType"><span class="my_label"> Node Type: {{NodeType}} </span> </div>
-        </div>
-
-        <div class="row">
-          <div class="Edges"> <span class="my_label"> Edges: {{Edges}} </span> </div>
-          <div class="EdgeType"><span class="my_label"> Edge Type: {{EdgeType}} </span> </div>
-        </div>
-
-        <div class="row">
-            <div class="GraphFormat"> <span class="my_label"> Format: {{GraphFormat}} </span></div>
-        </div>
-
-        <!-- </div> -->
-
-      </div>
-
-    </div>
-
-    <div class="fileInfo">
-      <ul class="button-group">
-          <li>
-            <a href="{{DataLink}}" class="tiny button">
-              {{Button}}
-            </a>
-          </li>
-        <li> <a href="{{InfoLink}}" class="tiny button"> More Info </a> </li>
-        <div class="FileSize"> <span class="my_label"> File Size: {{FileSize}} </span></div>
-        <div class="FileType"> <span class="my_label">File Type: {{FileType}} </span></div>
-      </ul>
-    </div>
-
-  </div>
-</script >
-
-<script id="group" type="text/x-handlebars-template">
-  <div class="row" id="additionalGroupEntry">
-    <div class="Name" id="groupN"> {{Name}} </div>
-    <ul class="button-group" id="groupButtons">
-       <li>
-         <a href="{{DownloadLink}}" class="tiny button" >
-           Download
-         </a>
-       </li>
-      <li> <a href="{{InfoEntry}}" class="tiny button"> More Info </a> </li>
-    </ul>
-  </div>
-</script>
 
 <div class="boxed">
 <p> Our Data Sets | Descriptive Stats here </p>
@@ -136,7 +64,7 @@
 
   </div>
   <div class="tab-content" id="tab-2">
-    <form id="search-bar" onsubmit="return process_search();">
+    <form id="search-bar">
       <input id="query" type="text"></input>
     </form>
   </div>

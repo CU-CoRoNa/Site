@@ -11,7 +11,7 @@ gem 'unicorn'
 gem 'sass-rails', '>= 4.0.3'
 
 # Twitter bootstrap for responsive pretty website
-gem 'twitter-bootstrap-rails', '~>3.2'
+#gem 'twitter-bootstrap-rails', '~>3.2'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -31,7 +31,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 #for nice looking web pages
-gem 'foundation-rails', '5.4.2'
+gem 'foundation-rails'
 
 # sunspot for searching
 gem 'sunspot_rails'
@@ -39,6 +39,8 @@ gem 'sunspot_solr'
 
 #Xml helper
 gem 'nokogiri'
+
+gem 'responders', '~> 2.0'
 
 gem 'lodash-rails'
 
