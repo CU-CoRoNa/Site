@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  [Name: MyString
+  Name: MyString
   Description: MyText
   Domain: MyString
   SubDomain: MyString
@@ -36,7 +36,7 @@ one:
   Public: 
 
 two:
-  [Name: MyString
+  Name: MyString
   Description: MyText
   Domain: MyString
   SubDomain: MyString
