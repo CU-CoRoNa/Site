@@ -143,7 +143,7 @@ class DataSets < ActiveRecord::Base
     end
   end
 
-  def DataSets.domains
+  def self.domains
     return %w[ Biological Social Informational ]
   end
 end
