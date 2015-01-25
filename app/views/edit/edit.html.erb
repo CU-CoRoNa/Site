@@ -87,14 +87,14 @@
       <%= text_field_tag(:Citation) %>
     </div>
     <div class="large-3 columns">
-      <%= label_tag(:Public, "Is the data set public?") %>
+      <p>"Is the data set public?</p>
       <%= label_tag(:Public_true, "Yes:", "class": "radio") %>
       <%= radio_button_tag(:Public, true) %>
       <%= label_tag(:Public_false, "No:", "class": "radio") %>
       <%= radio_button_tag(:Public, false) %>
     </div>
-    <div class="large-3 columns">
-      <%= submit_tag("Submit", "class": "button radius") %>
+    <div class="large-2 columns">
+      <%= submit_tag("Submit", "class": "button radius", "id": "submit") %>
     </div>
   </div>
 <% end %>
