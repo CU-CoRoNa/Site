@@ -13,6 +13,7 @@ $(function(){
 
   interactionObject = new DataInteractor();
   tab_init();
+  document.domain = parent.domain;
 
 });
 

@@ -5,6 +5,9 @@ Site::Application.routes.draw do
   get "faq", to: "faq"
   get "about", to: "about"
   get "data", to: "data"
+  get 'templateWelcome', to:'welcome#templateIndex'
+  get 'templateData', to:'data#templateIndex'
+  get 'templateAbout', to:'about#templateIndex'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

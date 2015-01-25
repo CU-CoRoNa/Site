@@ -10,9 +10,6 @@ gem 'unicorn'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 4.0.3'
 
-# Twitter bootstrap for responsive pretty website
-#gem 'twitter-bootstrap-rails', '~>3.2'
-
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -30,8 +27,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-#for nice looking web pages
-gem 'foundation-rails'
+gem 'purecss-rails'
+
+#gem 'polymer-rails'
 
 # sunspot for searching
 gem 'sunspot_rails'
