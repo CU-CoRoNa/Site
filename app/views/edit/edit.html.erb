@@ -1,13 +1,21 @@
 <h1>Edit</h1>
 <%= form_tag("/edit", method: "PUT") do %>
   <div class="row">
+    <div class="large-8 columns">
+      <%= label_tag(:Create_true, "Create new record", "id": "create") %>
+      <%= radio_button_tag(:Create, true) %>
+      <%= label_tag(:Create_false, "Update existing record", "id": "update") %>
+      <%= radio_button_tag(:Create, false) %>
+    </div>
+  </div>
+  <div class="row">
     <div class="large-5 columns">
       <%= label_tag(:Name, "Name: ") %>
       <%= text_field_tag(:Name) %>
     </div>
     <div class="large-3 columns">
       <%= label_tag(:Domain, "Domain: ") %>
-      <%= text_field_tag(:Domain) %>
+      <%= select("Domain", "", DataSets.domains, "include_blank": true) %>
     </div>
     <div class="large-4 columns">
       <%= label_tag(:SubDomain, "SubDomain: ") %>
@@ -40,10 +48,6 @@
       <%= text_field_tag(:EdgeType) %>
     </div>
   </div>
-
-  <% # TODO: We should find a way to indicate grouping status %>
-  <% #label_tag(:GroupId, "GroupId: ") %>
-  <% #text_field_tag(:GroupId) %>
 
   <div class="row">
     <div class="large-12 columns">
@@ -78,13 +82,16 @@
   </div>
 
   <div class="row">
-    <div class="large-9 columns">
+    <div class="large-8 columns">
       <%= label_tag(:Citation, "Citation: ") %>
       <%= text_field_tag(:Citation) %>
     </div>
-    <div class="large-3 columns">
-      <%= label_tag(:Public, "Public: ") %>
-      <%= text_field_tag(:Public) %>
+    <div class="large-4 columns">
+      <%= label_tag(:Public, "Is the data set public?") %>
+      <%= label_tag(:Public_true, "Yes:", "class": "radio") %>
+      <%= radio_button_tag(:Public, true) %>
+      <%= label_tag(:Public_false, "No:", "class": "radio") %>
+      <%= radio_button_tag(:Public, false) %>
     </div>
   </div>
   <%= submit_tag("Submit") %>

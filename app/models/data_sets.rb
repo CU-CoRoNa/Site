@@ -22,10 +22,10 @@ class DataSets < ActiveRecord::Base
       entire_group = DataSets.where(:GroupId => "#{group}").where(search_by)
 
       group_to_ret.append( get_group_summary(entire_group) )
-        #Generates a summary of the group
+      #Generates a summary of the group
 
       entire_group.find_each do |entry|
-         group_to_ret.append(entry)
+        group_to_ret.append(entry)
       end
       to_ret[count] = group_to_ret
       count+= 1
@@ -100,46 +100,50 @@ class DataSets < ActiveRecord::Base
       data_set.children.each do |element|
         #iterate through all of the entry attributes i.e Name
         case element.name
-          when 'Name'
-            to_database.Name = element.text
-            puts element.text
-          when 'Description'
-            to_database.Description= element.text
-          when 'Domain'
-            to_database.Domain= element.text
-          when 'GroupDescription'
-            to_database.GroupDescription = element.text
-          when 'SubDomain'
-            to_database.SubDomain= element.text
-          when 'Nodes'
-            to_database.Nodes= element.text
-          when 'NodeType'
-            to_database.NodeType= element.text
-          when 'Edges'
-            to_database.Edges = element.text
-          when 'EdgeType'
-            to_database.EdgeType= element.text
-          when 'GraphProperties'
-            to_database.GraphProperties = element.text
-          when 'GroupId'
-            to_database.GroupId = element.text
-          when 'InfoLink'
-            to_database.InfoLink = element.text
-          when 'DataLink'
-            to_database.DataLink = element.text
-          when 'FileSize'
-            to_database.FileSize = element.text
-          when 'FileType'
-            to_database.FileType = element.text
-          when 'GraphFormat'
-            to_database.GraphFormat= element.text
-          when 'Citation'
-            to_database.Citation= element.text
-          when 'Public'
-            to_database.Public = element.text
+        when 'Name'
+          to_database.Name = element.text
+          puts element.text
+        when 'Description'
+          to_database.Description= element.text
+        when 'Domain'
+          to_database.Domain= element.text
+        when 'GroupDescription'
+          to_database.GroupDescription = element.text
+        when 'SubDomain'
+          to_database.SubDomain= element.text
+        when 'Nodes'
+          to_database.Nodes= element.text
+        when 'NodeType'
+          to_database.NodeType= element.text
+        when 'Edges'
+          to_database.Edges = element.text
+        when 'EdgeType'
+          to_database.EdgeType= element.text
+        when 'GraphProperties'
+          to_database.GraphProperties = element.text
+        when 'GroupId'
+          to_database.GroupId = element.text
+        when 'InfoLink'
+          to_database.InfoLink = element.text
+        when 'DataLink'
+          to_database.DataLink = element.text
+        when 'FileSize'
+          to_database.FileSize = element.text
+        when 'FileType'
+          to_database.FileType = element.text
+        when 'GraphFormat'
+          to_database.GraphFormat= element.text
+        when 'Citation'
+          to_database.Citation= element.text
+        when 'Public'
+          to_database.Public = element.text
         end
         to_database.save
       end
     end
+  end
+
+  def DataSets.domains
+    return %w[ Biological Social Informational ]
   end
 end
