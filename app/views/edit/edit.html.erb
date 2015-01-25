@@ -82,17 +82,19 @@
   </div>
 
   <div class="row">
-    <div class="large-8 columns">
+    <div class="large-6 columns">
       <%= label_tag(:Citation, "Citation: ") %>
       <%= text_field_tag(:Citation) %>
     </div>
-    <div class="large-4 columns">
+    <div class="large-3 columns">
       <%= label_tag(:Public, "Is the data set public?") %>
       <%= label_tag(:Public_true, "Yes:", "class": "radio") %>
       <%= radio_button_tag(:Public, true) %>
       <%= label_tag(:Public_false, "No:", "class": "radio") %>
       <%= radio_button_tag(:Public, false) %>
     </div>
+    <div class="large-3 columns">
+      <%= submit_tag("Submit", "class": "button radius") %>
+    </div>
   </div>
-  <%= submit_tag("Submit") %>
 <% end %>
