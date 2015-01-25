@@ -5,6 +5,7 @@ Site::Application.routes.draw do
   get "faq", to: "faq"
   get "about", to: "about"
   get "data", to: "data"
+  get "edit", to: "edit"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with 'rake routes'.
 

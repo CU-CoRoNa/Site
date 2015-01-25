@@ -1,0 +1,62 @@
+<h1>Edit</h1>
+<%= form_tag("/edit", method: "PUT") do %>
+  <ul>
+    <li>
+      <%= label_tag(:Name, "Name: ") %>
+      <%= text_field_tag(:Name) %>
+    </li>
+
+    <li>
+      <%= label_tag(:Domain, "Domain: ") %>
+      <%= text_field_tag(:Domain) %>
+    </li>
+    <li>
+      <%= label_tag(:SubDomain, "SubDomain: ") %>
+      <%= text_field_tag(:SubDomain) %>
+    </li>
+  </ul>
+
+  <%= label_tag(:Description, "Description: ") %>
+  <%= text_area(:Description, "Description: ", cols: 20, rows: 5) %>
+
+  <%= label_tag(:Nodes, "Nodes: ") %>
+  <%= text_field_tag(:Nodes) %>
+
+  <%= label_tag(:NodeType, "NodeType: ") %>
+  <%= text_field_tag(:NodeType) %>
+
+  <%= label_tag(:Edges, "Edges: ") %>
+  <%= text_field_tag(:Edges) %>
+
+  <%= label_tag(:EdgeType, "EdgeType: ") %>
+  <%= text_field_tag(:EdgeType) %>
+
+  <%= label_tag(:GraphProperties, "GraphProperties: ") %>
+  <%= text_field_tag(:GraphProperties) %>
+
+  <%= label_tag(:GroupId, "GroupId: ") %>
+  <%= text_field_tag(:GroupId) %>
+
+  <%= label_tag(:InfoLink, "InfoLink: ") %>
+  <%= text_field_tag(:InfoLink) %>
+
+  <%= label_tag(:DataLink, "DataLink: ") %>
+  <%= text_field_tag(:DataLink) %>
+
+  <%= label_tag(:FileSize, "FileSize: ") %>
+  <%= text_field_tag(:FileSize) %>
+
+  <%= label_tag(:FileType, "FileType: ") %>
+  <%= text_field_tag(:FileType) %>
+
+  <%= label_tag(:GraphFormat, "GraphFormat: ") %>
+  <%= text_field_tag(:GraphFormat) %>
+
+  <%= label_tag(:Citation, "Citation: ") %>
+  <%= text_field_tag(:Citation) %>
+
+  <%= label_tag(:Public, "Public: ") %>
+  <%= text_field_tag(:Public) %>
+
+  <%= submit_tag("Submit") %>
+<% end %>
