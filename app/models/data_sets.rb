@@ -148,6 +148,6 @@ class DataSets < ActiveRecord::Base
   end
 
   def self.names
-    DataSets.where("NAME not null").map! { |set| set.Name }
+    DataSets.where("NAME not null").map { |set| set.Name }
   end
 end

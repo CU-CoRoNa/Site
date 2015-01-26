@@ -26,7 +26,6 @@ function base() {
 
 function extend_dropdown(names) {
   var dropdown = $("#Name");
-  console.log(names);
   names.forEach(function(v){
     dropdown.append("<option value=\"" + v + "\">" + v + "</option>\n");
   });
