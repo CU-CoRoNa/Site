@@ -3,6 +3,6 @@ class EditController < ApplicationController
   end
 
   def getNames
-    render :json => { :names => [5,2,3] }
+    render :json => DataSets.names
   end
 end

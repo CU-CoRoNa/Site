@@ -146,4 +146,8 @@ class DataSets < ActiveRecord::Base
   def self.domains
     return %w[ Biological Social Informational ]
   end
+
+  def self.names
+    DataSets.where("NAME not null").map! { |set| set.Name }
+  end
 end

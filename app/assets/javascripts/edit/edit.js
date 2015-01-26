@@ -15,7 +15,6 @@ function update () {
   name.append("<select id=\"Name\"><option value=\"\"></option>\n");
   name.append("</select>\n");
   getNames();
-  console.log("CREATING");
 }
 
 function base() {
@@ -38,7 +37,7 @@ function getNames () {
     url: "getNames",
     type: "PATCH",
     success: function(response){
-      extend_dropdown(response.names);
+      extend_dropdown(response);
     }
   });
 }
