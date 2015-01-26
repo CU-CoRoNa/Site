@@ -2,9 +2,9 @@
 <%= form_tag("/edit", method: "PUT") do %>
   <div class="row">
     <div class="large-8 columns">
-      <%= label_tag(:Create_true, "Create new record", "id": "create") %>
+      <%= label_tag(:Create_true, "Create new record", "id" => "create") %>
       <%= radio_button_tag(:Create, true) %>
-      <%= label_tag(:Create_false, "Update existing record", "id": "update") %>
+      <%= label_tag(:Create_false, "Update existing record", "id" => "update") %>
       <%= radio_button_tag(:Create, false) %>
     </div>
   </div>
@@ -15,7 +15,7 @@
     </div>
     <div class="large-3 columns">
       <%= label_tag(:Domain, "Domain: ") %>
-      <%= select("Domain", "", DataSets.domains, "include_blank": true) %>
+      <%= select("Domain", "", DataSets.domains, "include_blank" => true) %>
     </div>
     <div class="large-4 columns">
       <%= label_tag(:SubDomain, "Subdomain: ") %>
@@ -33,7 +33,7 @@
   <div class="row">
     <div class="large-2 columns">
       <%= label_tag(:Nodes, "Nodes: ") %>
-      <%= text_field_tag(:Nodes, '', "class": "numeric") %>
+      <%= text_field_tag(:Nodes, '', "class" => "numeric") %>
     </div>
     <div class="large-4 columns">
       <%= label_tag(:NodeType, "Node type: ") %>
@@ -88,13 +88,13 @@
     </div>
     <div class="large-3 columns">
       <p>Is the data set public?</p>
-      <%= label_tag(:Public_true, "Yes:", "class": "radio") %>
+      <%= label_tag(:Public_true, "Yes:", "class" => "radio") %>
       <%= radio_button_tag(:Public, true) %>
-      <%= label_tag(:Public_false, "No:", "class": "radio") %>
+      <%= label_tag(:Public_false, "No:", "class" => "radio") %>
       <%= radio_button_tag(:Public, false) %>
     </div>
     <div class="large-2 columns">
-      <%= submit_tag("Submit", "class": "button radius", "id": "submit") %>
+      <%= submit_tag("Submit", "class" => "button radius", "id" => "submit") %>
     </div>
   </div>
 <% end %>
