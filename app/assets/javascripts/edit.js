@@ -1,4 +1,13 @@
-var tab_id = 'tab-1';
+//= require jquery
+$(document).ready(function(){
+  console.log("NEW EDIT!");
+  $("#Create_true").change(function (){
+    //$('#Name').html('WHOOPS');
+    console.log("CREATING");
+  });
 
-$('#update').click(function() {});
-$('#update').click(function() {});
+  $("#Create_false").change(function (){
+    //$('#Name').html('WHOOPS');
+    console.log("UPDATING");
+  });
+});

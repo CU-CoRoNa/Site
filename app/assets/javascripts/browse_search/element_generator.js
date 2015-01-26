@@ -25,9 +25,9 @@ function ElementGenerator()
     url: '/get_entry',
     type: "GET",
     async: false,
-    success: function( responce )
+    success: function( response )
     {
-      var source = $('<div>' + responce + '</div>');
+      var source = $('<div>' + response + '</div>');
       summaryTemplate    = Handlebars.compile( source.find('#entry').html() );
       individualTemplate = Handlebars.compile( source.find('#group').html() );
     }

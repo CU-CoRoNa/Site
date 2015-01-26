@@ -4,7 +4,7 @@
 /**
  * @class Browse
  * A singleton class responsible for
- *  - input responce (i.e sliders, drop downs)
+ *  - input response (i.e sliders, drop downs)
  *  - data base interaction (ajax)
  *  - updating the input options
  */
@@ -68,25 +68,25 @@ function Browse()
         file_size:$('#file_size').val(),
         file_type:$('#FileType').find('option:selected').text()
       },
-      success: function( responce )
+      success: function( response )
       {
-        do_update(responce, selector);
+        do_update(response, selector);
       }
     });
   }//end update_state
 
   /**
-   * Takes the responce from the server and
+   * Takes the response from the server and
    * updates the input options and the elements that
    * are going to be rendered
-   * @param server_responce json formatted data entries
+   * @param server_response json formatted data entries
    */
-  function do_update( server_responce, selector )
+  function do_update( server_response, selector )
   {
     console.log('running in do_update');
     $('.entry_container').remove();
-    options_update(server_responce, selector );
-    elements.setGroups($.map(_.groupBy(JSON.parse(server_responce.q),'GroupId'),function(val){
+    options_update(server_response, selector );
+    elements.setGroups($.map(_.groupBy(JSON.parse(server_response.q),'GroupId'),function(val){
       return [val];
     }));
     fillScreen();
