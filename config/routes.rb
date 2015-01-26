@@ -2,6 +2,7 @@ Site::Application.routes.draw do
   get "get_entry", to:"data#get_entry_template"
   patch "do_browse", to:"data#do_browse"
   patch "do_search", to:"data#do_search"
+  patch "getNames", to:"edit#getNames"
   get "faq", to: "faq"
   get "about", to: "about"
   get "data", to: "data"

@@ -8,24 +8,37 @@ $(document).ready(function(){
 function create() {
   var name = base();
   name.append("<input name=\"name\" id=\"Name\" type=\"text\">");
-  console.log("UPDATING");
 }
 
 function update () {
   var name = base();
-  var names = ["a", "b", "c"];
-  dropdown = "<select id=\"Name\"><option value=\"\"></option>\n";
-  names.forEach(function(v){
-    dropdown += "<option value=\"" + v + "\">" + v + "</option>\n";
-  });
-  dropdown += "</select>\n";
-  name.append(dropdown);
+  name.append("<select id=\"Name\"><option value=\"\"></option>\n");
+  name.append("</select>\n");
+  getNames();
   console.log("CREATING");
 }
 
 function base() {
-  var name = $('#Name').parent();
+  var name = $("#Name").parent();
   line = "\n" + name.html().split("\n")[1] + "\n";
   name.html(line);
   return name;
+}
+
+function extend_dropdown(names) {
+  var dropdown = $("#Name");
+  console.log(names);
+  names.forEach(function(v){
+    dropdown.append("<option value=\"" + v + "\">" + v + "</option>\n");
+  });
+}
+
+function getNames () {
+  $.ajax({
+    url: "getNames",
+    type: "PATCH",
+    success: function(response){
+      extend_dropdown(response.names);
+    }
+  });
 }
