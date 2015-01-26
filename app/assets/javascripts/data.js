@@ -10,10 +10,8 @@ var interactionObject ;
 
 //init
 $(function(){
-  if (window.location.pathname === "/data") {
-    interactionObject = new DataInteractor();
-    tab_init();
-  }
+  interactionObject = new DataInteractor();
+  tab_init();
 });
 
 //loads database elements as user scrolls
