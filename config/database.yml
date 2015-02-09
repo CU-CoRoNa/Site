@@ -1,29 +1,29 @@
 development:
-  adapter: sqlite3 
+  adapter: postgresql
   encoding: utf8
   reconect: false
   database: dataSets
   pool: 5
-  username: root
+  username: rails
   password:
   host: localhost
 
 production:
-  adapter: sqlite3 
+  adapter: postgresql
   encoding: utf8
   reconect: false
   database: dataSets
   pool: 5
-  username: root
+  username: rails
   password:
   host: localhost
 
 test:
-  adapter: sqlite3
+  adapter: postgresql
   encoding: utf8
   reconect: false
   database: dataSets
   pool: 5
-  username: root
+  username: rails
   password:
   host: localhost

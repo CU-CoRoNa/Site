@@ -11,29 +11,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930234100) do
+ActiveRecord::Schema.define(version: 20150209040318) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "data_set", force: :cascade do |t|
+    t.string "name"
+    t.string "nodes"
+    t.string "node_type"
+    t.string "edges"
+    t.string "edge_type"
+    t.string "graph_properties"
+    t.string "info_link"
+    t.string "data_link"
+    t.string "file_size"
+    t.string "file_type"
+    t.string "graph_format"
+    t.string "citation"
+    t.string "public"
+  end
 
   create_table "data_sets", force: :cascade do |t|
-    t.string   "Name",             limit: 255
-    t.text     "Description"
-    t.string   "Domain",           limit: 255
-    t.string   "SubDomain",        limit: 255
-    t.integer  "Nodes"
-    t.string   "NodeType",         limit: 255
-    t.integer  "Edges"
-    t.string   "EdgeType",         limit: 255
-    t.string   "GraphProperties",  limit: 255
-    t.string   "GroupId",          limit: 255
-    t.string   "GroupDescription", limit: 255
-    t.string   "InfoLink",         limit: 255
-    t.string   "DataLink",         limit: 255
-    t.string   "FileSize",         limit: 255
-    t.string   "FileType",         limit: 255
-    t.string   "GraphFormat",      limit: 255
-    t.string   "Citation",         limit: 255
-    t.string   "Public",           limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name"
+    t.string "nodes"
+    t.string "node_type"
+    t.string "edges"
+    t.string "edge_type"
+    t.string "graph_properties"
+    t.string "info_link"
+    t.string "data_link"
+    t.string "file_size"
+    t.string "file_type"
+    t.string "graph_format"
+    t.string "citation"
+    t.string "public"
+  end
+
+  create_table "group", force: :cascade do |t|
+    t.string "name"
+    t.string "domain"
+    t.string "subdomain"
+    t.string "description"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.string "domain"
+    t.string "subdomain"
+    t.string "description"
   end
 
 end

@@ -3,18 +3,6 @@ class DataController < ApplicationController
   before_filter :index
   respond_to :html, :js
 
-  def data
-    @mtime ||= Date.new
-
-    # Check for XML update
-    if @mtime > File.mtime('db/DataSetsExcel_In_Progress.xml')
-      xml_f = DataSets.new
-      xml_f.xml_upload
-      xml_f
-    end
-    DataSets.new
-  end
-
   def index
   end
 
