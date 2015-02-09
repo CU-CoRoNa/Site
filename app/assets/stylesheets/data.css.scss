@@ -3,46 +3,89 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @CHARSET "UTF-8";
 @import "jquery.nouislider";
+@import "paper-collapse.min";
 
 $my_float: right;
 $bg_color: #F7F7F7;
+$slider_color: #607D8B;
 $shadow: rgb(111, 111, 111);
-//$bg_color: #DEDED;
 
-.boxed
- {
-   background-color: $bg_color;
-   border: thin solid lightgrey;
-   border: thin solid lightgrey;
-   margin-top: 20px;
-   margin-bottom: 20px;
-   padding: 20px;
- }
-
-.t
+.tab-content
 {
-  background-color: $bg_color;
-  border-top:   thin solid lightgrey;
-  border-right: thin solid lightgray;
-  border-left:  thin solid lightgray;
+  display: inherit;
+  padding: 20px;
+}
 
-  overflow: hidden;
-  text-align: center;
+#temp
+{
+  display: none;
+}
+
+#entry
+{
+  margin: 0 10px 0 24px;
+  width: 802px;
+  padding-bottom: 40px;
+  paper-input-decorator
+  {
+    float: left;
+    width: 100%;
+    padding: 0;
+  }
+
+  paper-input-decorator /deep/ .focused-underline
+  {
+    background-color: $slider_color;
+  }
+
+  paper-input-decorator[focused] /deep/ .floating-label .label-text
+  {
+    /* floating label color when the input is focused */
+    color: #607D8B;
+  }
 }
 
 .entry_container
 {
-  background-color: $bg_color;
-  border: thin solid lightgrey;
-  margin-top: 20px;
+  $border_color: #B6B6B6;
+  $attr_border: thin solid #9E9E9E;
+  //background-color: #eee;
+  width: 800px;
+  overflow: hidden;
+  height: auto;
+  //margin-top: 10px;
+  margin-left: 5px;
+  $pos: relative;
+  border-top: thin solid $border_color;
+  border-right: thin solid $border_color;
+  border-left: medium solid #607D8B;
+  font-family:'Roboto', 'Helvetica', 'Arial', sans-serif;
+  color: #212121;
+
+  .pure-g [class *= "pure-u"] {
+    font-family:'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-weight: lighter;
+  }
+
+  .sectionDescription
+  {
+    position: absolute;
+    color: #727272;
+    font-size: 12px;
+    top: -14px;
+    left: -1px;
+  }
 
   .entryHeader
   {
+    position: $pos;
+    padding: 5px 0 0 10px;
+    width: 100%;
     .Name
     {
       float: left;
       padding: 2px;
-      width: 399px;
+      width: 400px;
       text-align: left;
     }
 
@@ -50,6 +93,8 @@ $shadow: rgb(111, 111, 111);
     {
       position: relative;
       float: right;
+      text-align: left;
+      margin-right: 15px;
       padding: 2px;
     }
 
@@ -57,132 +102,196 @@ $shadow: rgb(111, 111, 111);
     {
       position: relative;
       padding: 2px;
+      text-align: left;
       float: right;
     }
   }
 
+  .body
+  {
+    padding: 0;
+    font-family:'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-weight: lighter;
+  }
+
   .entryBody
   {
+    $bodyHeight: 140px;
+    width: 100%;
+    height: $bodyHeight;
+    position: $pos;
+
     .description
     {
-      font-size: 12px;
-      padding-top: 4px;
-      margin-left: 5px;
+      float: left;
+      position: $pos;
+      width: 460px;
+      height: $bodyHeight;
+      border-top: $attr_border;
+      padding: 2px 10px 10px 0;
+      margin: 10px 0 10px 13px;
     }
 
     .attributes
     {
-      float:right;
-      .nodeInfo
+      position: $pos;
+
+      $attrWidth: 294px;
+      $attrHeight:40px;
+      $attrMargin:10px 0 16px 15px;
+      $attrPadding: 2px 0px 0px 0;
+
+      float:left;
+      width: $attrWidth;
+      height: $bodyHeight;
+
+      .sizeInfo
       {
+        width: $attrWidth;
+        border-top: $attr_border;
+        height: $attrHeight;
+        margin: $attrMargin;
+        padding: $attrPadding;
+        position: $pos;
+
         .Nodes
         {
+          float: left;
+          width: $attrWidth;
+          #nodeSizeLabel
+          {
+            float:left;
+          }
 
+          #nodeSizeVal
+          {
+            float:right;
+          }
+
+        }
+
+        .Edges
+        {
+          float: left;
+          width: $attrWidth;
+          #edgeSizeLabel
+          {
+            float:left;
+          }
+
+          #edgeSizeVal
+          {
+            float:right;
+          }
+        }
+
+      }
+
+      .attrInfo
+      {
+        position: $pos;
+        border-top: $attr_border;
+        margin: $attrMargin;
+        height: $attrHeight;
+        width: $attrWidth;
+        padding: $attrPadding;
+
+        .EdgeType
+        {
+          float: left;
+          width: $attrWidth;
+          #edgeTypeLabel
+          {
+            float: left;
+          }
+
+          #edgeTypeVal
+          {
+            float: right;
+          }
         }
 
         .NodeType
         {
+          float: left;
+          width: $attrWidth;
+          #nodeTypeLabel
+          {
+            float: left;
+          }
 
-        }
-      }
-
-      .edgeInfo
-      {
-        .Edges
-        {
-
-        }
-
-        .EdgeType
-        {
-
+          #nodeTypeVal
+          {
+            float: right;
+          }
         }
       }
 
       .graphInfo
       {
-
+        position: $pos;
+        border-top: $attr_border;
+        margin: $attrMargin;
+        height: $attrHeight;
+        width: $attrWidth;
+        padding: $attrPadding;
       }
     }
   }
 
   .entryFooter
   {
-    .citation
-    {
-      float:left;
-      font-size: 12px;
-      margin-left: 5px;
-    }
+    position: $pos;
+    float: left;
+    height: 30px;
+    width: 774px;
+    margin: 14px 0 14px 10px;
+    padding: 2px 0 0 0;
+    border-top: $attr_border;
 
     .source
     {
-      float: right;
+      height: 50px;
+      width:60px;
+      float: left;
+    }
+
+    .citation
+    {
+      height: 30px;
+      width: 680px;
+      overflow: hidden;
+      float:left;
+      position: $pos;
+      font-size: 14px;
+      margin-left: 5px;
     }
 
   }
 
   .additionalGroup
   {
-    display: none;
-    .additionalGroupEntry
+    position: $pos;
+    width: 778px;
+    float: left;
+    border-top: $attr_border;
+    padding-top: 4px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    .additionalGroup, th
     {
+      font-family:'Roboto', 'Helvetica', 'Arial', sans-serif;
+      font-weight: lighter;
+      font-size: 14px;
+      text-align: left;
+      width: 778px;
     }
   }
 
-  .my_label
-  {
-    font-size: 12px;
-    padding: 2px;
-    background-color: #E0E0E0;
-    border: thin solid lightgray;
-  }
-
 }
 
-.gP
-{
-  border-right: thin solid lightgray;
-  border-left: thin solid lightgray;
-}
 
-#groupN
-{
-  font-size: 12px;
-  margin-left: 20px;
-  float: left;
-}
 
-ul.tabs{
-  margin: 0px;
-  padding: 0px;
-  list-style: none;
-}
 
-ul.tabs li{
-  background: slategray;
-  color: #ffffff;
-  display: inline-block;
-  float: left;
-  padding: 10px 0px;
-  width: 50%;
-  text-align: center;
-  cursor: pointer;
-}
-
-ul.tabs li.current{
-  background: #68667B;
-  color: #ffffff;
-}
-
-.tab-content{
-  display: none;
-  background: #ededed;
-  padding: 20px;
-  border: thick solid #68667B;
-}
-
-.tab-content.current{
-  display: inherit;
-}
 

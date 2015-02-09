@@ -16,7 +16,7 @@
  */
 
 var elements = new ElementGenerator();
-
+var mainContainer = 'content';
 function Browse()
 {
   const jsonOptionId = {'Type':'ds', 'Group':'gs', 'FileType':'ft'};
@@ -192,7 +192,7 @@ function Browse()
 
   function fillScreen()
   {
-    var num_display = $(document).height() / 200;
+    var num_display = $(document).height() / 10;
       //value determined by the prestigious school of hard knocks
     for(var i = 0; i < num_display; i++)
     {
@@ -203,7 +203,7 @@ function Browse()
   this.reload = function()
   {
     get_update(this);
-    var num_display = $(document).height() / 200;
+    var num_display = $(document).height() / 50;
       //value determined by the prestigious school of hard knocks
     for(var i = 0; i < num_display; i++)
     {

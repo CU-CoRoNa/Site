@@ -40,7 +40,7 @@ of the scaffold.
 <polymer-element name="sampler-scaffold" attributes="label responsiveWidth">
 <template>
 
-  <link rel="stylesheet" href="sampler-scaffold.css">
+  <link rel="stylesheet" href="sampler-scaffold.css.scss">
 
   <core-drawer-panel id="drawerPanel" narrow="{{narrow}}" drawerWidth="320px" responsiveWidth="{{responsiveWidth}}">
 
@@ -70,7 +70,7 @@ of the scaffold.
     <core-header-panel drawer>
 
       <core-toolbar class="{{ {'medium-tall' : !narrow} | tokenList }}">
-        <div class="bottom main-label fit">{{label}}</div>
+        <div id="siteTitle" class="bottom main-label fit">{{label}}</div>
       </core-toolbar>
       
       <core-menu id="menu" on-core-select="{{menuSelect}}">
@@ -94,7 +94,7 @@ of the scaffold.
      * @attribute responsiveWidth
      * @type string
      */
-    responsiveWidth: '860px',
+    responsiveWidth: '1300px',
     
     /**
      * Sampler label.

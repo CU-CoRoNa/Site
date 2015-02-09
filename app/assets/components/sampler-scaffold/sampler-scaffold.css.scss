@@ -7,8 +7,13 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
 
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+//$header_color: white;
+$header_color: #607D8B;
+
 #drawerPanel, [drawer] {
   background-color: #eee;
+  //background-color: white;
 }
 
 [drawer] {
@@ -20,8 +25,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   height: 100%;
 }
 
+iframe
+{
+  width: 820px;
+}
+
 core-toolbar {
-  background-color: #5264ae;
+  background-color: $header_color;
   color: #fff;
   font-size: 20px;
   font-weight: 400;
@@ -37,6 +47,7 @@ core-toolbar::shadow #bottomBar {
 
 .main-label {
   padding: 0 0 20px 60px;
+  font-size: 30px;
 }
 
 /* menu */
@@ -99,7 +110,7 @@ polyfill-next-selector { content: '#drawerPanel:not([narrow]) .menuButton';}
   letter-spacing: 0.05em;
   font-size: 24px;
   font-weight: 400;
-  color: #5265a2;
+  color: $header_color;
 }
 
 #frame {

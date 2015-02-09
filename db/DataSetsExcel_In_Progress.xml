@@ -7683,7 +7683,7 @@
 		<GraphProperties>TODO</GraphProperties>
 		<GroupId>Connectome Project Macaque</GroupId>
 		<InfoLink>http://www.openconnectomeproject.org/</InfoLink>
-		<FileSize>http://openconnecto.me/data/public/graphs/macaque/rhesus_interareal.cortical.network_2.graphml</FileSize>
+		<FileSize>todo</FileSize>
 		<FileType>graphML</FileType>
 		<GraphFormat>graphML</GraphFormat>
 		<Citation>http://www.core-nets.org/download/Cercor_2012%20Table.xls</Citation>

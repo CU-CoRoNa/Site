@@ -8,15 +8,15 @@ class DataController < ApplicationController
   respond_to :html, :js
 
   def data
-    @mtime ||= Date.new
+    #@mtime ||= Date.new
 
     # Check for XML update
-    if @mtime > File.mtime("db/DataSetsExcel_In_Progress.xml")
+    #if @mtime > File.mtime("db/DataSetsExcel_In_Progress.xml")
       xml_f = DataSets.new
       xml_f.xml_upload
       xml_f
-    end
-    return DataSets.new
+    #end
+    #return DataSets.new
   end
 
   def index

@@ -1,4 +1,5 @@
 //= require jquery.nouislider.all.min.js
+//= require paper-collapse.min.js
 //= require browse_search/browse.js
 //= require lodash
 
@@ -13,7 +14,6 @@ $(function(){
 
   interactionObject = new DataInteractor();
   tab_init();
-  document.domain = parent.domain;
 
 });
 

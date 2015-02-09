@@ -1,7 +1,7 @@
 <script id="entry" type="text/x-handlebars-template">
-  <div  class="entry_container pure-g" id="{{GroupId}}E">
+  <div  class="collapse-card entry_container" id="{{GroupId}}E">
 
-    <div class="t pure-u-1-1 entryHeader">
+    <div class="title entryHeader ">
       <div class="Name" > {{Name}} </div>
       <div class="Domain {{Domain}}" id="">
         {{Domain}}
@@ -11,65 +11,90 @@
       </div>
     </div>
 
-    <div class="row pure-u-1-1 entryBody">
+    <div class="body">
+    <div class="entryBody">
 
-      <div class="pure-u-1-2 description">
+      <div class="description">
+        <label class="sectionDescription">Description</label>
         {{Description}}
       </div>
 
-      <div class="pure-u-1-2 attributes">
+      <div class="attributes">
 
-        <div class="pure-g-r nodeInfo">
-          <div class="pure-u Nodes">
-            <span class="my_label"> Nodes: {{Nodes}} </span>
+        <div class="sizeInfo">
+          <label class="sectionDescription">Graph Size</label>
+          <div class="Nodes">
+            <span id="nodeSizeLabel"> Nodes:</span>
+            <span id="nodeSizeVal">{{Nodes}} </span>
           </div>
-          <div class="pure-u NodeType">
-            <span class="my_label"> Node Type: {{NodeType}} </span>
+          <div class="Edges">
+            <span id="edgeSizeLabel"> Edges:</span>
+            <span id="edgeSizeVal"> {{Edges}} </span>
           </div>
         </div>
 
-        <div class="pure-g-r edgeInfo">
-          <div class="pure-u Edges">
-            <span class="pure-u my_label"> Edges: {{Edges}} </span>
+        <div class="attrInfo">
+          <label class="sectionDescription">Node and Edge Info</label>
+          <div class="NodeType">
+            <span id="nodeTypeLabel"> Node Type:</span>
+            <span id="nodeTypeVal"> {{NodeType}} </span>
           </div>
-          <div class="pure-u EdgeType">
-            <span class="my_label"> Edge Type: {{EdgeType}} </span>
+           <div class="EdgeType">
+            <span id="edgeTypeLabel"> Edge Type:</span>
+            <span id="edgeTypeVal"> {{EdgeType}} </span>
           </div>
+
         </div>
 
-        <div class="pure-g-r graphInfo">
-          <div class="GraphFormat"> <span class="my_label"> Format: {{GraphFormat}} </span></div>
+        <div class="graphInfo">
+          <label class="sectionDescription">Graph Properties</label>
+          <div class="GraphFormat"> <span> {{GraphProperties}} </span></div>
         </div>
 
       </div>
 
     </div>
 
-    <div class="pure-u-1-1 entryFooter">
-      <div class="pure-u-1-2 citation">
-        {{Citation}}
-      </div>
-      <div class="pure-u-1-2 source">
+    <div class="entryFooter">
+      <label class="sectionDescription">Source and Citation</label>
+      <div class="source">
         <a href="{{InfoLink}}"> Source </a>
       </div>
+      <div class="citation">
+        {{Citation}}
+      </div>
     </div>
 
-    <div class="pure-g-r">
-      <div class="additionalGroup" id="{{GroupId}}"></div>
+    <div class="additionalGroup" id="{{GroupId}}">
+      <label class="sectionDescription">Individual Graphs and Info</label>
+      <table class="pure-table pure-table-horizontal groupTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Nodes</th>
+            <th>Edges</th>
+            <th>File Size</th>
+            <th>File Type</th>
+            <th>Download Link</th>
+          </tr>
+        </thead>
+        <tbody class="groupTableData"></tbody>
+      </table>
     </div>
 
+    <div style="clear:both;"></div>
+    </div>
   </div>
 </script >
 
 <script id="group" type="text/x-handlebars-template">
-  <div class="row" id="additionalGroupEntry">
-    <div class="Name" id="groupN"> {{Name}} </div>
-    <a href="{{DownloadLink}}" class="tiny button" > Download </a>
-    <a href="{{InfoEntry}}" class="tiny button"> More Info </a>
-    <div class="pure-u-1-2" id="fileInfo">
-      <div class="FileSize"> <span class="my_label"> File Size: {{FileSize}} </span></div>
-      <div class="FileType"> <span class="my_label">File Type: {{FileType}} </span></div>
-    </div>
-  </div>
+  <tr>
+    <th>{{Name}}</th>
+    <th>{{Nodes}}</th>
+    <th>{{Edges}}</th>
+    <th>{{FileSize}}</th>
+    <th>{{FileType}}</th>
+    <th><a href="{{DataLink}}"> Download </a></th>
+  </tr>
 </script>
 

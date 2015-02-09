@@ -13,7 +13,12 @@
  *= require_self
  */
 
-$header_color: orange;
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+
+$header_color: #607D8B;
+//$header_color: white;
+$slider_color: $header_color;
+//$background_color: white;
 $background_color: #eee;
 $card_bg_color: white;
 $menu_padding: 56px;
@@ -21,15 +26,17 @@ $menu_padding: 56px;
 #dataInterface
 {
   float:left;
-  width: 75%;
-  height: 500px;
-  background-color: #E8E9E4;
+  width: 300px;
+  height: 400px;
+  padding-left: 0px;
   margin-left: 20px;
   font-size: 15px;
   color: #444;
   font-weight: normal !important;
+
   #sliders
   {
+    margin-top: 15px;
     margin-left: 20px;
     paper-slider
     {
@@ -39,8 +46,28 @@ $menu_padding: 56px;
 
   #selectors
   {
-    float: left;
     margin-left: 20px;
   }
 
+}
+
+#siteTitle
+{
+  font-size: 30px;
+}
+
+paper-slider::shadow #sliderBar::shadow #activeProgress,
+#sliderKnobInner
+{
+  background-color: $slider_color;
+}
+
+paper-slider::shadow #sliderKnobInner
+{
+  background-color: $slider_color;
+}
+
+paper-slider::shadow #sliderKnobInner::before
+{
+  background-color: $slider_color;
 }

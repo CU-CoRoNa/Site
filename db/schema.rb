@@ -14,24 +14,24 @@
 ActiveRecord::Schema.define(version: 20140930234100) do
 
   create_table "data_sets", force: :cascade do |t|
-    t.string   "Name",             limit: 255
+    t.string   "Name"
     t.text     "Description"
-    t.string   "Domain",           limit: 255
-    t.string   "SubDomain",        limit: 255
+    t.string   "Domain"
+    t.string   "SubDomain"
     t.integer  "Nodes"
-    t.string   "NodeType",         limit: 255
+    t.string   "NodeType"
     t.integer  "Edges"
-    t.string   "EdgeType",         limit: 255
-    t.string   "GraphProperties",  limit: 255
-    t.string   "GroupId",          limit: 255
-    t.string   "GroupDescription", limit: 255
-    t.string   "InfoLink",         limit: 255
-    t.string   "DataLink",         limit: 255
-    t.string   "FileSize",         limit: 255
-    t.string   "FileType",         limit: 255
-    t.string   "GraphFormat",      limit: 255
-    t.string   "Citation",         limit: 255
-    t.string   "Public",           limit: 255
+    t.string   "EdgeType"
+    t.string   "GraphProperties"
+    t.string   "GroupId"
+    t.string   "GroupDescription"
+    t.string   "InfoLink"
+    t.string   "DataLink"
+    t.string   "FileSize"
+    t.string   "FileType"
+    t.string   "GraphFormat"
+    t.string   "Citation"
+    t.string   "Public"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

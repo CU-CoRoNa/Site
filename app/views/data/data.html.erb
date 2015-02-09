@@ -1,22 +1,23 @@
 <!-- This is placed in here because this document will be loaded into an iframe -->
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
+<link rel="import" href="/assets/paper-input/paper-input.html">
 <% provide(:title,'Data') %>
 
-<div class="boxed">
-<p> Our Data Sets | Descriptive Stats here </p>
-</div>
-
-<ul class="tabs" data-tab>
+<!--<ul class="tabs" data-tab>
   <li class="tab-link current" data-tab="tab-1">Browse</li>
   <li class="tab-link" data-tab="tab-2">Search</li>
-</ul>
+</ul> -->
+<div id="entry">
+  <paper-input-decorator label="Filter by text" floatingLabel="true">
+    <input is="core-input" placeholder="Filter by text" aria-label="Filter by Text">
+  </paper-input-decorator>
+</div>
 
-<div class="tabs-content">
+<!--<div class="tabs-content"> -->
   <div class="tab-content current" id="tab-1">
 
-    <table>
+    <table id="temp">
 
       <tr>
 
@@ -35,15 +36,11 @@
           <td>
             <label>
               Nodes: <span id="nodeSliderVal"></span>
-             <!-- Min: <span id="nodeMin"></span> -->
-             <!-- Max: <span id="nodeMax"></span> -->
               <div class="slider" id="nodes"></div>
             </label><br><br>
 
             <label>
               Edges: <span id="edgeSliderVal"></span>
-              <!--Min: <span id="edgeMin"></span> -->
-              <!--Max: <span id="edgeMax"></span> -->
               <div class="slider" id="edges"></div>
             </label>
           </td>
@@ -53,7 +50,7 @@
               Min: <span id="sizeMin"></span>
               Max: <span id="sizeMax"></span>
               <div class ="slider" id="file_size"></div>
-            </label><br><br> <!-- TODO fix alignment -->
+            </label><br><br>
 
             <label> FileType
               <select id="FileType">
@@ -67,9 +64,10 @@
     </table>
 
   </div>
+<!--
   <div class="tab-content" id="tab-2">
     <form id="search-bar">
       <input id="query" type="text"></input>
     </form>
-  </div>
-</div>
+ </div>
+</div> -->

@@ -1,4 +1,5 @@
 //= require handlebars-v2.0.0.js
+//= require paper-collapse.min.js
 /**
  * @class takes raw json from server and formats it into an object
  * that can be injected into the main page
@@ -9,7 +10,7 @@ function ElementGenerator()
 {
 
   const collapsedHeight = 25;
-  const colors = { Social:"#428F89", Biological:"#5F6024", Informational:"#B08B0D"};
+  const colors = { Social:"#3F51B5", Biological:"#4CAF50", Informational:"#795548"};
 
   var groups;
     //the unprocessed collection of all entries in the database
@@ -41,6 +42,7 @@ function ElementGenerator()
   this.getElement = function()
   {
     var new_elem = groups.pop();
+    var color = colors[new_elem[0].Domain];
 
     var to_ret = $('<div>' + summaryTemplate( getSummery( new_elem ) ) + '<div>');
       //make the handle bars object and format it for jquery
@@ -48,19 +50,48 @@ function ElementGenerator()
     //add each individual entry to the group
     for(var i in new_elem )
     {
-      $('.additionalGroup',to_ret).append(individualTemplate(new_elem[i]));
+      $('.groupTable',to_ret).append(individualTemplate(new_elem[i]));
     }
 
-    $('.collapse', to_ret).height(collapsedHeight);
-
-    $('.collapse',to_ret).hover(function(){
-      $(this).css({'background-color' : '#F0F0F0'});
-    },function(){
-      $(this).css({'background-color': '#F7F7F7'});
-    });
+    to_ret = formatEntry(to_ret, color);
 
     return to_ret;
   };//end get element
+
+  /**
+   * Formats new entry
+   */
+  function formatEntry( entry, color)
+  {
+    var to_ret = entry;
+
+    var to_process =
+                    [
+                      $('.description', to_ret),
+                      $('.sizeInfo', to_ret),
+                      $('.attrInfo', to_ret),
+                      $('.graphInfo', to_ret),
+                      $('.entryFooter', to_ret),
+                      $('.additionalGroup', to_ret)
+                    ];
+
+    var to_hide=
+                [
+                  $('.entryBody', to_ret),
+                  $('.entryFooter', to_ret),
+                  $('.additionalGroup', to_ret)
+                ];
+
+    to_process.map(function(e){
+      e.css('border-top-color',color)
+    });
+
+    $('.entry_container',to_ret).css('border-left-color',color);
+    $('.collapse-card',to_ret).paperCollapse({});
+
+    return to_ret;
+
+  }
 
   /**
    * Takes a collection of data sets (graphs) and

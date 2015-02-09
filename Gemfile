@@ -29,8 +29,6 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'purecss-rails'
 
-#gem 'polymer-rails'
-
 # sunspot for searching
 gem 'sunspot_rails'
 gem 'sunspot_solr'
