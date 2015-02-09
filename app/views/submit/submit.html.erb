@@ -1,0 +1,86 @@
+<%= form_tag("/submit", method: "PUT") do %>
+  <div class="row">
+    <div class="large-5 columns">
+      <%= label_tag(:name, "Name: ") %>
+      <%= text_field_tag(:name) %>
+    </div>
+    <div class="large-3 columns">
+      <%= label_tag(:Domain, "Domain: ") %>
+      <%= select("Domain", "", DataSets.domains, "include_blank" => true) %>
+    </div>
+    <div class="large-4 columns">
+      <%= label_tag(:SubDomain, "Subdomain: ") %>
+      <%= text_field_tag(:SubDomain) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <%= label_tag(:Description, "Description: ") %>
+      <%= text_area(:Description, "", rows: 5) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-2 columns">
+      <%= label_tag(:Nodes, "Nodes: ") %>
+      <%= text_field_tag(:Nodes, '', "class" => "numeric") %>
+    </div>
+    <div class="large-4 columns">
+      <%= label_tag(:NodeType, "Node type: ") %>
+      <%= text_field_tag(:NodeType) %>
+    </div>
+    <div class="large-2 columns">
+      <%= label_tag(:Edges, "Edges: ") %>
+      <%= text_field_tag(:Edges) %>
+    </div>
+    <div class="large-4 columns">
+      <%= label_tag(:EdgeType, "Edge type: ") %>
+      <%= text_field_tag(:EdgeType) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <%= label_tag(:GraphProperties, "Graph properties: ") %>
+      <%= text_field_tag(:GraphProperties) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <%= label_tag(:InfoLink, "Info link: ") %>
+      <%= text_field_tag(:InfoLink) %>
+    </div>
+    <div class="large-6 columns">
+      <%= label_tag(:DataLink, "Data link: ") %>
+      <%= text_field_tag(:DataLink) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-2 columns">
+      <%= label_tag(:FileSize, "File size: ") %>
+      <%= text_field_tag(:FileSize) %>
+    </div>
+    <div class="large-4 columns">
+      <%= label_tag(:FileType, "File type: ") %>
+      <%= text_field_tag(:FileType) %>
+    </div>
+    <div class="large-6 columns">
+      <%= label_tag(:GraphFormat, "Graph format: ") %>
+      <%= text_field_tag(:GraphFormat) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <%= label_tag(:Citation, "Citation: ") %>
+      <%= text_field_tag(:Citation) %>
+    </div>
+    <div class="large-3 columns">
+      <p>Is the data set public?</p>
+      <%= label_tag(:Public_true, "Yes:", "class" => "radio") %>
+      <%= radio_button_tag(:Public, true) %>
+      <%= label_tag(:Public_false, "No:", "class" => "radio") %>
+      <%= radio_button_tag(:Public, false) %>
+    </div>
+    <div class="large-2 columns">
+      <%= submit_tag("Submit", "class" => "button radius", "id" => "submit") %>
+    </div>
+  </div>
+<% end %>

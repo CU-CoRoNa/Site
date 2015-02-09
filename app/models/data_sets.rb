@@ -142,4 +142,8 @@ class DataSets < ActiveRecord::Base
       end
     end
   end
+
+  def self.domains
+    ['Biological', 'Social', 'Informational']
+  end
 end

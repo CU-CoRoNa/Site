@@ -5,6 +5,7 @@ Site::Application.routes.draw do
   get "faq", to: "faq"
   get "about", to: "about"
   get "data", to: "data"
+  get "submit", to: "submit"
   get 'templateWelcome', to:'welcome#templateIndex'
   get 'templateData', to:'data#templateIndex'
   get 'templateAbout', to:'about#templateIndex'
