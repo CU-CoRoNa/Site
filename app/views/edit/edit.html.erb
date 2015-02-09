@@ -1,21 +1,13 @@
 <h1>Edit</h1>
 <%= form_tag("/edit", method: "PUT") do %>
   <div class="row">
-    <div class="large-8 columns">
-      <%= label_tag(:Create_true, "Create new record", "id" => "create") %>
-      <%= radio_button_tag(:Create, true) %>
-      <%= label_tag(:Create_false, "Update existing record", "id" => "update") %>
-      <%= radio_button_tag(:Create, false) %>
-    </div>
-  </div>
-  <div class="row">
     <div class="large-5 columns">
       <%= label_tag(:Name, "Name: ") %>
       <%= text_field_tag(:Name) %>
     </div>
     <div class="large-3 columns">
       <%= label_tag(:Domain, "Domain: ") %>
-      <%= select("Domain", "", DataSets.domains, "include_blank" => true) %>
+      <%= select("Domain", "", DataSet.domains, "include_blank" => true) %>
     </div>
     <div class="large-4 columns">
       <%= label_tag(:SubDomain, "Subdomain: ") %>
