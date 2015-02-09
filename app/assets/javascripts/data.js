@@ -12,6 +12,7 @@ var interactionObject ;
 $(function(){
   interactionObject = new DataInteractor();
   tab_init();
+  document.domain = parent.domain;
 });
 
 //loads database elements as user scrolls

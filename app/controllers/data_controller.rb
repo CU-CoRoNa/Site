@@ -1,9 +1,18 @@
 # fix switching back tabs, no scroll on end
 class DataController < ApplicationController
+  protect_from_forgery with: :null_session
+    #TODO encrypt all post routs with https
+
   before_filter :index
   respond_to :html, :js
 
   def index
+  end
+
+  def templateIndex
+    respond_to do |format|
+      format.html{ render 'data/data', :layout => false}
+    end
   end
 
   def get_entry_template

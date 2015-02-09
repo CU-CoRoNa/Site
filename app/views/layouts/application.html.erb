@@ -3,28 +3,65 @@
 <head>
   <title>Test Site</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="import" href="/assets/sampler-scaffold/sampler-scaffold.html">
+  <link rel="import" href="/assets/paper-slider/paper-slider.html">
+  <link rel="import" href="/assets/paper-item/paper-item.html">
+  <link rel="import" href="/assets/paper-dropdown/paper-dropdown.html">
+  <link rel="import" href="/assets/paper-dropdown-menu/paper-dropdown-menu.html">
   <%= csrf_meta_tags %>
 </head>
   <body>
-    <div class="content index">
-    <nav class="top-bar" data-topbar role="navigation">
-      <ul class="title-area">
-        <li class="name">
-          <h1><a>CoRoNA</a></h1>
-        </li>
-      </ul>
-      <section class="top-bar-section">
-        <ul class="left">
-          <li> <%= link_to 'Home' , root_path %> </li>
-          <li> <%= link_to 'Data' , data_path %> </li>
-          <li> <%= link_to 'About', about_path %> </li>
-          <li> <%= link_to 'FAQ' , faq_path %> </li>
-          <li> <%= link_to 'Edit' , edit_path %> </li>
-        </ul>
-      </section>
-    </nav>
-      <%= yield %>
-    </div>
+  <sampler-scaffold label="CoRoNA">
+    <core-item label="Home"  url="<%= templateWelcome_path %>"></core-item>
+    <core-submenu label="Data" >
+      <div label="Data" id="dataInterface" url="<%=  templateData_path %>">
+        <div id="sliders">
+          <div>Nodes</div>
+          <paper-slider pin="true" min="10" max="200" value="110"></paper-slider> <br>
+          <div>Edges</div>
+          <paper-slider pin="true" min="10" max="200" value="110"></paper-slider>
+          <div>FileType</div>
+          <paper-slider pin="true" min="10" max="200" value="110"></paper-slider>
+        </div>
+
+        <div id="selectors">
+          <paper-dropdown-menu label="Network Type">
+            <paper-dropdown class="dropdown">
+              <core-menu class="menu">
+                <paper-item>All</paper-item>
+              </core-menu>
+            </paper-dropdown>
+          </paper-dropdown-menu> <br>
+
+          <paper-dropdown-menu label="Group">
+            <paper-dropdown class="dropdown">
+              <core-menu class="menu">
+                <paper-item>All</paper-item>
+              </core-menu>
+            </paper-dropdown>
+          </paper-dropdown-menu>
+
+          <paper-dropdown-menu label="Graph Properties">
+            <paper-dropdown class="dropdown">
+              <core-menu class="menu">
+                <paper-item>All</paper-item>
+              </core-menu>
+            </paper-dropdown>
+          </paper-dropdown-menu>
+
+           <paper-dropdown-menu label="File Type">
+            <paper-dropdown class="dropdown">
+              <core-menu class="menu">
+                <paper-item>All</paper-item>
+              </core-menu>
+            </paper-dropdown>
+          </paper-dropdown-menu>
+
+        </div>
+
+      </div>
+    </core-submenu>
+    <core-item label="About" url="<%= templateAbout_path%>"></core-item>
+  </sampler-scaffold>
   </body>
 </html>

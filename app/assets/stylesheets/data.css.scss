@@ -2,9 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @CHARSET "UTF-8";
-//@import "foundation/components/global";
-//@import "foundation/components/labels";
-//@import "foundation/settings";
 @import "jquery.nouislider";
 
 $my_float: right;
@@ -16,14 +13,10 @@ $shadow: rgb(111, 111, 111);
  {
    background-color: $bg_color;
    border: thin solid lightgrey;
-  // -webkit-box-shadow: 0 0 10px $shadow;
    border: thin solid lightgrey;
    margin-top: 20px;
    margin-bottom: 20px;
    padding: 20px;
- // -moz-box-shadow: 0 0 10px $shadow;
-   //margin-top: 20px;
-   //padding: 20px;
  }
 
 .t
@@ -34,164 +27,121 @@ $shadow: rgb(111, 111, 111);
   border-left:  thin solid lightgray;
 
   overflow: hidden;
- // margin-top: 20px;
   text-align: center;
-//  padding: 5px;
-}
-
-.fileInfo
-{
-  overflow: hidden;
-  background-color: $bg_color;
-  border-bottom: thin solid lightgrey;
-  border-left: thin solid lightgrey;
-  border-right: thin solid lightgrey;
-  //margin-bottom: 20px;
-  height: 30px;
-
-  .FileSize
-  {
-    float: right;
-    padding-top: 3px;
-    padding-right: 3px;
-  }
-  .FileType
-  {
-    float: right;
-   // margin-top: 3px;
-    //margin-right: 1px;
-    padding: 3px;
-  }  //padding: 20px;
-
-}
-
-#groupButtons
-{
-  float: right;
-}
-
-.additional_entries
-{
-  position: relative;
 }
 
 .entry_container
 {
   background-color: $bg_color;
   border: thin solid lightgrey;
- // -webkit-box-shadow: 0 0 10px $shadow;
- // -moz-box-shadow: 0 0 10px $shadow;
   margin-top: 20px;
 
-}
-
-div[id*=left], div[id*=right]
-{
-  overflow: hidden;
-}
-
-
-.Descriptions
-{
-  font-size: 12px;
-  padding-top: 4px;
-  margin-left: 5px;
-}
-
-.Citation
-{
-  font-size: 12px;
-  margin-left: 5px;
-}
-
-.Name
-{
-  float: left;
-  //margin-top: 2px;
-  //margin-left: 2px;
-  //position: relative;
-  padding: 2px;
-  width: 399px;
-  text-align: left;
-}
-
-.Domain
-{
-  position: relative;
-  float: right;
-//  margin-right: 5px;
-  //margin-bottom: 2px;
-  padding: 2px;
-}
-
-.SubDomain
-{
-  position: relative;
- // margin-right: 5px;
-  //margin-bottom: 2px;
-  padding: 2px;
-  float: right;
-}
-
-$element_pos: relative;
-//.GraphInfo
-//{
-  .Nodes
+  .entryHeader
   {
-    float: $my_float;
-    position: $element_pos;
-    margin-right: 20px;
-    margin-top: 6px;
+    .Name
+    {
+      float: left;
+      padding: 2px;
+      width: 399px;
+      text-align: left;
+    }
+
+    .Domain
+    {
+      position: relative;
+      float: right;
+      padding: 2px;
+    }
+
+    .SubDomain
+    {
+      position: relative;
+      padding: 2px;
+      float: right;
+    }
   }
 
-  .NodeType
+  .entryBody
   {
-    float: $my_float;
-    position: $element_pos;
-    margin-right: 6px;
-    margin-top: 6px;
-    margin-bottom: 6px;
+    .description
+    {
+      font-size: 12px;
+      padding-top: 4px;
+      margin-left: 5px;
+    }
+
+    .attributes
+    {
+      float:right;
+      .nodeInfo
+      {
+        .Nodes
+        {
+
+        }
+
+        .NodeType
+        {
+
+        }
+      }
+
+      .edgeInfo
+      {
+        .Edges
+        {
+
+        }
+
+        .EdgeType
+        {
+
+        }
+      }
+
+      .graphInfo
+      {
+
+      }
+    }
   }
 
-
-  .Edges{
-    float: $my_float;
-    position: $element_pos;
-    margin-right: 20px;
-    margin-left: 6px;
-    margin-bottom: 6px;
-  }
-
-  .EdgeType
+  .entryFooter
   {
-    float: $my_float;
-    position: $element_pos;
+    .citation
+    {
+      float:left;
+      font-size: 12px;
+      margin-left: 5px;
+    }
+
+    .source
+    {
+      float: right;
+    }
+
   }
 
-  .GraphFormat
+  .additionalGroup
   {
-    float: $my_float;
-    position: $element_pos;
-    margin-right: 20px;
-    margin-bottom: 6px;
+    display: none;
+    .additionalGroupEntry
+    {
+    }
   }
 
-  .attrs
+  .my_label
   {
-    float: $my_float;
-    margin-right: 20px;
-    position: $element_pos;
+    font-size: 12px;
+    padding: 2px;
+    background-color: #E0E0E0;
+    border: thin solid lightgray;
   }
 
-//  padding-left: 30px;
- // margin-bottom: 10px;
- // position: absolute;
-  //overflow: hidden;
-//}
+}
 
 .gP
 {
-  //float: right;
   border-right: thin solid lightgray;
   border-left: thin solid lightgray;
 }
@@ -203,32 +153,12 @@ $element_pos: relative;
   float: left;
 }
 
-#additionalGroupEntry
-{
-  border-bottom: thin solid lightgray;
-  border-left: thin solid lightgray;
-  border-right: thin solid lightgray;
-  overflow: hidden;
-}
-
-.additionalGroup
-{
-  display: none;
-}
-
-.my_label
-{
-  font-size: 12px;
-  padding: 2px;
-  background-color: #E0E0E0;
-  border: thin solid lightgray;
-}
-
 ul.tabs{
   margin: 0px;
   padding: 0px;
   list-style: none;
 }
+
 ul.tabs li{
   background: slategray;
   color: #ffffff;

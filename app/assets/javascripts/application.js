@@ -9,13 +9,16 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+//= require webcomponentsjs/webcomponents.min
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require foundation
-//= require_tree ./edit
+//= require_tree .
 
-$(function(){ $(document).foundation(); });
-
-
+document.addEventListener('polymer-ready', function() {
+  var navicon = document.getElementById('navicon');
+  var drawerPanel = document.getElementById('drawerPanel');
+  navicon.addEventListener('click', function() {
+    drawerPanel.togglePanel();
+  });
+});

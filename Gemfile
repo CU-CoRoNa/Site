@@ -27,7 +27,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 #for nice looking web pages
-gem 'foundation-rails', '~> 5.4.0'
+gem 'purecss-rails'
 
 # sunspot for searching
 gem 'sunspot_rails'
