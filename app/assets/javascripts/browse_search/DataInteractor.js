@@ -11,9 +11,7 @@ function DataInteractor()
 {
   var myMode = 'browse';
 
-  console.log('before');
   var browse = new Browse();
-  console.log('here');
   var search = new Search();
 
   this.reload= function()

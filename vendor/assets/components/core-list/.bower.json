@@ -36,13 +36,13 @@
     "paper-spinner": "Polymer/paper-spinner#master",
     "paper-tabs": "Polymer/paper-tabs#master"
   },
-  "version": "0.5.3",
+  "version": "0.5.5",
   "homepage": "https://github.com/Polymer/core-list",
-  "_release": "0.5.3",
+  "_release": "0.5.5",
   "_resolution": {
     "type": "version",
-    "tag": "0.5.3",
-    "commit": "ddfaaf92b0e0ff5023e5436f89984b62ebdac0bb"
+    "tag": "0.5.5",
+    "commit": "e8c953734b01e2dc5694891a8217abcb17ae9040"
   },
   "_source": "git://github.com/Polymer/core-list.git",
   "_target": "^0.5",

@@ -11,15 +11,15 @@
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^1.0.0"
   },
-  "version": "0.5.3",
+  "version": "0.5.5",
   "homepage": "https://github.com/Polymer/paper-input",
-  "_release": "0.5.3",
+  "_release": "0.5.5",
   "_resolution": {
     "type": "version",
-    "tag": "0.5.3",
-    "commit": "b9c43b74ac0ca221c6d7b105459fe2c8f6b83482"
+    "tag": "0.5.5",
+    "commit": "09c3d5785fc0044528ba016198b531ddb8b28acc"
   },
   "_source": "git://github.com/Polymer/paper-input.git",
-  "_target": "^0.5",
+  "_target": "^0.5.0",
   "_originalSource": "Polymer/paper-input"
 }

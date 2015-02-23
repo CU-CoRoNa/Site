@@ -7,13 +7,13 @@
   "devDependencies": {
     "polymer-test-tools": "Polymer/polymer-test-tools#master"
   },
-  "version": "0.5.3",
+  "version": "0.5.5",
   "homepage": "https://github.com/Polymer/core-shared-lib",
-  "_release": "0.5.3",
+  "_release": "0.5.5",
   "_resolution": {
     "type": "version",
-    "tag": "0.5.3",
-    "commit": "abca35dbc0c007328a3636604dfcfe997a2fd014"
+    "tag": "0.5.5",
+    "commit": "05890bf9aed7140c072c99c591cf109e3bc85190"
   },
   "_source": "git://github.com/Polymer/core-shared-lib.git",
   "_target": "^0.5",

@@ -1,6 +1,5 @@
 //= require jquery.nouislider.all.min.js
 //= require browse_search/element_generator.js
-
 /**
  * @class Browse
  * A singleton class responsible for
@@ -16,7 +15,7 @@
  */
 
 var elements = new ElementGenerator();
-var mainContainer = 'content';
+var mainContainer = '.content';
 function Browse()
 {
   const jsonOptionId = {'Type':'ds', 'Group':'gs', 'FileType':'ft'};
@@ -24,26 +23,29 @@ function Browse()
   const modifiableTag = 'varies';
     //elements in the drop down box that are allow to be changed will have this tag
 
-  //initialize slider range
-  $(".slider").noUiSlider({
-    start:[0],
-    range:{
-      'min':[0],
-      'max':[1]
-    }
+  var dropdownSelected =
+  {
+    'Type':'All',
+    'Group':'All',
+    'GraphProperties':'All',
+    'FileType':'All'
+  };
+
+  $(document).on('polymer-ready',function(){
+    /*
+    $('core-menu').on('core-select', function( e ){
+      var caller = e.target.id;
+      var myItem = e.originalEvent.detail.item;
+
+      if( myItem.className == 'core-selected' )
+      {
+        dropdownSelected[caller] = myItem.getAttribute('label');
+      }
+      get_update();
+    });
+    */
   });
 
-  //add change listener to slider and select boxes
-  $(".slider, select").on({
-    change: function(){
-      get_update( this );
-        //passes calling object to update_state
-    }
-  });
-
-  //renders numeric slider value in proper containers
-  $('#nodes').Link('lower').to( $('#nodeSliderVal'), "text" );
-  $('#edges').Link('lower').to( $('#edgeSliderVal'), "text" );
 
   /**
    * takes in input from the slider or drop down
@@ -51,9 +53,8 @@ function Browse()
    * to get the new elements to be shown
    * @param selector the actual html selector object
    */
-  function get_update( selector )
+  function get_update( )
   {
-    console.log('in get update');
     $.ajax
     ({
       url: '/do_browse',
@@ -61,16 +62,16 @@ function Browse()
       async: false,
       data:
       {
-        domain:$("#Type").find('option:selected').text(),
-        group:$('#Group').find('option:selected').text(),
-        nodes:$('#nodes').val(),
-        edges:$('#edges').val(),
-        file_size:$('#file_size').val(),
-        file_type:$('#FileType').find('option:selected').text()
+        domain:dropdownSelected['Type'],
+        group:dropdownSelected['Group'],
+        nodes:0,//TODO fix
+        edges:0,
+        file_size:0,
+        file_type:dropdownSelected['FileType']
       },
       success: function( responce )
       {
-        do_update(responce, selector);
+        do_update(responce);
       }
     });
   }//end update_state
@@ -81,11 +82,9 @@ function Browse()
    * are going to be rendered
    * @param server_responce json formatted data entries
    */
-  function do_update( server_responce, selector )
+  function do_update( server_responce)
   {
-    console.log('running in do_update');
-    $('.entry_container').remove();
-    options_update(server_responce, selector );
+    //options_update(server_responce );
     elements.setGroups($.map(_.groupBy(JSON.parse(server_responce.q),'GroupId'),function(val){
       return [val];
     }));
@@ -99,8 +98,9 @@ function Browse()
    * @param new_options
    * @param selector
    */
-  function options_update( new_options, selector )
+  function options_update( new_options )
   {
+    var selector = null;
     const elemHTMLSelector = '#';
     const wantedAttr       = 'id';
     const defaultOption    = 'All';
@@ -125,31 +125,11 @@ function Browse()
     }
     else
     {
-
       //add options to all menus
       for( var optionType in jsonOptionId )
       {
         drop_down_attr_edit( new_options[optionType], jsonOptionId[optionType])
       }
-
-      //TODO consider always updating nodes and edges
-      $('#nodes').noUiSlider({
-        start:[new_options.nr[0]],
-        range:{
-          'min':new_options.nr[0],
-          'max':[new_options.nr[1]]
-        }
-      },true);
-
-      $('#nodes').val(this.value);
-
-      $('#edges').noUiSlider({
-        start:[new_options.er[0]],
-        range:{
-          'min':[new_options.er[0]],
-          'max':[new_options.er[1]]
-        }
-      },true);
 
     }
 
@@ -167,6 +147,7 @@ function Browse()
     const htmlSelector     = '.';
     const elemHTMLSelector = '#';
 
+    /*
     var idx;
     $(elemHTMLSelector + elem).children( htmlSelector + modifiableTag + elem).each(function(){
       idx = new_attrs.indexOf( this.value );
@@ -188,15 +169,18 @@ function Browse()
           "> " + new_attrs[i]  + " </option>");
       }
     }
+    */
   }//end drop_down_attr_edit
 
   function fillScreen()
   {
     var num_display = $(document).height() / 10;
       //value determined by the prestigious school of hard knocks
+    var elem;
     for(var i = 0; i < num_display; i++)
     {
-      $('.tab-content').append(elements.getElement());
+      elem = elements.getElement();
+      $(mainContainer).append(elem);
     }
   }
 
@@ -205,9 +189,9 @@ function Browse()
     get_update(this);
     var num_display = $(document).height() / 50;
       //value determined by the prestigious school of hard knocks
-    for(var i = 0; i < num_display; i++)
+    for(var i = 0; i < 20; i++)
     {
-      $('.tab-content').append(elements.getElement());
+      $(mainContainer).append(elements.getElement());
     }
   };
 

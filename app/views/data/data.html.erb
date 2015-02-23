@@ -1,73 +1,91 @@
 <!-- This is placed in here because this document will be loaded into an iframe -->
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<link rel="import" href="/assets/core-menu/core-menu.html">
+<link rel="import" href="/assets/core-selector/core-selector.html">
+<link rel="import" href="/assets/polymer/polymer.html">
 <link rel="import" href="/assets/paper-input/paper-input.html">
+<link rel="import" href="/assets/paper-slider/paper-slider.html">
+<link rel="import" href="/assets/paper-interval-slider/paper-interval-slider.html">
+<link rel="import" href="/assets/paper-item/paper-item.html">
+<link rel="import" href="/assets/paper-dropdown/paper-dropdown.html">
+<link rel="import" href="/assets/paper-dropdown-menu/paper-dropdown-menu.html">
 <% provide(:title,'Data') %>
 
-<!--<ul class="tabs" data-tab>
-  <li class="tab-link current" data-tab="tab-1">Browse</li>
-  <li class="tab-link" data-tab="tab-2">Search</li>
-</ul> -->
 <div id="entry">
-  <paper-input-decorator label="Filter by text" floatingLabel="true">
-    <input is="core-input" placeholder="Filter by text" aria-label="Filter by Text">
-  </paper-input-decorator>
-</div>
 
-<!--<div class="tabs-content"> -->
-  <div class="tab-content current" id="tab-1">
+  <div id="selectors">
 
-    <table id="temp">
+    <div class="dropdownContainer">
+      <label class="dropdownLabel"> Network Type</label>
+      <paper-dropdown-menu label="Network Type" >
+        <paper-dropdown class="dropdown">
+          <core-menu id="Type" class="menu" selected="0">
+              <paper-item label="All">All</paper-item>
+          </core-menu>
+        </paper-dropdown>
+      </paper-dropdown-menu>
+    </div>
 
-      <tr>
+    <div class="dropdownContainer">
+      <label class="dropdownLabel"> Group </label>
+      <paper-dropdown-menu label="Group">
+        <paper-dropdown class="dropdown">
+          <core-menu id="Group" class="menu" selected="0" on-core-select="{{menuSelectAction}}">
+            <paper-item label="All">All</paper-item>
+          </core-menu>
+        </paper-dropdown>
+      </paper-dropdown-menu>
+    </div>
 
-        <td><label>Network Type
-            <select id="Type">
-              <option value="All">All</option>
-            </select>
-          </label>
+    <div class="dropdownContainer">
+      <label class="dropdownLabel"> Graph Properties </label>
+      <paper-dropdown-menu label="Graph Properties">
+        <paper-dropdown class="dropdown">
+          <core-menu id="GraphProperties" class="menu" selected="0" on-core-select="{{menuSelectAction}}">
+             <paper-item label="All">All</paper-item>
+          </core-menu>
+        </paper-dropdown>
+      </paper-dropdown-menu>
+    </div>
 
-          <label> Group
-            <select id="Group">
-              <option value="All">All</option>
-            </select>
-          </label></td>
-
-          <td>
-            <label>
-              Nodes: <span id="nodeSliderVal"></span>
-              <div class="slider" id="nodes"></div>
-            </label><br><br>
-
-            <label>
-              Edges: <span id="edgeSliderVal"></span>
-              <div class="slider" id="edges"></div>
-            </label>
-          </td>
-
-          <td><label>
-              File size: <span id="sizeSliderVal"></span>
-              Min: <span id="sizeMin"></span>
-              Max: <span id="sizeMax"></span>
-              <div class ="slider" id="file_size"></div>
-            </label><br><br>
-
-            <label> FileType
-              <select id="FileType">
-                <option value="All">All</option>
-              </select>
-            </label>
-
-          </td>
-      </tr>
-
-    </table>
+    <div class="dropdownContainer" id="dropdown4">
+      <label class="dropdownLabel"> File Type </label>
+      <paper-dropdown-menu label="File Type">
+        <paper-dropdown class="dropdown">
+          <core-menu id="FileType" class="menu" selected="0" on-core-select="{{menuSelectAction}}">
+            <paper-item label="All">All</paper-item>
+          </core-menu>
+        </paper-dropdown>
+     </paper-dropdown-menu>
+    </div>
 
   </div>
-<!--
-  <div class="tab-content" id="tab-2">
-    <form id="search-bar">
-      <input id="query" type="text"></input>
-    </form>
- </div>
-</div> -->
+
+  <div id="sliders">
+
+    <div class="sliderContainer">
+      <label class="sliderLabel"> Nodes </label>
+      <paper-interval-slider id="nodes" pin="true" min="10" max="200" valueA="110" valueB="130"></paper-interval-slider>
+    </div>
+
+    <div class="sliderContainer">
+      <label class="sliderLabel"> Edges </label>
+      <paper-interval-slider id="edges" pin="true" min="10" max="200" value="110" valueB="130"></paper-interval-slider>
+    </div>
+
+    <div class="sliderContainer">
+      <label class="sliderLabel"> File Size </label>
+      <paper-interval-slider pin="true" min="10" max="200" valueB="130"></paper-interval-slider>
+    </div>
+  </div>
+
+
+  <paper-input-decorator id="searchInput" label="Filter by text" floatingLabel="true">
+    <input is="core-input" placeholder="Filter by text" aria-label="Filter by Text">
+  </paper-input-decorator>
+
+</div>
+
+<div class="content"></div>
+

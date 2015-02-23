@@ -4,13 +4,13 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^0.5"
   },
-  "version": "0.5.3",
+  "version": "0.5.5",
   "homepage": "https://github.com/Polymer/core-focusable",
-  "_release": "0.5.3",
+  "_release": "0.5.5",
   "_resolution": {
     "type": "version",
-    "tag": "0.5.3",
-    "commit": "f53b3f611ea43a7f7f425adf4298039464254002"
+    "tag": "0.5.5",
+    "commit": "3c949264904b89ed416b1c42b32b7b145209f78d"
   },
   "_source": "git://github.com/Polymer/core-focusable.git",
   "_target": "^0.5",

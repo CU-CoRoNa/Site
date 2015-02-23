@@ -47,16 +47,15 @@
     "core-transition": "Polymer/core-transition#^0.5",
     "sampler-scaffold": "Polymer/sampler-scaffold#^0.5"
   },
-  "version": "0.5.3",
+  "version": "0.5.5",
   "homepage": "https://github.com/Polymer/core-elements",
-  "_release": "0.5.3",
+  "_release": "0.5.5",
   "_resolution": {
     "type": "version",
-    "tag": "0.5.3",
-    "commit": "48c4a95cea42efe4f013c121899e27f81f039433"
+    "tag": "0.5.5",
+    "commit": "e03130e5f7c579cdaf5495462e0e4e65770a8fc7"
   },
   "_source": "git://github.com/Polymer/core-elements.git",
   "_target": "~0.5.3",
-  "_originalSource": "Polymer/core-elements",
-  "_direct": true
+  "_originalSource": "Polymer/core-elements"
 }

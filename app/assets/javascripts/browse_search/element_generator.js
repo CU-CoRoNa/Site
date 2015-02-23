@@ -106,12 +106,12 @@ function ElementGenerator()
     var sample_entry = group[0];
 
     var Name              = singleEntry ? sample_entry.Name : sample_entry.GroupId;
-    var Description       = singleEntry ? singleEntry.Name  : sample_entry.GroupDescription;
+    var Description       = singleEntry ? sample_entry.Description  : sample_entry.GroupDescription;
     var Domain            = sample_entry.Domain;
     var SubDomain         = sample_entry.SubDomain;
     var Nodes             = singleEntry ? sample_entry.Nodes : "Varies";
     var NodeType          = sample_entry.NodeType;
-    var Edges             = singleEntry ? singleEntry.Edges :"Varies";
+    var Edges             = singleEntry ? sample_entry.Edges :"Varies";
     var EdgeType          = sample_entry.EdgeType;
     var GraphProperties   = sample_entry.GraphProperties;
     var GroupId           = sample_entry.GroupId;
@@ -134,7 +134,6 @@ function ElementGenerator()
 
   this.setGroups = function( newGroups )
   {
-    console.log(newGroups);
     if( newGroups != null )
     {
       groups = newGroups;

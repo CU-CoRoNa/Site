@@ -10,7 +10,7 @@ $bg_color: #F7F7F7;
 $slider_color: #607D8B;
 $shadow: rgb(111, 111, 111);
 
-.tab-content
+.content
 {
   display: inherit;
   padding: 20px;
@@ -23,13 +23,96 @@ $shadow: rgb(111, 111, 111);
 
 #entry
 {
-  margin: 0 10px 0 24px;
-  width: 802px;
-  padding-bottom: 40px;
+  margin: 0 20px 0 24px;
+  width: 764px;
+  height: 190px;
+  padding: 20px;
+  border: thin solid $slider_color;
+
+  #selectors
+  {
+    height: 80px;
+    float: left;
+    width: 780px;
+    .dropdownLabel
+    {
+      position: relative;
+      color: #727272;
+      font-size: 12px;
+      top: 4px;
+    }
+
+    .dropdownContainer
+    {
+      width: 165px;
+      float: left;
+      margin-right: 33px;
+    }
+
+    #dropdown4
+    {
+      margin-right: 0;
+    }
+
+    paper-dropdown-menu
+    {
+      width: 165px;
+    }
+    margin-bottom: 10px;
+  }
+
+  #sliders
+  {
+    width: 780px;
+    $slider_width: 260px;
+    position: relative;
+
+    .sliderLabel
+    {
+      position: relative;
+      color: #727272;
+      font-size: 12px;
+      top: -4px;
+    }
+
+    .sliderContainer
+    {
+      float: left;
+      width: $slider_width;
+    }
+
+    paper-interval-slider
+    {
+      float: left;
+      width: $slider_width;
+    }
+
+    paper-interval-slider::shadow #sliderBar::shadow #progress {
+      background-color: $slider_color;
+    }
+
+    paper-interval-slider::shadow .knobInner {
+      background-color: $slider_color;
+    }
+
+    paper-interval-slider::shadow .knob::before {
+      background-color: $slider_color;
+    }
+
+    paper-interval-slider::shadow .knobInner::before {
+        background-color: $slider_color;
+    }
+
+    paper-interval-slider::shadow .knob > .knobInner::after {
+      color: #ffffff;
+    }
+
+  }
+
   paper-input-decorator
   {
     float: left;
-    width: 100%;
+    width: 762px;
     padding: 0;
   }
 
@@ -43,6 +126,7 @@ $shadow: rgb(111, 111, 111);
     /* floating label color when the input is focused */
     color: #607D8B;
   }
+
 }
 
 .entry_container

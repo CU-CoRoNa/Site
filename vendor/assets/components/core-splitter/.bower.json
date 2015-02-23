@@ -5,13 +5,13 @@
     "polymer": "Polymer/polymer#^0.5",
     "core-resizable": "Polymer/core-resizable#^0.5"
   },
-  "version": "0.5.3",
+  "version": "0.5.5",
   "homepage": "https://github.com/Polymer/core-splitter",
-  "_release": "0.5.3",
+  "_release": "0.5.5",
   "_resolution": {
     "type": "version",
-    "tag": "0.5.3",
-    "commit": "e21c7040a45b15065db72d8688242c669a8036f3"
+    "tag": "0.5.5",
+    "commit": "4f28b9833ca2c92d4dd8411b021d2139f0816ced"
   },
   "_source": "git://github.com/Polymer/core-splitter.git",
   "_target": "^0.5",

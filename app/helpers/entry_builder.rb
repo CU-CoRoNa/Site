@@ -54,6 +54,9 @@ module EntryBuilder
                                             )
     proper_entry[:Nodes]     = e.Nodes
     proper_entry[:Edges]     = e.Edges
+    puts("========================")
+    puts(e.Edges)
+    puts("========================")
 
     description = (e.Description.nil?) ? 'n/a' : e.Description
 
