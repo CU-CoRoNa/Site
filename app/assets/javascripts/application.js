@@ -25,8 +25,3 @@ document.addEventListener('polymer-ready', function() {
   */
 });
 
-console.log("Working");
-$(window).scroll(function(){
-  console.log("Window top: " + $(window).scrollTop());
-});
-

@@ -44,7 +44,7 @@ of the scaffold.
 
   <core-drawer-panel id="drawerPanel" narrow="{{narrow}}" drawerWidth="320px" responsiveWidth="{{responsiveWidth}}">
 
-    <core-header-panel id="mainHeaderPanel" main mode="{{narrow ? 'waterfall' : 'cover'}}" shadow>
+    <core-header-panel id="mainHeaderPanel" main mode="{{narrow ? 'waterfall' : 'cover'}}" on-scroll="{{scroll}}"  shadow>
 
       <core-toolbar class="{{ {'medium-tall' : !narrow} | tokenList }}">
 
@@ -55,7 +55,7 @@ of the scaffold.
 
       </core-toolbar>
       
-      <div id="card" on-transitionend="{{cardTransitionDone}}" hidden?="{{!item}}">
+      <div id="card" on-transitionend="{{cardTransitionDone}}" hidden?="{{!item}}" >
 
         <div class="element-label" hidden?="{{narrow}}">{{item.label === nil ? 'Data' : item.label}}</div>
 
@@ -82,7 +82,10 @@ of the scaffold.
   </core-drawer-panel>
 
 </template>
+
 <script>
+
+
 
   Polymer('sampler-scaffold', {
     
@@ -95,6 +98,8 @@ of the scaffold.
      * @type string
      */
     responsiveWidth: '1300px',
+
+    oldFrameBottom: 0,
     
     /**
      * Sampler label.
@@ -107,6 +112,15 @@ of the scaffold.
       this.boundResizeFrame = this.resizeFrame.bind(this);
       window.addEventListener('resize', this.updateFrameHeight.bind(this));
       window.addEventListener('hashchange', this.parseLocationHash.bind(this));
+      window.addEventListener('message',this.updateFrameHeight.bind(this));
+        console.log(window);
+    },
+
+    resizeElem: function()
+    {
+      this.job('resizeFrame', function() {
+        this.updateFrameHeight();
+      });
     },
     
     domReady: function() {
@@ -114,7 +128,7 @@ of the scaffold.
         this.parseLocationHash();
       }, null, 300);
     },
-    
+
     parseLocationHash: function() {
       var route = window.location.hash.slice(1);
       for (var i = 0, item; item = this.$.menu.items[i]; i++) {
@@ -192,6 +206,7 @@ of the scaffold.
     },
     
     updateFrameHeight: function() {
+        console.log('running');
       var frame = this.$.frame;
       var doc = frame.contentDocument;
       if (doc) {
@@ -209,6 +224,19 @@ of the scaffold.
         }
         this.$.mainHeaderPanel.$.mainContainer.scrollTop = pos;
       }
+    },
+
+    scroll: function()
+    {
+      var frame_bottom = this.$.frame.getBoundingClientRect().bottom;
+      var main_bottom  = this.$.mainHeaderPanel.getBoundingClientRect().bottom;
+      if( frame_bottom < main_bottom && frame_bottom > this.oldFrameBottom)
+      {
+        console.log("Bottom: " + frame_bottom + " Old Bottom: " + this.oldFrameBottom);
+        this.$.frame.contentWindow.postMessage('message','*');
+        this.oldFrameBottom = frame_bottom;
+      }
+
     }
 
   });

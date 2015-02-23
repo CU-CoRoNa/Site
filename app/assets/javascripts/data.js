@@ -3,28 +3,27 @@
 //= require browse_search/browse.js
 //= require lodash
 
-var tab_id = 'tab-1';
-
 var interactionObject ;
   //will either be browse or search and determines how the data are interacted with
 
+var test = 4;
 
 //init
 $(function(){
-  interactionObject = new DataInteractor();
-  interactionObject.setMode('browse');
+  interactionObject = new Browse();
   interactionObject.reload();
-  console.log($(window))
 });
 
-
-//loads database elements as user scrolls
-$(window).scroll(function() {
-  if( $(window).scrollTop() == $(document).height() - $(window).height()) {
-    for(var i = 0; i < 5; i++) {
-      $('.content').append(interactionObject.get_next());
-    }
+window.addEventListener('message', function()
+{
+  for(var i = 0; i < 5; i++)
+  {
+    $('.content').append(interactionObject.get_next());
   }
+  parent.postMessage('message','*');
 });
+
+
+
 
 

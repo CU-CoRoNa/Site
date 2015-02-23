@@ -20,6 +20,11 @@ function ElementGenerator()
   var individualTemplate;
     //template for each individual entry in the database
 
+  $('.entryContainer').each().paperCollapse({
+
+  });
+
+
   //Loads the template for entries from the server
   $.ajax
   ({
@@ -87,11 +92,21 @@ function ElementGenerator()
     });
 
     $('.entry_container',to_ret).css('border-left-color',color);
-    $('.collapse-card',to_ret).paperCollapse({});
-
+    $('.collapse-card',to_ret).paperCollapse({
+      onShowComplete: function()
+      {
+        parent.postMessage('message','*');
+      },
+      onHideComplete: function()
+      {
+        parent.postMessage('message','*');
+      }
+    });
     return to_ret;
 
   }
+
+
 
   /**
    * Takes a collection of data sets (graphs) and

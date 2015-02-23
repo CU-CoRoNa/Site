@@ -31,21 +31,6 @@ function Browse()
     'FileType':'All'
   };
 
-  $(document).on('polymer-ready',function(){
-    /*
-    $('core-menu').on('core-select', function( e ){
-      var caller = e.target.id;
-      var myItem = e.originalEvent.detail.item;
-
-      if( myItem.className == 'core-selected' )
-      {
-        dropdownSelected[caller] = myItem.getAttribute('label');
-      }
-      get_update();
-    });
-    */
-  });
-
 
   /**
    * takes in input from the slider or drop down
@@ -174,7 +159,8 @@ function Browse()
 
   function fillScreen()
   {
-    var num_display = $(document).height() / 10;
+    var num_display = $(document).height() / 30;
+    console.log(num_display);
       //value determined by the prestigious school of hard knocks
     var elem;
     for(var i = 0; i < num_display; i++)
@@ -189,7 +175,7 @@ function Browse()
     get_update(this);
     var num_display = $(document).height() / 50;
       //value determined by the prestigious school of hard knocks
-    for(var i = 0; i < 20; i++)
+    for(var i = 0; i < 10; i++)
     {
       $(mainContainer).append(elements.getElement());
     }
