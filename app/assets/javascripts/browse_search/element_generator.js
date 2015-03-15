@@ -68,7 +68,6 @@ function ElementGenerator()
     var to_process =
                     [
                       $('.description', to_ret),
-                      $('.sizeInfo', to_ret),
                       $('.attrInfo', to_ret),
                       $('.graphInfo', to_ret),
                       $('.entryFooter', to_ret),
