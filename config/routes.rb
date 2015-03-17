@@ -6,6 +6,8 @@ Site::Application.routes.draw do
   get "about", to: "about"
   get "data", to: "data"
   get "submit", to: "submit"
+  get "edit_set", to: "edit_set"
+  get "edit_group", to: "edit_group"
   get 'templateWelcome', to:'welcome#templateIndex'
   get 'templateData', to:'data#templateIndex'
   get 'templateAbout', to:'about#templateIndex'

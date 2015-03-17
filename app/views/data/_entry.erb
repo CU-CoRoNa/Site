@@ -2,7 +2,7 @@
   <div  class="collapse-card entry_container" id="{{GroupId}}E">
 
     <div class="title entryHeader ">
-      <div class="Name" > {{Name}} <a href="/edit//group/{{Name}}">Edit</a> </div>
+      <div class="Name" > {{Name}} <a href="/edit_group?n={{Name}}">Edit</a> </div>
       <div class="Domain {{Domain}}" id="">
         {{Domain}}
       </div>
@@ -79,7 +79,7 @@
 <script id="group" type="text/x-handlebars-template">
   <tr>
     <th>{{Name}}</th>
-    <th><a href=/edit/set/{{Name}}>Edit</a></th>
+    <th><a href=/edit_set?n={{Name}}>Edit</a></th>
     <th>{{Nodes}}</th>
     <th>{{Edges}}</th>
     <th>{{FileSize}}</th>

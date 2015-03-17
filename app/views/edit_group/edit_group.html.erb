@@ -1,0 +1,60 @@
+<%= form_tag("/edit_group", method: "PUT") do %>
+  <div>
+    <div>
+      <%= label_tag(:Name, "Name: ") %>
+      <%= text_field_tag(:Name, DataSets.Name) %>
+    </div>
+    <div>
+      <%= label_tag(:Domain, "Domain: ") %>
+      <%= select("Domain", "", DataSets.domains, "include_blank" => true) %>
+    </div>
+    <div>
+      <%= label_tag(:SubDomain, "Subdomain: ") %>
+      <%= text_field_tag(:SubDomain) %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= label_tag(:Description, "Description: ") %>
+      <%= text_area(:Description, "", rows: 5) %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= label_tag(:Edges, "Edges: ") %>
+      <%= text_field_tag(:Edges) %>
+    </div>
+    <div>
+      <%= label_tag(:EdgeType, "Edge type: ") %>
+      <%= text_field_tag(:EdgeType) %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= label_tag(:GraphProperties, "Graph properties: ") %>
+      <%= text_field_tag(:GraphProperties) %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= label_tag(:InfoLink, "Info link: ") %>
+      <%= text_field_tag(:InfoLink) %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= label_tag(:Citation, "Citation: ") %>
+      <%= text_field_tag(:Citation) %>
+    </div>
+    <div>
+      <p>Is the data set public?</p>
+      <%= label_tag(:Public_true, "Yes:", "class" => "radio") %>
+      <%= radio_button_tag(:Public, true) %>
+      <%= label_tag(:Public_false, "No:", "class" => "radio") %>
+      <%= radio_button_tag(:Public, false) %>
+    </div>
+    <div>
+      <%= submit_tag("Submit", "class" => "button radius", "id" => "submit") %>
+    </div>
+  </div>
+<% end %>

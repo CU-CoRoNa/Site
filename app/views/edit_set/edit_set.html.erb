@@ -1,0 +1,49 @@
+<%= form_tag("/edit_set", method: "PUT") do %>
+  <div>
+    <div>
+      <%= label_tag(:Name, "Name: ") %>
+      <%= text_field_tag(:Name) %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= label_tag(:Nodes, "Nodes: ") %>
+      <%= text_field_tag(:Nodes, '', "class" => "numeric") %>
+    </div>
+    <div>
+      <%= label_tag(:EdgeType, "Edge type: ") %>
+      <%= text_field_tag(:EdgeType) %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= label_tag(:GraphProperties, "Graph properties: ") %>
+      <%= text_field_tag(:GraphProperties) %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= label_tag(:DataLink, "Data link: ") %>
+      <%= text_field_tag(:DataLink) %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= label_tag(:FileSize, "File size: ") %>
+      <%= text_field_tag(:FileSize) %>
+    </div>
+    <div>
+      <%= label_tag(:FileType, "File type: ") %>
+      <%= text_field_tag(:FileType) %>
+    </div>
+    <div>
+      <%= label_tag(:GraphFormat, "Graph format: ") %>
+      <%= text_field_tag(:GraphFormat) %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= submit_tag("Submit", "class" => "button radius", "id" => "submit") %>
+    </div>
+  </div>
+<% end %>
