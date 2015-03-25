@@ -1,5 +1,6 @@
 //= require jquery.nouislider.all.min.js
 //= require browse_search/element_generator.js
+//= require lunr.min
 /**
  * @class Browse
  * A singleton class responsible for
@@ -23,14 +24,98 @@ function Browse()
   const modifiableTag = 'varies';
     //elements in the drop down box that are allow to be changed will have this tag
 
+  var index;
+
+  var set_default_options = null;
+
   var dropdownSelected =
   {
     'Type':'All',
     'Group':'All',
     'GraphProperties':'All',
-    'FileType':'All'
+    'FileType':'All',
+    'nodes':[0,0],
+    'edges':[0,0]
   };
 
+  $(document).on('polymer-ready',function(){
+    $.ajax({
+      url:'/get_browse_options',
+      type: 'GET',
+      success:function(default_options)
+      {
+        loadDefaultOptions(default_options);
+
+        $('core-menu').on('core-select', function( e ){
+          var caller = e.target.id;
+          var myItem = e.originalEvent.detail.item;
+
+          if( myItem.className == 'core-selected' )
+          {
+            dropdownSelected[caller] = myItem.getAttribute('label');
+          }
+          $('.content').empty();
+          get_update();
+        });
+
+        $('paper-interval-slider').on('immediate-value-change', function(e){
+          dropdownSelected[e.target.id] = [e.target.immediateValueA, e.target.immediateValueB];
+          $('#'+ e.target.id+'_a').text(e.target.immediateValueA);
+          $('#'+ e.target.id+'_b').text(e.target.immediateValueB);
+          $('.content').empty();
+          get_update();
+        });
+
+        $('input').on('change', function(e){
+          console.log(e.target);
+        });
+
+      }
+    });
+
+  });
+
+  function loadDefaultOptions(default_options)
+  {
+    const tag_f = '<paper-item label="';
+    const tag_m = '">';
+    const tag_e = '</paper-item>';
+
+    set_default_options = default_options;
+
+    default_options['domains'].forEach(function(e){
+      $('#Type').append(tag_f + e + tag_m + e + tag_e);
+    });
+
+    default_options['groups'].forEach(function(e){
+      $('#Group').append(tag_f + e + tag_m + e + tag_e);
+    });
+
+    default_options['properties'].forEach(function(e){
+      $('#GraphProperties').append(tag_f + e + tag_m + e + tag_e);
+    });
+
+    default_options['file_type'].forEach(function(e){
+      $('#FileType').append(tag_f + e + tag_m + e + tag_e);
+    });
+
+    var nodeLogMin = Math.log(default_options['node_range'][0] + 1)/ Math.log(10);
+    var nodeLogMax = Math.log(default_options['node_range'][1]    )/ Math.log(10);
+    var edgeLogMin = Math.log(default_options['edge_range'][0] + 1)/ Math.log(10);
+    var edgeLogMax = Math.log(default_options['edge_range'][1]    )/ Math.log(10);
+
+    $('#nodes').attr('valueA', nodeLogMin );
+    $('#nodes').attr('min'   , nodeLogMin );
+    $('#nodes').attr('valueB', nodeLogMax );
+    $('#nodes').attr('max'   , nodeLogMax );
+    dropdownSelected['nodes'] = [nodeLogMin, nodeLogMax];
+
+    $('#edges').attr('min'   , edgeLogMin);
+    $('#edges').attr('valueA', edgeLogMin);
+    $('#edges').attr('max'   , edgeLogMax);
+    $('#edges').attr('valueB', edgeLogMax);
+    dropdownSelected['edges'] = [edgeLogMin, edgeLogMax];
+  }
 
   /**
    * takes in input from the slider or drop down
@@ -49,8 +134,11 @@ function Browse()
       {
         domain:dropdownSelected['Type'],
         group:dropdownSelected['Group'],
-        nodes:0,//TODO fix
-        edges:0,
+        properties:dropdownSelected['GraphProperties'],
+        nodes_max:Math.pow(10,dropdownSelected['nodes'][1]),
+        nodes_min:Math.pow(10,dropdownSelected['nodes'][0]),
+        edges_max:Math.pow(10,dropdownSelected['edges'][1]),
+        edges_min:Math.pow(10,dropdownSelected['edges'][0]),
         file_size:0,
         file_type:dropdownSelected['FileType']
       },
@@ -67,12 +155,14 @@ function Browse()
    * are going to be rendered
    * @param server_responce json formatted data entries
    */
-  function do_update( server_responce)
+  function do_update( server_responce )
   {
-    //options_update(server_responce );
-    elements.setGroups($.map(_.groupBy(JSON.parse(server_responce.q),'GroupId'),function(val){
-      return [val];
-    }));
+    var groups = $.map(_.groupBy(JSON.parse(server_responce.q),'GroupId'), function(val){
+      return [val]
+    });
+    elements.setGroups(groups);
+    options_update(server_responce);
+    index_update( groups );
     fillScreen();
   }//end do_update
 
@@ -85,39 +175,46 @@ function Browse()
    */
   function options_update( new_options )
   {
-    var selector = null;
-    const elemHTMLSelector = '#';
-    const wantedAttr       = 'id';
-    const defaultOption    = 'All';
-
-    if( ! (selector instanceof HTMLDocument) )
+    if( set_default_options != null)
     {
-      $(elemHTMLSelector + $(selector).attr(wantedAttr) + ' option[value=\''+defaultOption+'\']').text(defaultOption);
-        //reset the all element in the drop down menu
-      var selected_option = $(elemHTMLSelector + $(selector).attr(wantedAttr) + ' option:selected').text();
-      var formatted_so = (selected_option != defaultOption) ? ' (' + selected_option + ')' : "";
 
-      for( var optionType in jsonOptionId)
+      var to_gray = {
+                      'Type': _.difference(set_default_options.domains, new_options.ds),
+                      'Group': _.difference(set_default_options.groupes, new_options.gs),
+                      'GraphProperties': _.difference(set_default_options.properties, new_options.ps),
+                      'FileType':_.difference(set_default_options.file_type, new_options.ft)
+                    };
+
+      $('paper-item').prop('disabled',false);
+      var elems;
+      for( var dropDown in to_gray)
       {
-        if( selected_option != optionType)
+        elems = to_gray[dropDown];
+        for( var i in elems )
         {
-          $(elemHTMLSelector + optionType + 'option[value=\''+defaultOption+'\']').text(defaultOption + formatted_so);
-            //indicate that the last selected attribute is limiting the options
-          drop_down_attr_edit(new_options[ jsonOptionId[optionType] ], optionType);
-            //add or remove attributes from the drop down boxes
+          $('[label="' + elems[i] + '"]','#' + dropDown).prop('disabled',true);
         }
       }
-    }
-    else
-    {
-      //add options to all menus
-      for( var optionType in jsonOptionId )
-      {
-        drop_down_attr_edit( new_options[optionType], jsonOptionId[optionType])
-      }
 
-    }
+      /*
+      var nodeLogMin = Math.log(new_options.nr[0] + 1);
+      var nodeLogMax = Math.log(new_options.nr[1]    );
+      var edgeLogMin = Math.log(new_options.er[0] + 1);
+      var edgeLogMax = Math.log(new_options.er[1]    );
 
+      $('#nodes').attr('valueA', nodeLogMin );
+      $('#nodes').attr('min'   , nodeLogMin );
+      $('#nodes').attr('valueB', nodeLogMax );
+      $('#nodes').attr('max'   , nodeLogMax );
+      dropdownSelected['nodes'] = [nodeLogMin, nodeLogMax];
+
+      $('#edges').attr('min'   , edgeLogMin);
+      $('#edges').attr('valueA', edgeLogMin);
+      $('#edges').attr('max'   , edgeLogMax);
+      $('#edges').attr('valueB', edgeLogMax);
+      dropdownSelected['edges'] = [edgeLogMin, edgeLogMax];
+      */
+    }
   }//end options_update
 
   /**
@@ -126,41 +223,36 @@ function Browse()
    * @param new_attrs the options from the server
    * @param elem a drop down box
    */
-  function drop_down_attr_edit( new_attrs, elem )
+  function index_update( groups )
   {
-    const ignoreFlag       = 'skip';
-    const htmlSelector     = '.';
-    const elemHTMLSelector = '#';
-
-    /*
-    var idx;
-    $(elemHTMLSelector + elem).children( htmlSelector + modifiableTag + elem).each(function(){
-      idx = new_attrs.indexOf( this.value );
-      if( idx == -1 )
-      {
-        $(this).remove();
-      }
-      else
-      {
-        new_attrs[idx] = ignoreFlag;
-      }
+    var index = lunr(function(){
+      this.field('Name'           , {boost: 10});
+      this.field('Domain'         );
+      this.field('SubDomain'      );
+      this.field('GraphProperties');
+      this.field('Description'    );
+      this.field('Citation'       );
+      this.ref  ('id'             );
     });
-
-    for(var i in new_attrs)
+    var elem;
+    for( var group in groups)
     {
-      if( new_attrs[i] != ignoreFlag)
-      {
-        $(elemHTMLSelector + elem).append("<option value="+ new_attrs[i]+ " \" class=\"" + modifiableTag + elem + "\" "+
-          "> " + new_attrs[i]  + " </option>");
-      }
+      elem = groups[group][0];
+      index.add({
+       "Name":elem.GroupId,
+       "Domain":elem.Domain,
+       "SubDomain":elem.SubDomain,
+       "GraphProperties":elem.GraphProperties,
+       "Description":elem.GroupDescription,
+       "Citation":elem.Citation,
+       "id":elem.GroupId+'E'
+      });
     }
-    */
   }//end drop_down_attr_edit
 
   function fillScreen()
   {
-    var num_display = $(document).height() / 30;
-    console.log(num_display);
+    var num_display = $(document).height() / 10;
       //value determined by the prestigious school of hard knocks
     var elem;
     for(var i = 0; i < num_display; i++)
@@ -175,7 +267,7 @@ function Browse()
     get_update(this);
     var num_display = $(document).height() / 50;
       //value determined by the prestigious school of hard knocks
-    for(var i = 0; i < 10; i++)
+    for(var i = 0; i < 20; i++)
     {
       $(mainContainer).append(elements.getElement());
     }

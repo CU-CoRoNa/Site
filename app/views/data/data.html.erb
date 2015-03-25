@@ -17,7 +17,7 @@
   <div id="selectors">
 
     <div class="dropdownContainer">
-      <label class="dropdownLabel"> Network Type</label>
+      <label class="dropdownLabel"> Network Type </label>
       <paper-dropdown-menu label="Network Type" >
         <paper-dropdown class="dropdown">
           <core-menu id="Type" class="menu" selected="0">
@@ -65,19 +65,20 @@
   <div id="sliders">
 
     <div class="sliderContainer">
-      <label class="sliderLabel"> Nodes </label>
-      <paper-interval-slider id="nodes" pin="true" min="10" max="200" valueA="110" valueB="130"></paper-interval-slider>
+      <label class="sliderLabel"> Nodes 10<sup id="nodes_a" class="myPow">2</sup> - 10<sup id="nodes_b" class="myPow">3</sup></label>
+      <paper-interval-slider id="nodes" pin="true" min="10" max="200" valueA="" valueB=""></paper-interval-slider>
     </div>
 
     <div class="sliderContainer">
-      <label class="sliderLabel"> Edges </label>
-      <paper-interval-slider id="edges" pin="true" min="10" max="200" value="110" valueB="130"></paper-interval-slider>
+      <label class="sliderLabel"> Edges 10<sup id="edges_a" class="myPow">2</sup> - 10<sup id="edges_b" class="myPow">3</sup> </label>
+      <paper-interval-slider id="edges" pin="true" min="10" max="200" valueA="" valueB=""></paper-interval-slider>
     </div>
 
     <div class="sliderContainer">
-      <label class="sliderLabel"> File Size </label>
-      <paper-interval-slider pin="true" min="10" max="200" valueB="130"></paper-interval-slider>
+      <label class="sliderLabel"> File Size 10<sup id="fileSize_a" class="myPow">2</sup> - 10<sup id="fileSize_b" class="myPow">3</sup> </label>
+      <paper-interval-slider id="fileSize" pin="true" min="10" max="200" valueA="2" valueB="2"></paper-interval-slider>
     </div>
+
   </div>
 
 

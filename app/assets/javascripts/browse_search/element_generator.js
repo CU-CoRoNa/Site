@@ -20,11 +20,6 @@ function ElementGenerator()
   var individualTemplate;
     //template for each individual entry in the database
 
-  $('.entryContainer').each().paperCollapse({
-
-  });
-
-
   //Loads the template for entries from the server
   $.ajax
   ({
@@ -80,13 +75,6 @@ function ElementGenerator()
                       $('.additionalGroup', to_ret)
                     ];
 
-    var to_hide=
-                [
-                  $('.entryBody', to_ret),
-                  $('.entryFooter', to_ret),
-                  $('.additionalGroup', to_ret)
-                ];
-
     to_process.map(function(e){
       e.css('border-top-color',color)
     });
@@ -138,6 +126,8 @@ function ElementGenerator()
     var GraphFormat       = singleEntry ? sample_entry.GraphFormat :"Varies";
     var Citation          = sample_entry.Citation;
     var Public            = sample_entry.Public;
+
+
 
     return {Name:Name, Description:Description, Domain:Domain, SubDomain:SubDomain, Nodes:Nodes,
             NodeType:NodeType, Edges:Edges, EdgeType:EdgeType, GraphProperties:GraphProperties,

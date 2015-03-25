@@ -44,29 +44,44 @@ class DataController < ApplicationController
     end
   end
 
+  def get_browse_options
+    respond_to do |format|
+      format.json{ render :json => DataSets.get_browse_options}
+    end
+  end
+
   def do_browse
 
-    d  = params[:domain].split(',')
-    g  = params[:group].split(',')
-    n  = params[:nodes]
-    e  = params[:edges]
-    fs = 'infinity'
-    ft = params[:file_type]
+    d     = params[:domain].split(',')
+    g     = params[:group].split(',')
+    n_min = params[:nodes_min]
+    n_max = params[:nodes_max]
+    e_min = params[:edges_min]
+    e_max = params[:edges_max]
+    gp    = params[:properties]
+    fs    = 'infinity'
+    ft    = params[:file_type]
 
     respond_to do |format|
 
       unless params[:domain].nil?
 
-        d  = (d[0]    =~ /^All/ ) ? '%' : d[0].strip
-        g  = (g[0]    =~ /^All/  ) ? '%' : g[0].strip
-        fs = (fs.to_i == -1)     ? 'infinity' : fs
-        ft = (ft      =~ /^All/ ) ? '%' : ft.strip
+        d     = (d[0]    =~ /^All/ ) ? '%'        : d[0].strip
+        g     = (g[0]    =~ /^All/ ) ? '%'        : g[0].strip
+        n_max = (n_max.to_i == 1   ) ? 'infinity' : n_max
+        e_max = (e_max.to_i == 1   ) ? 'infinity' : e_max
+        fs    = (fs.to_i == -1     ) ? 'infinity' : fs
+        ft    = (ft      =~ /^All/ ) ? '%'        : ft.strip
+        gp    = (gp      =~ /^All/ ) ? '%'        : gp.strip
 
         response = DataSets.get_browse_info({
           domain:d,
           group:g,
-          nodes:n,
-          edges:e,
+          nodes_min:n_min,
+          nodes_max:n_max,
+          edges_min:e_min,
+          edges_max:e_max,
+          properties: gp,
           file_size:fs,
           file_type:ft
         })

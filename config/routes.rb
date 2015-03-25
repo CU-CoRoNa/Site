@@ -1,5 +1,6 @@
 Site::Application.routes.draw do
   get "get_entry", to:"data#get_entry_template"
+  get 'get_browse_options', to:'data#get_browse_options'
   patch "do_browse", to:"data#do_browse"
   patch "do_search", to:"data#do_search"
   get "faq", to: "faq"

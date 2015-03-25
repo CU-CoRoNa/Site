@@ -113,7 +113,6 @@ of the scaffold.
       window.addEventListener('resize', this.updateFrameHeight.bind(this));
       window.addEventListener('hashchange', this.parseLocationHash.bind(this));
       window.addEventListener('message',this.updateFrameHeight.bind(this));
-        console.log(window);
     },
 
     resizeElem: function()
@@ -206,7 +205,6 @@ of the scaffold.
     },
     
     updateFrameHeight: function() {
-        console.log('running');
       var frame = this.$.frame;
       var doc = frame.contentDocument;
       if (doc) {
@@ -232,7 +230,6 @@ of the scaffold.
       var main_bottom  = this.$.mainHeaderPanel.getBoundingClientRect().bottom;
       if( frame_bottom < main_bottom && frame_bottom > this.oldFrameBottom)
       {
-        console.log("Bottom: " + frame_bottom + " Old Bottom: " + this.oldFrameBottom);
         this.$.frame.contentWindow.postMessage('message','*');
         this.oldFrameBottom = frame_bottom;
       }

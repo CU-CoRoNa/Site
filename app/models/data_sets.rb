@@ -57,31 +57,59 @@ class DataSets < ActiveRecord::Base
     return to_ret
   end
 
+  def self.get_browse_options
+    data = DataSets
+    domains    = data.uniq.pluck(:Domain)
+    groups     = data.uniq.pluck(:GroupId)
+    properties = property_process(data.uniq.pluck(:GraphProperties))
+    file_type  = data.uniq.pluck(:FileType)
+    node_range = [ data.minimum('Nodes'), data.maximum('Nodes') ]
+    edge_range = [ data.minimum('Edges'), data.maximum('Edges') ]
+    return {domains:domains, groups:groups,properties:properties,file_type:file_type, node_range:node_range, edge_range:edge_range}
+  end
+
   def self.get_browse_info(params)
 
+    #get user browse options from database
     re = DataSets.where('Domain LIKE ?'  , params[:domain]).
-      where('FileType LIKE ?', params[:file_type]).
-      where('GroupId LIKE ?', params[:group])
+                  where('FileType LIKE ?', params[:file_type]).
+                  where('GroupId LIKE ?', params[:group]).
+                  where('GraphProperties LIKE ?',params[:properties])
 
+
+    #find the min and max nodes based off of user selection
     node_range = [ re.minimum('Nodes'), re.maximum('Nodes') ]
     edge_range = [ re.minimum('Edges'), re.maximum('Edges') ]
 
-    log_to_n = ((params[:nodes].to_f+1)**10)/2
-    log_to_e = ((params[:edges].to_f+1)**10)/2
+    #filter by user node and edge selection
+    re = re.where('Nodes > ?', params[:nodes_min]).
+            where('Edges > ?', params[:edges_min]).
+            where('Nodes < ?', params[:nodes_max]).
+            where('Edges < ?', params[:edges_max])
 
-    re = re.where('Nodes > ?'      , log_to_n).
-      where('Edges > ?'      , log_to_e)
-
-    normal_node_range = [Math.log10(node_range[0]+1),Math.log10(node_range[1]) - 2.5]
-    normal_edge_range = [Math.log10(edge_range[0]+1),Math.log10(edge_range[1]) - 2.5]
-
+    #get the new available options
     file_range = [ re.minimum('FileSize'), re.maximum('FileSize')]
     domains    = re.uniq.pluck(:Domain)
     groups     = re.uniq.pluck(:GroupId)
     file_types = re.uniq.pluck(:FileType)
+    properties = property_process(re.uniq.pluck(:GraphProperties))
 
-    return {nr:normal_node_range, er:normal_edge_range, fr:file_range, ds:domains, gs:groups, ft:file_types, q:re.to_json}
+    #return all the new valid browse options
+    return {nr:node_range, er:edge_range, fr:file_range, ds:domains, gs:groups, ft:file_types, q:re.to_json, ps:properties}
 
+  end
+
+  #Takes list of domains and determines truly unique ones i.e unweighted, bipartite
+  # will count as two different entire
+  def self.property_process(raw_properties)
+
+    puts '===================================='
+    raw_properties = raw_properties.map{ |str| str.downcase.split(',') }.flatten
+                                   .inject([]) { |arr, elem| arr.include?(elem.strip) || elem.blank? ? arr : arr << elem.strip }
+    puts raw_properties
+    puts '===================================='
+
+   raw_properties
   end
 
   def xml_upload
