@@ -65,7 +65,11 @@ class DataSets < ActiveRecord::Base
     file_type  = data.uniq.pluck(:FileType)
     node_range = [ data.minimum('Nodes'), data.maximum('Nodes') ]
     edge_range = [ data.minimum('Edges'), data.maximum('Edges') ]
-    return {domains:domains, groups:groups,properties:properties,file_type:file_type, node_range:node_range, edge_range:edge_range}
+
+
+    return {domains:domains, groups:groups,properties:properties,
+            file_type:file_type, node_range:node_range,
+            edge_range:edge_range}
   end
 
   def self.get_browse_info(params)
@@ -99,17 +103,31 @@ class DataSets < ActiveRecord::Base
 
   end
 
+
+  def self.size_fix
+    sizeConversion = {'g'=>1000000000, 'm'=>1000000, 'k'=>1000}
+    DataSets.all.each do |db_entry|
+       size = db_entry.FileSize
+       unless size.nil?
+         num = size.match(/\d+/)
+         num = num.nil? ? 0 : num[0].to_i
+         order = size.match(/[A-Za-z]+/)
+         order = order.nil? ? '' : order.to_s[0].downcase
+
+         unless sizeConversion[order].nil?
+           num *= sizeConversion[order]
+           db_entry.FileSize = num
+           db_entry.save
+         end
+       end
+    end
+  end
+
   #Takes list of domains and determines truly unique ones i.e unweighted, bipartite
   # will count as two different entire
   def self.property_process(raw_properties)
-
-    puts '===================================='
-    raw_properties = raw_properties.map{ |str| str.downcase.split(',') }.flatten
-                                   .inject([]) { |arr, elem| arr.include?(elem.strip) || elem.blank? ? arr : arr << elem.strip }
-    puts raw_properties
-    puts '===================================='
-
-   raw_properties
+     raw_properties.map{ |str| str.downcase.split(',') }.flatten
+                   .inject([]) { |arr, elem| arr.include?(elem.strip) || elem.blank? ? arr : arr << elem.strip }
   end
 
   def xml_upload
@@ -169,5 +187,6 @@ class DataSets < ActiveRecord::Base
         to_database.save
       end
     end
+    size_fix
   end
 end
